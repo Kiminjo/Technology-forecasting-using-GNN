@@ -21,22 +21,28 @@ class Co_contribution(InMemoryDataset) :
         super(Co_contribution, self).__init__()
         
         # load dataset 
-        adjecency = pd.read_csv(root, index_col=0)
+        adjacency = pd.read_csv(root, index_col=0)
         attr = pd.read_csv('network_data/attribute/project_network_attr.csv')
         table = pd.read_csv('data/data.csv')
+        
+        
+        
+        # data preprocess
+        diag = pd.DataFrame(np.eye(adjacency.shape[0], dtype=int), columns=adjacency.columns, index=adjacency.index)
+        adjacency = adjacency + diag
         merged = pd.concat([table.set_index('full_name'), attr.set_index('Id')], axis=1)
         
-        G = nx.from_numpy_matrix(adjecency.values)
-        G = nx.relabel_nodes(G, dict(enumerate(adjecency.columns)))
+        G = nx.from_numpy_matrix(adjacency.values)
+        G = nx.relabel_nodes(G, dict(enumerate(adjacency.columns)))
         
         
         
         # make node feature matrix
         
-        # only using topological data 
+            # only using topological data 
         # x = torch.eye(G.number_of_nodes(), dtype=torch.float)
         
-        # event information
+            # event information
         node_feature = merged[['contributor_counts', 'stargazer_counts', 'forker_counts']]
 
         for col in node_feature :
@@ -44,12 +50,13 @@ class Co_contribution(InMemoryDataset) :
             node_feature[col] = scaler.transform(node_feature[col].to_numpy().reshape(-1, 1))
         node_feature = node_feature.values
            
-        # community detection results    
+            # community detection results    
         onehot = OneHotEncoder().fit(merged.modularity_class.to_numpy().reshape(-1,1))
         communities = onehot.transform(merged.modularity_class.to_numpy().reshape(-1,1)).toarray()
         
         x = np.concatenate((node_feature, communities), axis=1)
         x = torch.tensor(x, dtype=torch.float)
+        
         
         
         # make edge list 
@@ -61,6 +68,5 @@ class Co_contribution(InMemoryDataset) :
         data = Data(x=x, edge_index=edge_index)
         
         self.data, self.slices = self.collate([data]) 
-        self.labels = adjecency.columns
+        self.labels = adjacency.columns
         
-

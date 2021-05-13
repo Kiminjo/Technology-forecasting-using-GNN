@@ -74,8 +74,8 @@ if __name__ == '__main__' :
     dataset = train_test_split_edges(dataset)
 
     in_channel = dataset.num_features
-    out_channel = 128
-    epochs = 20
+    out_channel = 16
+    epochs = 200
      
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     x, edge_index = dataset.x.to(device), dataset.train_pos_edge_index.to(device)
@@ -90,7 +90,7 @@ if __name__ == '__main__' :
     for epoch in range(epochs) :
         embedding, loss = train(model, x, edge_index)
         auc, ap = test(model, edge_index, dataset.test_pos_edge_index, dataset.test_neg_edge_index)
-        print('Epoch: {:03d}, AUC: {:.4f}, AP: {:.4f}'.format(epoch, auc, ap))
+        print('Epoch: {:03d}, AUC: {:.4f}, AP: {:.4f}'.format(epoch + 1, auc, ap))
     embedding = embedding.detach()  
     
     
