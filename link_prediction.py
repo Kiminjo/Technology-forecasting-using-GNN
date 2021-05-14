@@ -37,7 +37,7 @@ class VGAE(nn.Module) :
     
     def decode_all(self, latent):
         prob_adj = latent @ latent.t()
-        return (prob_adj > 0).nonzero(as_tuple=False).t()
+        return prob_adj
     
     
     
@@ -126,10 +126,12 @@ if __name__=='__main__' :
         print(log.format(epoch, train_loss, best_val_perf, test_perf))
         
     latent = model.encoder()
-    final_edge = remove_self_loops(model.decode_all(latent))[0]
-    
-    adj = convert_adj(model, final_edge)
-
+    new_adj = remove_self_loops(model.decode_all(latent))[0]
     
     
-    
+    """
+    new_link = adj - dataset.adjacency
+    print('Number of origianl edges : {}'.format(torch.count_nonzero(torch.tensor(dataset.adjacency))))
+    print('NUmber of new adjacency edges : {}'.format(torch.count_nonzero(adj)))
+    print('New edges : {}'.format(torch.count_nonzero(new_link)))
+    """
