@@ -24,6 +24,7 @@ class Co_contribution(InMemoryDataset) :
         adjacency = pd.read_csv(root, index_col=0)
         attr = pd.read_csv('network_data/attribute/project_network_attr.csv')
         table = pd.read_csv('data/data.csv')
+        self.adjacency = adjacency.values
         
         
         
