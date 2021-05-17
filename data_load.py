@@ -21,20 +21,19 @@ class Co_contribution(InMemoryDataset) :
         super(Co_contribution, self).__init__()
         
         # load dataset 
-        adjacency = pd.read_csv(root, index_col=0)
-        attr = pd.read_csv('network_data/attribute/project_network_attr.csv')
-        table = pd.read_csv('data/data.csv')
-        self.adjacency = adjacency.values
+        self.original = pd.read_csv(root, index_col=0)
+        self.attr = pd.read_csv('network_data/attribute/project_network_attr.csv')
+        self.table = pd.read_csv('data/data.csv')
         
         
         
         # data preprocess
-        diag = pd.DataFrame(np.eye(adjacency.shape[0], dtype=int), columns=adjacency.columns, index=adjacency.index)
-        adjacency = adjacency + diag
-        merged = pd.concat([table.set_index('full_name'), attr.set_index('Id')], axis=1)
+        diag = pd.DataFrame(np.eye(self.original.shape[0], dtype=int), columns=self.original.columns, index=self.original.index)
+        self.adjacency = self.original + diag
+        merged = pd.concat([self.table.set_index('full_name'), self.attr.set_index('Id')], axis=1)
         
-        G = nx.from_numpy_matrix(adjacency.values)
-        G = nx.relabel_nodes(G, dict(enumerate(adjacency.columns)))
+        G = nx.from_numpy_matrix(self.adjacency.values)
+        G = nx.relabel_nodes(G, dict(enumerate(self.adjacency.columns)))
         
         
         
@@ -69,5 +68,6 @@ class Co_contribution(InMemoryDataset) :
         data = Data(x=x, edge_index=edge_index)
         
         self.data, self.slices = self.collate([data]) 
-        self.labels = adjacency.columns
+        self.labels = self.original.columns
+        self.label_dict = {idx : label for idx, label in enumerate(self.labels)}
         

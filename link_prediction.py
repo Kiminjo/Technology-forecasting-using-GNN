@@ -5,6 +5,8 @@ Created on Fri May 14 15:26:41 2021
 @author: user
 """
 
+import numpy as np
+import pandas as pd
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -14,7 +16,7 @@ from sklearn.metrics import roc_auc_score
 from data_load import Co_contribution
 
 
-
+#%%
 class VGAE(nn.Module) :
     def __init__(self, data, output_dim) :
         super(VGAE, self).__init__()
@@ -35,20 +37,15 @@ class VGAE(nn.Module) :
         logits = (latent[edge_index[0]] * latent[edge_index[1]]).sum(dim=-1)
         return logits
     
-    def decode_all(self, latent):
+    def decode_all(self, latent, threshold):
         prob_adj = latent @ latent.t()
+        prob_adj = prob_adj.sigmoid()
+        prob_adj = torch.where(prob_adj > threshold, prob_adj, torch.tensor(0.0, dtype=torch.float))
         return prob_adj
     
-    
-    
-def get_link_labels(pos_edge, neg_edge) :
-    E = pos_edge.size(1) + neg_edge.size(1)
-    link_labels = torch.zeros(E, dtype=torch.float)
-    link_labels[:pos_edge.size(1)] = 1.
-    return link_labels
-    
-    
-    
+
+
+#%%   
 def train(model, optimizer, pos_edge, neg_edge) :
     model.train()
 
@@ -81,57 +78,131 @@ def test(model, optimizer) :
     return output
     
 
+#%%
+def get_link_labels(pos_edge, neg_edge) :
+    E = pos_edge.size(1) + neg_edge.size(1)
+    link_labels = torch.zeros(E, dtype=torch.float)
+    link_labels[:pos_edge.size(1)] = 1.
+    return link_labels
+
+
+
 def convert_adj(model, edge_list) :
     adj = torch.zeros((model.data.x.shape[0], model.data.x.shape[0]), dtype=float)
     for loc in edge_list.T.split(1) :
         adj[loc[0][0], loc[0][1]] = 1.
     return adj
     
+
+
+def make_new_edge_list(adj, object_) :
+    edge_list = pd.DataFrame((adj >0).nonzero().numpy(), columns=['node_1_idx', 'node_2_idx'])
     
+    new_edge_list = []
+    for idx, row in edge_list.iterrows() :
+        if [row['node_2_idx'], row['node_1_idx']] not in new_edge_list :
+            new_edge_list.append([row['node_1_idx'], row['node_2_idx']])
+    new_edge_list = pd.DataFrame(new_edge_list)
+    new_edge_list = pd.merge(new_edge_list, new_edge_list.replace(object_.label_dict), left_index=True, right_index=True)
+    new_edge_list.columns = ['node_1_idx', 'node_2_idx', 'node_1', 'node_2'] 
+            
+    return new_edge_list
+
+
+def get_result_table(object_, new_adj, new_edge, threshold) :
+    # result table contains below data
+    # 1. Each node name
+    # 2. Probability of edge generation
+    # 3. Presence on pos val or pos test edge list
+    # 4. Presence on neg val or neg test edge list
+    mode = 'new'
+    org_adj = object_.original
+    result = pd.DataFrame(new_edge, columns=['node_1_idx', 'node_2_idx', 'node_1', 'node_2'])
+    
+    if mode == 'all' :
+        new_adj = pd.DataFrame(new_adj.detach().numpy())
+    elif mode == 'new' :
+        new_adj = (torch.tensor(org_adj.values) - new_adj).detach().numpy()
+        new_adj = np.where(new_adj<0, -new_adj, 0)
+        new_adj = pd.DataFrame(new_adj)
+        
+    
+    # add presence probability 
+    presence_prob = []
+    for idx, row in result.iterrows() :
+        presence_prob.append(new_adj.loc[row.node_1_idx, row.node_2_idx])
+    result['prob_edge'] = presence_prob
+    
+    # add val or test pos existence
+    existance = []
+    for idx, row in result.iterrows() :
+        link = [row['node_1_idx'], row['node_2_idx']] 
+        for pre_edge in object_.data :
+            if link in pre_edge[1].T.tolist() :
+                existance.append([str(link[0]) + ',' + str(link[1]), link[0], link[1], pre_edge[0][:-11]])           
+            else :
+                existance.append([str(link[0]) + ',' + str(link[1]), link[0], link[1], ''])
+    existance = pd.DataFrame(existance, columns=['link', 'node1', 'node2', 'type']).groupby('link').agg({'node1' : 'first',
+                                                                                                        'node2' : 'first',
+                                                                                                        'type' : ''.join})
+    existance = existance.sort_values(by=['node1', 'node2']).reset_index(drop=True).drop(['node1', 'node2'], axis=1)
+    result = pd.merge(result, existance, left_index=True, right_index=True)
+    result = result.sort_values(by=['prob_edge', 'node_1_idx', 'node_2_idx'], ascending=False)
+    result = result[result['prob_edge'] > threshold].reset_index(drop=True)
+    
+    return result
     
 
+
+
+#%%
 if __name__=='__main__' :
-    edge_type = 'dichotomize'
-    root = 'network_data/'
+    EDGE_TYPE = 'dichotomize'
+    ROOT = 'network_data/'
     
-    if edge_type == 'normal' :
-        root = root + 'gnn_contributor_coupling.csv'
+    if EDGE_TYPE == 'normal' :
+        ROOT = ROOT + 'gnn_contributor_coupling.csv'
         
     else :
-        root = root + 'contributor_coupling.csv'
+        ROOT = ROOT + 'contributor_coupling.csv'
     
-    dataset = Co_contribution(root)
-    data = dataset.data
-    data = train_test_split_edges(data)
+    DATASET = Co_contribution(ROOT)
+    DATA = DATASET.data
+    data = train_test_split_edges(DATA)
     pos_edge_index = data.train_pos_edge_index
     neg_edge_index = negative_sampling(edge_index=data.train_pos_edge_index, num_nodes=data.num_nodes,
                                        num_neg_samples=data.train_pos_edge_index.size(1))
+    THRESHOLD = 0.8
     
     
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model = VGAE(data, 16).to(device)
-    data = data.to(device)
+    DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    model = VGAE(data, 16).to(DEVICE)
+    data = data.to(DEVICE)
     optimizer = torch.optim.Adam(params=model.parameters(), lr=0.01)
-    epochs = 200
+    EPOCHS = 200
     
-    best_val_perf = test_perf = 0
-    for epoch in range(1, epochs+1):
+    BEST_VAL_PERF = TEST_PERF = 0
+    for EPOCH in range(1, EPOCHS+1):
         train_loss = train(model, optimizer, pos_edge_index, neg_edge_index)
-        val_perf, tmp_test_perf = test(model, optimizer)
+        VAL_PERF, TMP_TEST_PERF = test(model, optimizer)
         
-        if val_perf > best_val_perf:
-            best_val_perf = val_perf
-            test_perf = tmp_test_perf
-        log = 'Epoch: {:03d}, Loss: {:.4f}, Val: {:.4f}, Test: {:.4f}'
-        print(log.format(epoch, train_loss, best_val_perf, test_perf))
+        if VAL_PERF > BEST_VAL_PERF:
+            BEST_VAL_PERF = VAL_PERF
+            TEST_PERF = TMP_TEST_PERF
+        LOG = 'Epoch: {:03d}, Loss: {:.4f}, Val: {:.4f}, Test: {:.4f}'
+        print(LOG.format(EPOCH, train_loss, BEST_VAL_PERF, TEST_PERF))
         
     latent = model.encoder()
-    new_adj = remove_self_loops(model.decode_all(latent))[0]
+    new_adj = model.decode_all(latent, THRESHOLD)
+    new_edge_list = make_new_edge_list(new_adj, DATASET)
+
+    result = get_result_table(DATASET, new_adj, new_edge_list, THRESHOLD)
     
+    print('\n')
+    print('Number of origianl edges : {}'.format(torch.count_nonzero(torch.tensor(DATASET.original.values))))
+    print('NUmber of new adjacency edges : {}'.format(len(result)))
+    print('Number of restored edges : {}'.format(len(new_edge_list) - len(result)))
+    print('Number of new edges  {}'.format(2*len(result)-len(new_edge_list)))
     
-    """
-    new_link = adj - dataset.adjacency
-    print('Number of origianl edges : {}'.format(torch.count_nonzero(torch.tensor(dataset.adjacency))))
-    print('NUmber of new adjacency edges : {}'.format(torch.count_nonzero(adj)))
-    print('New edges : {}'.format(torch.count_nonzero(new_link)))
-    """
+    result[['node_1_idx', 'node_2_idx']].replace(DATASET.label_dict).to_csv('result/new_edge_1.csv', index=False)
+    
