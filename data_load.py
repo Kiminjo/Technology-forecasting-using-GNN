@@ -2,7 +2,9 @@
 """
 Created on Tue May 11 17:23:20 2021
 
-@author: user
+@author: InjoKim
+
+Data sceintist of Seoultech 
 """
 
 import torch
@@ -11,13 +13,15 @@ import pandas as pd
 import networkx as nx
 from sklearn.preprocessing import RobustScaler, OneHotEncoder
 from torch_geometric.data import InMemoryDataset, Data
+from node2vec import node2vec
+from sklearn.metrics import jaccard_score
 import warnings 
 warnings.filterwarnings(action='ignore')
 
 
 class Co_contribution(InMemoryDataset) :
     
-    def __init__(self, root, train=True, transform=None, pre_transform=None, pre_filter=None) :
+    def __init__(self, root, exe_node2vec=False, train=True, transform=None, pre_transform=None, pre_filter=None) :
         super(Co_contribution, self).__init__()
         
         # load dataset 
@@ -54,9 +58,9 @@ class Co_contribution(InMemoryDataset) :
         onehot = OneHotEncoder().fit(merged.modularity_class.to_numpy().reshape(-1,1))
         communities = onehot.transform(merged.modularity_class.to_numpy().reshape(-1,1)).toarray()
         
+        
         x = np.concatenate((node_feature, communities), axis=1)
         x = torch.tensor(x, dtype=torch.float)
-        
         
         
         # make edge list 
@@ -71,3 +75,56 @@ class Co_contribution(InMemoryDataset) :
         self.labels = self.original.columns
         self.label_dict = {idx : label for idx, label in enumerate(self.labels)}
         
+        
+        # node embedding vector
+        if exe_node2vec == True :
+            n2v = self.node2vec(self.data)
+            self.node2vec_vector = n2v(torch.arange(self.data.num_nodes, device='cpu'))
+            self.data.x = torch.cat((self.data.x, self.node2vec_vector), dim=1)
+        
+    
+    def node2vec(self, dataset) :
+        model = node2vec(dataset)
+        return model
+    
+    
+if __name__=='__main__' :
+    def sigmoid(x) :
+        return 1/(1+np.exp(-x))
+    
+    EDGE_TYPE = 'normal'
+    ROOT = 'network_data/'
+    
+    if EDGE_TYPE == 'normal' :
+        ROOT = ROOT + 'gnn_contributor_coupling.csv'
+        
+    else :
+        ROOT = ROOT + 'contributor_coupling.csv'
+    
+    DATASET = Co_contribution(ROOT)
+    DATA = DATASET.data
+    
+    embedding_vector = DATA.x[:, -32:]
+    
+    network = pd.read_csv('network_data/contributor_coupling.csv').values
+    col = network[: ,0]
+    network = network[:, 1:].astype(np.float32) + np.eye(network.shape[0])
+    
+    G = nx.from_numpy_array(network)
+    
+    similarity_matrix = np.zeros(network.shape)
+    for node1 in range(network.shape[0]) :
+        for node2 in range(network.shape[1]) :
+            similarity_matrix[node1, node2] = list(nx.adamic_adar_index(G, [(node1,node2)]))[0][2]
+    similarity_matrix_sig = sigmoid(similarity_matrix)
+            
+    vector_sim_matrix = np.zeros(network.shape)        
+    for node1 in range(network.shape[0]) :
+        for node2 in range(network.shape[1]) :
+            vector_sim_matrix[node1, node2] = embedding_vector[node1].T @ embedding_vector[node2] 
+    vector_sim_matrix_sig = sigmoid(vector_sim_matrix)        
+    
+            
+    objective = jaccard_score(similarity_matrix, vector_sim_matrix)
+    
+    
