@@ -1,0 +1,25 @@
+
+English | 简体中文
+OpenBot leverages smartphones as brains for low-cost robots. We have designed a small electric vehicle that costs about $50 and serves as a robot body. Our software stack for Android smartphones supports advanced robotics workloads such as person following and real-time autonomous navigation.
+Please read the contribution guidelines. If you are not sure where to start have a look at the open issues.
+There are a lot of cool projects using OpenBot already. Below is a small selection. Click on the images to be redirected to the respective projects.
+
+Please cite our paper if you use OpenBot.
+Build your own Robot Body
+Flash the Arduino Firmware
+Install the Android App
+Train your own Driving Policy
+You can download the repo as a zip file and extract it into a folder of your choice.
+You can clone the OpenBot repository from GitHub with the following command:
+git clone -isl/OpenBot.git
+You can fork the OpenBot repository and then clone your local copy. This is recommended, especially if you want to contribute.
+Join our Slack channel to connect with the OpenBot community.
+Contact us via Email
+Turning Smartphones into Robots
+Video
+Get started with OpenBot
+Get the source code
+Contribute
+Contact
+Cool projects using OpenBot
+Citation

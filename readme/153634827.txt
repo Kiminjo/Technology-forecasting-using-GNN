@@ -1,0 +1,9 @@
+This repository contains the catkin workspace for Selfie Autonomous Car at Carolo-Cup 2019 competition.
+The project is targetting ROS Kinetic Kame distribution. Before proceeding, make sure you have it installed on your development machine.
+First, clone the repository to a convenient location using:
+Navigate to the main directory with:
+Lastly, the following set of commands will in turn download all external dependencies, build the packages in src directory and include them in your environment.
+Remember to put an appropriate homography_export.yaml file generated from this program in your ROS_HOME directory.
+Selfie @ Carolo-Cup 2019
+Build instructions
+Running

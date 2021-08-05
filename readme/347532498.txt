@@ -1,0 +1,11 @@
+This project is the official simulation for VIA Project: /.
+This project was developed based on Udacity's Simulator.
+Lightweight self-driving car simulation
+Websocket connection from Python to receive images and control the car.
+Build and use custom maps.
+StupidWizard
+vietanhdev
+VIA Car Simulation
+Features
+Developers
+References

@@ -1,0 +1,86 @@
+An autonomous vehicle solution for people who are physically challenged, calibrates limb angle to drive steering wheel and operate pedals. Made by team Smoketrees for SIH 2020 and Mercedes Benz Hack 2020.
+
+
+
+CMU Perception Computing Lab’s OpenPose Hand Keypoint Dataset
+
+Hand Keypoint Detection Model (Google Drive, download and keep in model/ folder)
+Gesture Detection Model (Google Drive)
+Drowsiness and Emotion Detection Model (Present in Project Files)
+
+
+
+
+
+
+Pre-requisites:
+
+Training:
+
+Usage:
+
+
+
+
+
+
+
+
+
+Steps to run:
+> Initialize OPENVINO environment using the command:- source /opt/intel/openvino/bin/setupvars.sh
+>Make sure to add the commands : source /opt/ros/kinetic/setup.bash source ~/gesture_ros/gesture_ws/devel/setup.bash In your bash file. If not then add them, close the terminal and
+> cd into gesture_ros/ folder
+> Run app.py from the command line using the following command:- python3 app.py -m “model/pose_iter_102000.xml” -d “GPU” -d is and optional requirement
+>Open another terminal:- Run the file named keypoint_ros.py using the following command rosrun test keypoint_ros.py
+> In another terminal window run the file named velocity_mapper.py
+> Open a new terminal window and launch an empty world in gazebo: roslaunch gazebo_ros empty_world.launch
+> In another new terminal type the command roslaunch m2wr_description spawn.launch
+> Try out the project by holding your palm in front of the laptop at different angles. The two wheeled bot will move according to your arm gestures.
+
+
+
+
+
+
+Python 2and Python 3
+OpenVINO Toolkit (For Inference Speedup)
+ROS (For Simulation on Ubuntu)
+Catkin wokspace (For settin up ROS)
+Gazebo ROS (Simulation Environment)
+Hand Keypoint Detection Model (Google Drive, download and keep in model/ folder)
+Gesture Detection Model (Google Drive)
+Drowsiness and Emotion Detection Model (Present in Project Files)
+Angle and Gesture Detection Project
+ROS Integration
+Drowsiness and Emotion Detection
+Download Angle and Gesture Detection Project
+Install Python 3 and the requirements for the project
+Record video of the gesture you want to feed into the model using the video_recorder.py
+Run the handPoseVideo.py to create embeddings of the recorded video
+Run the classifier.py to to create an XGBoost Classifier of all the saved embeddings for detecting gestures.
+Run rotator.py to simulate a steering wheel which rotates according to the angle received.
+Run shifter.py to simulate changing of gear, indicator etc. according to the gesture received.
+Run gesture_predict.py to start a camera feed or read a recorded video to detect the angle and gesture and send them to rotator.py and shifter.py
+All these communications are done using sockets.
+Run angler.py if you just wish to view the angle of your hand.
+> Initialize OPENVINO environment using the command:- source /opt/intel/openvino/bin/setupvars.sh
+>Make sure to add the commands : source /opt/ros/kinetic/setup.bash source ~/gesture_ros/gesture_ws/devel/setup.bash In your bash file. If not then add them, close the terminal and
+> cd into gesture_ros/ folder
+> Run app.py from the command line using the following command:- python3 app.py -m “model/pose_iter_102000.xml” -d “GPU” -d is and optional requirement
+>Open another terminal:- Run the file named keypoint_ros.py using the following command rosrun test keypoint_ros.py
+> In another terminal window run the file named velocity_mapper.py
+> Open a new terminal window and launch an empty world in gazebo: roslaunch gazebo_ros empty_world.launch
+> In another new terminal type the command roslaunch m2wr_description spawn.launch
+> Try out the project by holding your palm in front of the laptop at different angles. The two wheeled bot will move according to your arm gestures.
+If running emotion detection type: python emotions_sleepiness.py (Please be aware of dlib setup)
+Gesture-drive
+Download Entire Project: link
+Requirements:
+Dataset Used:
+Machine Learning Models:
+SUBPROJECTS:
+ANGLE AND GESTURE DETECTION PROJECT:
+ROS INTEGRATION:
+EMOTION AND DROWSINESS DETECTION SUBPROJECT:
+WATCH IT IN ACTION

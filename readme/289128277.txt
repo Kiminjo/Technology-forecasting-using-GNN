@@ -1,0 +1,39 @@
+A collection of machine-learned models for use in autonomous driving applications.
+All source code published in this repository by default are licensed under Apache 2.0. If contributions need to be made under a difference license, the LICENSE body need to be included in the sub-folder of the model. License for the model files can be specified using the license fields in definition.yaml.
+You need to install Git LFS for large file support. To clone the zoo:
+The zoo is organized in terms of the following folder structure:
+git lfs identify the files to track by their filename extension. To check what extensions are already tracked in this zoo:
+If you want to contribute something that is not on the list, add the filetype of large files. For tflite, you would use:
+This is an example of adding a FP32 object recognition model yolo_v2_tiny.pb to the repository:
+In the folder of each of the model, there should be a file named definition.yaml. You can find a template of the file here. The template contains guide on how to fill out each field. Some important fields are discussed in the following paragraphs but all attempts should be made to fill out all the fields in the template file.
+Should be one of the following: TensorFlow, Caffe, TensorFlow Lite, ONNX. If you would like to add any other format, follow this step and update documentation before making a merge request.
+The provenance field should be an URL to the "upstream" location. If more information is required, they can be added in the README file.
+A shape is listed for each input/output node, and the intention is to capture the input/output shape expected by the model. Entries having the number "-1" here refer to components for which any size is accepted.
+Please make every attempt at filling out all the fields in the template. Feel free to add any additional custom fields after the template for better documentation and provenance.
+If you feel there are other information that would be relevant to other users, please add a README.md to the root of the model's folder. You can share in the document:
+Do commit any scripts or code you can share in the same folder as the models.
+It is a good idea to include some code to show the complete inference pipeline. The code should include pre-processing and post-processing. These details are often difficult to convey in documentation and is hence best presented as code. Some example input data should also be provided to accompany the example pipeline. E.g. an image, a point cloud file, etc.
+Do not overwrite or remove an existing model without a proper deprecation process. Once someone has started analyzing, benchmarking or testing a model, they want to be able to refer to the model, and know that that reference will continue to refer to the same model. Creating a new folder and deprecating the old one is preferred over modifying existing models.
+TVM is a machine learning compiler framework that compiles neutral network models to be executed on different hardware back-ends. TVM enables models specified in a wide range of ML frameworks to be run on a wide range of hardware devices.
+In this model zoo, a CLI tool has been provided to compile models using TVM. This forms part of the validation workflow of the zoo as well as model deployment workflow for Autoware.
+See TVM CLI documentation on how to use the tool.
+task area The general autonomous driving area that the model is trying to tackle. include perception, prediction and planning. The list will expand as we develop further the autoware stack.
+sub task area The specific sub task that the model is trained to do. E.g. camera_traffic_light_detection.
+model name indicates the name of the model architecture, e.g. yolo_v3, ssd_mobilenet.
+model variant this should be an unique name to identify a variant of the model. Variants might differ in training data-set, quantization, input size, etc. You should choose a model variant name that describe best your model and avoid any potential conflict.
+Autoware Model Zoo
+License
+Cloning The Model Zoo
+Contributing Models
+Changing existing models
+TVM CLI
+Folder Structure
+Setup LFS Tracking
+Adding Models
+Filling out the definition file
+Additional Metadata
+Example pipeline
+Framework
+Provenance
+Tensor size fields
+Other fields

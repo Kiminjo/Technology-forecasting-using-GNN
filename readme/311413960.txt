@@ -1,0 +1,8 @@
+This is the repo for the planning final project on socially compliant autonomous vehicles.
+Download CARLA on your local machine first.
+Download the AdditionalMaps from here(-simulator/carla/releases), since we're using Town06. Put the zip file in to the "Import" folder, then run "./ImportAssets.sh" to import the maps.
+Start the simulator by running /opt/carla-simulator/bin/CarlaUE4.sh
+To run the system in the default scenario, do:
+The default scenario is where the subject vehicle has the "Very Aggressive" behaviour.
+The files inside the lane_change folder have the following functionality:
+Planning_Final_Project

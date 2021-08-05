@@ -1,0 +1,26 @@
+
+
+BARK-ML provides simple-to-use OpenAi-Gym environments for several scenarios, such as highway driving, merging and intersections. Additionally, BARK-ML integrates state-of-the-art machine learning libraries to learn driving behaviors for autonomous vehicles.
+BARK-ML supported machine learning libraries:
+Before running the examples, install the virtual python environment (bash utils/install.sh) and enter it (source utils/dev_into.sh).
+Continuous environments: bazel run //examples:continuous_env
+
+Available environments:
+TF-Agents SAC-example: bazel run //examples:tfa:
+
+The experiment runner provides a convenient way of running configurations in a reproducible way. For a more elaborate documentation have look here.
+BARK-ML specific code is distributed under MIT License.
+TF-Agents
+Baselines (Planned)
+Diadem
+highway-v0: Continuous highway environment
+highway-v1: Discrete highway environment
+merging-v0: Continuous merging environment
+merging-v1: Discrete merging environment
+intersection-v0: Continuous intersection environment
+intersection-v1: Discrete intersection environment
+BARK-ML - Machine Learning for Autonomous Driving
+Gym Environments
+TF-Agents
+Experiment Runner
+License

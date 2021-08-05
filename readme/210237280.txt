@@ -1,0 +1,23 @@
+The goal of this project is to attack end-to-end self-driving models using physically realizable adversaries.
+Note: We highly recommend you use the dockerized version of our repository, due to being system independent. Furthermore, it would not affect the packages on your system.
+This starts Carla as a server on port 2000. Give it about 10-30 seconds to start up depending on your system.
+Note: This requires port 8000 to be free.
+Note: the Jupyter notebook version of this script, called start_infraction_experiments.ipynb describes each step in detail. It is recommended to use that while starting out with this repository. Use jupyter notebook to start a jupyter server in this directory.
+It is expected that you have some experience with dockers, and have installed and tested your installation to ensure you have GPU access via docker containers. A quick way to test it is by running:
+And you should get a standard nvidia-smi output.
+This starts Carla as a server on port 2000. Give it about 10-30 seconds to start up depending on your system.
+Note: This requires port 8000 to be free.
+If you use our work, kindly cite us using the following:
+Ubuntu 16.04
+Dedicated GPU with relevant CUDA drivers
+Docker-CE (for docker method)
+Frequently Asked Questions
+Experiment Details
+Adverse Drive
+Pre-requisites
+Installation
+How it Works
+More documentation
+References
+Citation
+Docker Method (recommended)

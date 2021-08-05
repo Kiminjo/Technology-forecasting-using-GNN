@@ -1,0 +1,12 @@
+
+Link: PowerPoint slides
+developed with python
+packages numpy, picamera
+teammembers: Seiya Umemoto, Jegun Lee, Pomgil
+Jegun Lee: Team Leader, Assembling and Controlling Raspberry pi car
+Seiya Umemoto: Connecting the result of Detection algorithm for controlling the car, supporting to develop detection algorithm and optimizing whole the codes
+Pomgil: Developing detection algorithm
+AutonomousCar
+Roles:
+Demo Video
+Material

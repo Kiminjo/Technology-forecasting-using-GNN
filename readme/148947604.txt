@@ -1,0 +1,139 @@
+Repository for the development of the JHS Autonomous Race Car Club's ROS Jetson Car (TX2) with RealSense D400 series 3D camera
+Check out system flowcharts
+Master
+Development
+See the travis.yaml for running install/make tests and verifying a proper build.
+See also the list of contributors who participated in this project.
+Make sure you have installed git lfs on the jetson, controller, and development computer
+Git LFS will allow you to easily keep ML models up to date across computers with git version control
+-lfs.github.com/
+Install of git lfs
+This will need to be installed by source on the Jetson (DO NOT follow the instructions exactly. See below)
+Get latest version of Go for Linux ARMv8 and run the extract command
+Make sure that the $GOPATH is set to home/$USER/gocode and that Go is version 1.8 or higher go version
+go get github.com/git-lfs/git-lfs
+sudo cp ~/gocode/bin/git-lfs /usr/local/bin
+git lfs install
+Connect the nvidia jetson to the same network as the controller and make sure that you have an internet connection
+Before setup make sure to sudo apt-get update and sudo apt-get upgrade
+Clone/download the repository on both the jetson and the controller
+See the Nvidia Jetson Setup section
+If running on a desktop computer / controller without realsense packages installed run rosdep install --from-paths src --ignore-src -r -y and catkin_make -DCATKIN_BLACKLIST_PACKAGES="realsense2_camera" in workspace
+If you want to run the realsense2 ROS node on a desktop / controller see Librealsense Setup (D415/D435) section and use the realsense2_camera pkg in the drivers folder by copying it into a local catkin_ws (do not push this change as it will brake the jetson side)
+On the jetson run rosdep install --from-paths src --ignore-src -r -y and catkin_make in the jetsoncar_ws
+Run the controller.sh or jetson.sh scripts to get the devices setup and communicating with each other OR run export ROS_MASTER_URI=-ubuntu.local:11311 and export ROS_HOSTNAME=hostname_of_machine.local
+It is highly recommended that you run the controller.sh and jetson.sh scripts on their respective devices
+See DualShock 4 Controller Setup section for setting up the controller with the correct platform
+Git LFS will allow you to easily keep ML models up to date across computers with git version control
+-lfs.github.com/
+Install of git lfs
+This will need to be installed by source on the Jetson (DO NOT follow the instructions exactly. See below)
+Get latest version of Go for Linux ARMv8 and run the extract command
+Make sure that the $GOPATH is set to home/$USER/gocode and that Go is version 1.8 or higher go version
+go get github.com/git-lfs/git-lfs
+sudo cp ~/gocode/bin/git-lfs /usr/local/bin
+git lfs install
+This will need to be installed by source on the Jetson (DO NOT follow the instructions exactly. See below)
+Get latest version of Go for Linux ARMv8 and run the extract command
+Make sure that the $GOPATH is set to home/$USER/gocode and that Go is version 1.8 or higher go version
+go get github.com/git-lfs/git-lfs
+sudo cp ~/gocode/bin/git-lfs /usr/local/bin
+git lfs install
+Get latest version of Go for Linux ARMv8 and run the extract command
+Make sure that the $GOPATH is set to home/$USER/gocode and that Go is version 1.8 or higher go version
+go get github.com/git-lfs/git-lfs
+sudo cp ~/gocode/bin/git-lfs /usr/local/bin
+git lfs install
+If you want to run the realsense2 ROS node on a desktop / controller see Librealsense Setup (D415/D435) section and use the realsense2_camera pkg in the drivers folder by copying it into a local catkin_ws (do not push this change as it will brake the jetson side)
+It is highly recommended that you run the controller.sh and jetson.sh scripts on their respective devices
+When running the jetson car with WiFi make sure that WiFi power saving mode is off. sudo iw dev wlan0 set power_save off and check with sudo iw dev wlan0 get power_save. This needs to be done each time the WiFi reconnects to a new network.
+Go through Librealsense Setup (demo/viewing tools are not required)
+cd ~/Desktop/jetson_car/jetsoncar_ws
+catkin_make (even if this fails)
+soruce devel/setup.bash
+rosdep install racecar_description
+Install Tensor Flow (download GPU version if you have one)
+sudo pip install tensorflow-gpu
+If running python program fails with error ImportError: libcudnn.so.7: cannot open shared object file: No such file or directory see [this](-libcudnn-when-running-a-tensorflow-program but make sure to download proper version of cuDNN) version 9.0
+Install Keras sudo pip install keras
+sudo pip install h5py
+sudo pip install tensorflow-gpu
+If running python program fails with error ImportError: libcudnn.so.7: cannot open shared object file: No such file or directory see [this](-libcudnn-when-running-a-tensorflow-program but make sure to download proper version of cuDNN) version 9.0
+Install the intel realsense 2 SDK (needed to catkin_make the catkin workspace if using the simulation of the physical sensor)
+
+sudo apt-key adv --keyserver keys.gnupg.net --recv-key C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp:80 --recv-key C8B3A55A6F3EFCDE
+sudo add-apt-repository "deb -hw-public.s3.amazonaws.com/Debian/apt-repo xenial main" -u
+sudo apt-get update
+sudo apt-get install librealsense2 librealsense2-dev librealsense2-dbg
+sudo apt-get install librealsense2-dkms For demo
+sudo apt-get install librealsense2-utils Tools for viewing physical camera data (See /usr/bin/realsense-viewer)
+When ready plug in the realsense camera and test it using the /usr/bin/realsense-viewer
+If needed update the firmware using the instruction found here
+sudo apt-key adv --keyserver keys.gnupg.net --recv-key C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp:80 --recv-key C8B3A55A6F3EFCDE
+sudo add-apt-repository "deb -hw-public.s3.amazonaws.com/Debian/apt-repo xenial main" -u
+sudo apt-get update
+sudo apt-get install librealsense2 librealsense2-dev librealsense2-dbg
+sudo apt-get install librealsense2-dkms For demo
+sudo apt-get install librealsense2-utils Tools for viewing physical camera data (See /usr/bin/realsense-viewer)
+If needed update the firmware using the instruction found here
+Follow Nvidia Jetson setup and run as user nvidia (password nvidia)
+Check to make sure you are running L4T version 28.2.1 for use with convenience scripts
+If you version is off download jetpack here
+Follow this tutorial on reflashing the Jetson TX2
+make sure you have cloned -ARCC-Club/jetson_car.git to Desktop
+Run the following scripts in this order (in scripts/jetsonhacks): installLibrealsense.sh, buildPatchedKernal.sh, installROS.sh
+Install USB driver for some arduino nano
+Run the /scripts/jetson.sh script to setup network
+Setup pip and download keras and tensorflow for python
+sudo apt-get install -y python-pip
+pip install keras
+sudo pip install --extra-index-url  tensorflow-gpu
+The following are done in the jetson.sh script but provided here for reference
+sudo usermod -a -G dialout $USER to give proper permissions to the USB peripherals
+Add a udev rule for i2c-1 so that the IMU interface program can access it
+Go to /etc/udev/rules.d
+Add a file called 50-i2c.rules
+Add the line ACTION=="add", KERNEL=="i2c-[0-1]*", MODE="0666" to the 50-i2c.rules file
+See this for additional information
+If you version is off download jetpack here
+Follow this tutorial on reflashing the Jetson TX2
+sudo apt-get install -y python-pip
+pip install keras
+sudo pip install --extra-index-url  tensorflow-gpu
+sudo usermod -a -G dialout $USER to give proper permissions to the USB peripherals
+Add a udev rule for i2c-1 so that the IMU interface program can access it
+Go to /etc/udev/rules.d
+Add a file called 50-i2c.rules
+Add the line ACTION=="add", KERNEL=="i2c-[0-1]*", MODE="0666" to the 50-i2c.rules file
+See this for additional information
+Go to /etc/udev/rules.d
+Add a file called 50-i2c.rules
+Add the line ACTION=="add", KERNEL=="i2c-[0-1]*", MODE="0666" to the 50-i2c.rules file
+See this for additional information
+sudo apt-get install ros-kinetic-rtabmap-ros ros-kinetic-robot-localization ros-kinetic-pointcloud-to-laserscan ros-kinetic-depthimage-to-laserscan
+Connect to the controller by pressing and holding the playstation button and the share button until the light begins flashing white
+Go into Bluetooth settings and add the controller named wireless controller
+Test the connection by making sure the /dev/input/js0 file exits
+Run the joy_node ROS node and echo the /joy topic to confirm data is being sent properly from the controller to the computer
+Install bluez driver sudo apt-get install bluez
+-pi/blob/master/README.md
+Follow the steps for Ubutnu 16.04 above
+ROS - Modern robot framework for running software
+librealsense - Intel Realsense library for D415/D435
+Git LFS - Manage and store trained AI models
+Travis CI - Perform build tests
+Michael Equi - Initial work
+README Tempalte source 
+jetson_car
+Getting Started
+Running the tests
+Built With
+Authors
+Acknowledgments
+Simulation Setup
+Librealsense Setup (D415/D435)
+Nvidia Jetson Setup
+RTAB Mapping setup
+DualShock 4 Controller Setup (Ubuntnu 16.04)
+DualShock 4 Controller Setup (Ubuntu MATE RPI)
+Important Notes

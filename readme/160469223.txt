@@ -1,0 +1,27 @@
+Autoware Toolbox is a MATLAB/Simulink sample code suite for Autoware. Autoware provides a rich set of self-driving modules composed of sensing, computing, and actuation capabilities. By using this samples, several applications can be used from MATLAB/Simulink.
+Autoware 1.8.0
+Created with R2018b
+Keita Miura, Shota Tokunaga, Noriyuki Ota, Yoshiharu Tange and Takuya Azumi, ``Autoware Toolbox: MATLAB/Simulink Benchmark Suite for ROS-based Self-driving Software Platform,'' In Proceedings of the 30th International Workshop on Rapid System Prototyping (RSP), New York, USA, Oct. 2019. Link
+Shota Tokunaga, Yuki Horita, Yasuhiro Oda and Takuya Azumi, ``IDF-Autoware: Integrated Development Framework for ROS-based Self-driving Systems Using MATLAB/Simulink,'' In Proceedings of the Workshop of Autonomous Systems Design (ASD2019), Florence, Italy, Mar. 2019. Link
+Shota Tokunaga, Noriyuki Ota, Yoshiharu Tange, Keita Miura, and Takuya Azumi, ``Demo Abstract: MATLAB/Simulink Benchmark Suite for ROS-based Self-driving System,'' Demo Session of the 10th ACM/IEEE International Conference on Cyber-Physical Systems (ICCPS2019), Montreal, Canada, Apr. 2019.
+Preinstallation of Autoware (here)
+MATLAB/Simulink
+Robotics System Toolbox
+Computer Vision System Toolbox (optional)
+Image Processing Toolbox (optional)
+Robotics System Toolbox
+Computer Vision System Toolbox (optional)
+Image Processing Toolbox (optional)
+English
+Japanese
+English
+Japanese
+Autoware Toolbox
+Requirements
+Release Compatibility
+Provided Samples
+Preparation for use with MATLAB
+Documentation
+Research Papers for Citation
+Autoware Messages
+MATLAB/Simulink

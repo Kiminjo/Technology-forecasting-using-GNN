@@ -1,0 +1,25 @@
+
+Holyheld makes the internet economy easy and available to everyone. The app abstracts blockchain complexity so that you can finally get great financial service with all DeFi benefits. You can earn highest and safest yield on your digital assets with our automatic portfolio management system. You can also send, receive and swap 3000+ digital assets on Ethereum.
+These contracts are currently used in Holyheld V2.
+HHToken - The Holyheld token
+HolyPassage - Migration and bonus tokens claim contract
+HolyVisor - Bonus multiplier oracle contract.
+HolyHand - Central token transfer proxy contract.
+HolyWing - Token exchange proxy contract.
+HolyPool - Asset pool contract.
+HolyValor - Funds managing strategy contract.
+HolyRedeemer - Yield harvesting and distributor contract.
+These contracts have been deployed previously, and are now no longer in use.
+HolyToken - The Holyheld token
+HolyKnight - Holy Knight, contract to manage the LP staking
+HolderTVLLock - Holder contract for team tokens, vested weekly with TVL value all-time-high condition
+HolderTimelock - Holder contract to reserve tokens for trade mining after launch
+HolderVesting - Holder contract for operations vested for 1 year.
+Much of the codebase used in previously deployed contracts (no longer in use) is modified from existing works, including:
+Compound - Jumping off point for token code and governance
+Synthetix - Rewards staking contract
+YEarn/YFI - Initial fair distribution implementation
+Holyheld — DeFi neobanking service.
+New Deployed Contracts
+Previously Deployed Contracts
+Attributions

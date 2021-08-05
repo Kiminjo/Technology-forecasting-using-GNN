@@ -1,0 +1,9 @@
+AutomanTools is an open-source software for self-driving AI.
+Extract images and point clouds from ROSBAG file
+Set your custom class
+Manage administrator and worker authority
+Label 2D and 3D objects
+Features
+Getting Started
+Users Guide
+Developers Guide

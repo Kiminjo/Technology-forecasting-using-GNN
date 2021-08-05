@@ -1,0 +1,55 @@
+
+This is the code repository for Applied Deep Learning and Computer Vision for Self-Driving Cars, published by Packt.
+Build autonomous vehicles using deep neural networks and behavior-cloning techniques
+This book covers the following exciting features:
+If you feel this book is for you, get your copy today!
+
+Page 22
+It is: RADAR has great resolution;
+Should be: LIDAR has great resolution;
+It is: Let's look at the following RADAR chart:
+Should be: Let's look at the following LIDAR chart:
+It is: RFig 1.5: RADAR chart – strength
+Should be: Fig 1.5: LIDAR chart – strength
+Page 23
+It is: Fig 1.6: RADAR and camera plot
+Should be: Fig 1.6: LIDAR and camera plot
+Page 30
+It is: One of the shortcomings of LIDAR is that it usually has a low resolution;
+Should be: One of the shortcomings of RADAR is that it usually has a low resolution;
+All of the code is organized into folders. For example, Chapter02.
+The code will look like the following:
+In the book you will also learn important python libraries like KERAS for Deep Learning and OpenCV for computer vision in detail. All codes are tested on latest Anaconda environment () with python 3.7 on Windows 16 GB laptop. It is recommended to use laptop with more than 8GB. You can also use Google Colab if you would like to execute the code in platform independent environment. You need to install below libraries:
+Note: You can directly install Anaconda environment as it will install most of the datascience packages at once: 
+Any additional installation instructions and information the user needs for getting set up. 
+For few of the chapter you need to install few files and put in folder provides, please find the details below:
+Chapter 3 to 6: No download required
+Chapter 7: Download link is provided in folder “traffic-signs-data”, download the file and put in “traffic-signs-data”
+Chapter 8-9: No Download required
+Chapter 10: download link is provided in “beta_simulator_windows” and “track” folder. Download the files and put in these folders.
+Chapter 11: download link can be found in “data” folder.
+Following is what you need for this book: If you are a deep learning engineer, AI researcher, or anyone looking to implement deep learning and computer vision techniques to build self-driving blueprint solutions, this book is for you. Anyone who wants to learn how various automotive-related algorithms are built, will also find this book useful. Python programming experience, along with a basic understanding of deep learning, is necessary to get the most of this book.
+With the following software and hardware list you can run all code files present in the book (Chapter 1-12).
+We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [ -cdn.com/downloads/9781838646301_ColorImages.pdf]
+PyTorch Computer Vision Cookbook [Packt] [[Amazon]] ()
+Mastering Computer Vision with TensorFlow 2.x [Packt] [[Amazon]] ()
+Sumit Ranjan is a silver medalist in his Bachelor of Technology (Electronics and Telecommunication) degree. He is a passionate data scientist who has worked on solving business problems to build an unparalleled customer experience across domains such as, automobile, healthcare, semi-conductor, cloud-virtualization, and insurance.
+He is experienced in building applied machine learning, computer vision, and deep learning solutions, to meet real-world needs. He was awarded Autonomous Self-Driving Car Scholar by KPIT Technologies. He has also worked on multiple research projects at Mercedes Benz Research and Development. Apart from work, his hobbies are traveling and exploring new places, wildlife photography, and blogging.
+Dr. S. Senthamilarasu was born and raised in the Coimbatore, Tamil Nadu. He is a technologist, designer, speaker, storyteller, journal reviewer educator, and researcher. He loves to learn new technologies and solves real world problems in the IT industry. He has published various journals and research papers and has presented at various international conferences. His research areas include data mining, image processing, and neural network.
+He loves reading Tamil novels and involves himself in social activities. He has also received silver medals in international exhibitions for his research products for children with an autism disorder. He currently lives in Bangalore and is working closely with lead clients.
+Click here if you have any feedback or suggestions.
+Implement deep neural network from scratch using the Keras library
+Understand the importance of deep learning in self-driving cars
+Get to grips with feature extraction techniques in image processing using the OpenCV library
+Design a software pipeline that detects lane lines in videos
+Implement a convolutional neural network (CNN) image classifier for traffic signal signs
+PyTorch Computer Vision Cookbook [Packt] [[Amazon]] ()
+Mastering Computer Vision with TensorFlow 2.x [Packt] [[Amazon]] ()
+Applied Deep Learning and Computer Vision for Self-Driving Cars
+What is this book about?
+Errata
+Instructions and Navigations
+Get to Know the Authors
+Software and Hardware List
+Related products
+Suggestions and Feedback

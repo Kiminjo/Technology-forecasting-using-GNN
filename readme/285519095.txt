@@ -1,0 +1,37 @@
+Room number recognition service for indoor self-driving cars. This service analyzes all contours in every single frame, finds the Room Number Plate, and extracts the number from the plate.
+.
+SVHN Model is a CNN model based on YOLOv5-small model, which is trained with SVHN Dataset(format 2).
+For more information, visit this repository: icns-distributed-cloud/YOLOv5-SVHN
+Training
+Service
+master: stable version for release (with tag named like v1.7.4)
+develop: branch for development
+hotfix: fix bugs occurred at a stable version
+docs: documentation files
+app: main service
+Training
+CentOS 7.5
+Nvidia GTX 1080 Ti * 8ea
+Python 3.8
+PyTorch 1.7.0
+Service
+Raspberry Pi 4 Model B
+Raspbian Buster
+Python 3.8
+OpenCV 4.4.0
+CentOS 7.5
+Nvidia GTX 1080 Ti * 8ea
+Python 3.8
+PyTorch 1.7.0
+Raspberry Pi 4 Model B
+Raspbian Buster
+Python 3.8
+OpenCV 4.4.0
+Room-Number-Recognition
+Branches
+Training
+Project Structure
+Environment
+Quickstart
+Checker Model
+SVHN Model

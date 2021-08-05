@@ -1,0 +1,43 @@
+Autonomous driving for map making of a clutter environments is a complex task due to the robot has to deal with precise measurements of the environment, in other words the robot must have a good field of view of the environment in turn. We mainly present the functioning and description of the ROS package called patbotsd that has to do with the navigation of a PatrolBot in the empty area of a indoor environment while making a 2D map by means of a laser hokuyo and a 3D depth asus sensors.
+The system operates in two different modes:
+Mode 1: The main idea is to let the PatrolBot to navigate forward till an obstacle boundary is reached, then the mobile robot (MR) turns to the left with a small angle till it finds space to move forward. It keeps rotating and moving forward till a full rotation takes place. After that, it starts turning to the right and moving forward till a full rotation also takes place. This process repeats constantly and by doing so, the MR covers all the empty space of the area. The mode 1 can be launched by the file roslaunch patbotsd patbotsd_navigation.launch. This mode is suitable for a open area where the robot can move freely in the middle.
+
+Mode 2: The main idea is to place range cones along the range laser which scans the front part of the robot by 180 degrees. To this end, a total of 5 range cones were placed and distributed in front of the robot. Then the aim is to find whether they are empty to allow the robot to navigate. The mode 2 is launched by the file roslaunch patbotsd patbotsd_directions_navigation.launch. This mode was tested in a bit cluttered corridor and with some people around.
+
+The mode 2 was modified by adding two more range cones along the range laser making a total of 7 ones. The source code can be found in the node patbotsd_map_maker_laser_asus_range_cones.
+In order to extend the functionality of the application, a mapping bagpack solution was mounted on the robot. This solution is able to make a 3D map of the environment by means of two Lidars which are placed on the top with a certain inclination to cover the whole area. For more information about the 3D bagpack refer to GitHub Pages.
+
+[1] ROS. gmapping. [Online]. Available: .
+[2] ——. openni launch. [Online]. Available: .
+[3] ——. pointcloud to laserscan. [Online]. Available: .
+[4] ——. RosAria node. [Online]. Available: .
+[5] ——. hokuyo node. [Online]. Available: .
+patbotsd_slam_gmapping.launch a launch file that runs the gmapping package which in turn launches the laser based on SLAM package that creates a 2D occupancy grid map, [1].
+patbotsd_asus.launch, a launch file that launches the openni.launch file that runs the asus driver. Also, it launches the pointcloud_to_laserscan file that converts the point_cloud asus readings to laserscan data, [2,3].
+rosaria, a package that runs the RosAria node that provides a ROS interface for PatrolBot, [4].
+hokuyo_node, a package that runs the hokuyo_node that provides a ROS interface for the hokuyo laser sensor, [5].
+patbotsd, a package that runs the following nodes:
+patbotsd_filter_hokuyo node that has to do with the filtering off some laser readings that are produced by some obstacles in the robot.
+patbotsd_laser_asus node that has to do with the combination of 2D laser and 2D depth asus readings.
+patbotsd_map_maker_laser_asus_rotation node that has to do with the self driving of the PatBot in the empty space of the indoor environment while making a 2D map based on the laser and the camera/depth/points readings.
+patbotsd_map_maker_laser_asus_directions node that has to do also with the safe driving of the robot on the empty space of the area.
+patbotsd_map_maker_laser_asus_range_cones node that has to do also with the safe driving of the robot on the empty space of the area.
+patbotsd_asus_groundfloor_remove node that has to do with the removing of the ground_floor of the 3D "/camera/depth/points" PointCloud2 asus topic.
+patbotsd_filter_hokuyo node that has to do with the filtering off some laser readings that are produced by some obstacles in the robot.
+patbotsd_laser_asus node that has to do with the combination of 2D laser and 2D depth asus readings.
+patbotsd_map_maker_laser_asus_rotation node that has to do with the self driving of the PatBot in the empty space of the indoor environment while making a 2D map based on the laser and the camera/depth/points readings.
+patbotsd_map_maker_laser_asus_directions node that has to do also with the safe driving of the robot on the empty space of the area.
+patbotsd_map_maker_laser_asus_range_cones node that has to do also with the safe driving of the robot on the empty space of the area.
+patbotsd_asus_groundfloor_remove node that has to do with the removing of the ground_floor of the 3D "/camera/depth/points" PointCloud2 asus topic.
+cd ~/ros/catkin_ws/src
+git clone 
+cd ../
+catkin_make
+roslaunch patbotsd patbotsd_navigation.launch
+roslaunch patbotsd patbotsd_directions_navigation.launch
+PatrolBot Self Driving main repository.
+Bibliogrhapy
+Package description:
+Functionality
+Instalation instructions:
+Run simulation:

@@ -1,0 +1,26 @@
+Find our wiki here: 
+If you want to build the different submodules without Docker, check the Dockerfiles for the required dependencies!
+Clone this branch onto the Computer you want to deploy (should be Leia). First, if not already happened, create the docker folder (mkdir docker). Then, clone the .Dockerfiles from this repo using the command
+Build the containers like so:
+In general, add --network=host to enable network connection via the host PC.
+For building the sensors Docker add -d --device=/dev/ttyUSB0 to the docker run
+Currently, data is stored in a volume on the host PC called ad-data. To mount it to the docker container, add --mount source=ad-data,target=/path/where/you/want/the/data:
+To start the container:
+To enter a docker bash:
+To exit the docker, in the docker shell type exit
+To stop the container:
+sudo docker kill docker_name forces shutdown of docker docker_name
+sudo docker ps (shows active dockers)
+sudo docker ps -a (shows all dockers)
+Refer to our Wiki page for an example on how to run our SW stack: 
+Autonomous Driving V2
+Wiki
+Dependencies
+Building of Docker containers
+Booting
+Running the AD SW stack
+Startup
+Interaction
+Exiting
+Stopping
+Useful commands:

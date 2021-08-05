@@ -1,0 +1,34 @@
+
+
+⚠️ This repo is no longer being maintained. Feel free to use the source or send me any questions, unfortunately no new commits or PRs will be added/accepted ⚠️
+Welcome! This is an open source self-driving development platform aimed for rapid prototyping, deep learning, and robotics research. The system currently runs on a modified electric golf cart. Here are our goals:
+Research and develop a deep learning-driven self-driving car. The vehicle should be able to achieve level 4 autonomy within a geofenced area.
+For the full documentation of the development process, please visit my website: www.neilnie.com
+
+Before you jump in, let me describe the hardware requirement for this project. A webcam is the minimum requirment. At this point, you can only run the whole system on the actual self-driving vehicle. ROS will throw warnings (even errors) at you if you don't have the hardware connected to your Linux machine. If you don't have access to the hardware setup, don't worry 👇
+To compile the project:
+
+🚙 Bon Voyage 😀
+If you are interested in the detailed development process of this project, you can visit Neil's blog at neilnie.com to find out more about it. Neil will make sure to keep you posted about all of the latest development on the club.
+Developers:
+
+Neil (Yongyang) Nie | Email | Github | Website | Linkedin
+
+Michael Meng | Email | Github
+Try it out
+About ROS
+Simulation
+Autopilot & End-to-End Behavioral Cloning
+Semantic Segmentation
+The Navigation Stack
+The best way is to download and play back the ROS bags. [coming soon...]
+You can tryout individual packages and nodes, and might find them helpful for your own projects.
+You can also tryout the CARLA simulator. (Maybe even improve the current system.)
+$ roslaunch zed_wrapper zed.launch (no rviz)
+$ roslaunch zed_display display.launch (with rviz)
+$ roslaunch path_planning rtab_mapping_navigation.launch
+Contact / Info
+Table of Content
+Try it out
+Goals:
+The modules in this project.

@@ -1,0 +1,22 @@
+Update on 2021.2.4: New data, trained models, results and categories have been released! Old version data is not available now.
+This project contains the implementation of our CVPR 2020 paper arxiv.
+Authors: Jiaming Sun, Linghao Chen, Yiming Xie, Siyu Zhang, Qinhong Jiang, Xiaowei Zhou, Hujun Bao.
+
+See TRAIN_VAL.md
+
+If you find this code useful for your research, please use the following BibTeX entry.
+This repo is built based on the Mask R-CNN implementation from maskrcnn-benchmark, and we also use the pretrained Stereo R-CNN weight from here for initialization. The system architure figure is created with Blender, feel free to reuse our project file!
+This work is affiliated with ZJU-SenseTime Joint Lab of 3D Vision, and its intellectual property belongs to SenseTime Group Ltd.
+Ubuntu 16.04+
+Python 3.7+
+8 Nvidia GPU with mem >= 12G (recommended, see Notes for details.)
+GCC >= 4.9
+PyTorch 1.2.0
+Disp R-CNN: Stereo 3D Object Detection via Shape Prior Guided Instance Disparity Estimation (CVPR 2020)
+Requirements
+Install
+Training and evaluation
+Sample results
+Citation
+Acknowledgment
+Copyright

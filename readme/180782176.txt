@@ -1,0 +1,10 @@
+
+
+Accurate vehicle localization is a crucial step towards building effective Vehicle-to-Vehicle networks and automotive applications. Here, we publish our diverse dataset for training and benchmarking visual localization models, based on large-scale real world data. This dataset is used in our research paper, in which we propose a robust visual localization approach for automotive applications. The research paper appears in the proceedings for CVPR 2019 Workshop on Autonomous Driving.
+Created by Nexar®
+Our dataset was collected from a largescale deployment of connected dashcams. Each vehicle is equipped with a dashacam and a companion smartphone app that continuously captures and uploads sensor data such as GPS readings. The dataset published here contains 200 video sequences taken at different lighting and weahter conditions. To download the dataset, please fill in the form here
+Copyright Nexar Inc.
+Nexar-Visual-Localization
+Introduction
+Dataset & Benchmark
+License

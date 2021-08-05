@@ -1,0 +1,8 @@
+Protacon Hackday 2017 project to develop autonomously driving RC car. Car uses Raspberry Pi with camera to detect surroundings and machine learning to combine picture with correct steering instructions
+PS4 controller is used to control the vehicle via bluetooth while teaching the AI.
+Install dependencies:
+ds4drv should be started on system boot so the controller can be connected. controller_listener.py listens to the controller inputs.
+pip install ds4drv
+pip install pygame
+hackday-2017-autonomous-car
+Support for PS4 bluetooth controller

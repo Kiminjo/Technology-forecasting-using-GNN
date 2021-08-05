@@ -1,0 +1,14 @@
+Overview | Installation | Baselines | Paper
+
+OATomobile is a library for autonomous driving research. OATomobile strives to expose simple, efficient, well-tuned and readable agents, that serve both as reference implementations of popular algorithms and as strong baselines, while still providing enough flexibility to do novel research.
+If you just want to get started using OATomobile quickly, the first thing to know about the framework is that we wrap CARLA towns and scenarios in OpenAI gyms:
+Baselines can also be used out-of-the-box:
+We have tested OATomobile on Python 3.5.
+To install the core libraries (including CARLA, the backend simulator):
+To install the OATomobile core API:
+To install dependencies for our PyTorch- or TensorFlow-based agents:
+If you use OATomobile in your work, please cite the accompanying technical report:
+OATomobile: A research framework for autonomous driving
+Overview
+Installation
+Citing OATomobile

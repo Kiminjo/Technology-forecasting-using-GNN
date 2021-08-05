@@ -1,0 +1,12 @@
+Deep Learning Autonomous Vehicle Control with Tensorflow
+Collect dataset with rover and save as H5py
+Convert frame stacks into hyperspectral format
+Train GPU deep learning network and save weights
+Evaluate model on video data
+Real-time neural network control
+TF_Rover
+RoverCollect
+Frames2Channels
+TrainModel
+TestModel
+RunRover

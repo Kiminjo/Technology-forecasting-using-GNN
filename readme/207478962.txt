@@ -1,0 +1,9 @@
+Utility programs useful for every vehicle
+bag_scripts: handy rosbag-related scripts in python, shell and MATLAB
+gps_tf_publisher: TF publisher from a GPS topic in ROS
+gps_quick_compare: a really simple node which compares two gps given in UTM (Universal Transverse Mercator coordinate system) and publishes the orientation and position difference
+pcd_transform: A node to translate and rotate NDT maps to global position
+ros_guis: Some useful ROS related GUI programs such as Leaf dashboard in pyqt:
+rviz_map_publisher: Experimental feature to publish openstreetmap (OSM) data in RVIZ
+udp_joystick_ros: A simple node which lets you control your simulator / vehicle / robot from an android phone.
+szenergy-utility-programs

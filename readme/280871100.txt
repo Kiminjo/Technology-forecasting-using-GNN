@@ -1,0 +1,46 @@
+Some forked from -Decision-Making-Reinforcement-Learning
+Please feel free to pull request to add new resources or send emails to us for questions, discussion and collaborations.
+Also welcome to check the current research in our MSC Lab at UC Berkeley.
+Research Intern: Please read this if you want to apply for research intern opportunities in our group.
+Note: Here is also a collection of research materials for interaction-aware trajectory (behavior) prediction.
+A Real-Time Motion Planner with Trajectory Optimization for Autonomous Vehicles，2012，[paper]
+Real-time motion planning methods for autonomous on-road driving: State-of-the-art and future research directions, 2015, [paper]
+A Review of Motion Planning Techniques for Automated Vehicles, 2016, [paper]
+Maximum Entropy Deep Inverse Reinforcement Learning, 2015, [paper]
+Guided Cost Learning: Deep Inverse Optimal Control via Policy Optimization, ICML 2016, [paper]
+Generative Adversarial Imitation Learning, NIPS 2016, [paper]
+A Connection between Generative Adversarial Networks, Inverse Reinforcement Learning, and Energy-Based Models, NIPS 2016, [paper]
+InfoGAIL: Interpretable Imitation Learning from Visual Demonstrations, NIPS 2017, [paper] [code]
+Self-Imitation Learning, ICML 2018, [paper] [code]
+Data-Efficient Hierarchical Reinforcement Learning, NIPS 2018, [paper]
+Learning Robust Rewards with Adversarial Inverse Reinforcement Learning, ICLR 2018, [paper]
+Multi-Agent Generative Adversarial Imitation Learning, ICLR 2018, [paper]
+Multi-Agent Adversarial Inverse Reinforcement Learning, ICML 2019, [paper]
+A Survey of Deep Learning Applications to Autonomous Vehicle Control, IEEE Transaction on ITS 2019, [paper]
+Imitating Driver Behavior with Generative Adversarial Networks, IV 2017, [paper] [code]
+Multi-Agent Imitation Learning for Driving Simulation, IROS 2018, [paper] [code]
+Simulating Emergent Properties of Human Driving Behavior Using Multi-Agent Reward Augmented Imitation Learning, ICRA 2019, [paper] [code]
+Learning from Demonstration in the Wild, ICRA 2018, [paper]
+Multi-Agent Connected Autonomous Driving using Deep Reinforcement Learning, NeurIPS 2019, [paper] [code]
+Model-free Deep Reinforcement Learning for Urban Autonomous Driving, ITSC 2019, [paper]
+End-to-end driving via conditional imitation learning, ICRA 2018, [paper]
+CIRL: Controllable Imitative Reinforcement Learning for Vision-based Self-driving, ECCV 2018, [paper] [code]
+A reinforcement learning based approach for automated lane change maneuvers, IV 2018, [paper]
+Adversarial Inverse Reinforcement Learning for Decision Making in Autonomous Driving, ICRA 2020, [paper]
+Deep hierarchical reinforcement learning for autonomous driving with distinct behaviors, IV 2018, [paper]
+A Hierarchical Architecture for Sequential Decision-Making in Autonomous Driving using Deep Reinforcement Learning, ICML 2019, [paper]
+End-to-end Interpretable Neural Motion Planner, CVPR 2019, [paper]
+Jointly Learnable Behavior and Trajectory Planning for Self-Driving Vehicles, IROS 2019, [paper]
+Dynamic Input for Deep Reinforcement Learning in Autonomous Driving, IROS 2019, [paper]
+Learning to Navigate in Cities Without a Map, NIPS 2018, [paper]
+Scalable End-to-End Autonomous Vehicle Testing via Rare-event Simulation, NIPS 2018, [paper]
+Towards Learning Multi-agent Negotiations via Self-Play, ICCV 2019, [paper]
+CARLA: An Open Urban Driving Simulator, [paper]
+TORCS: The open racing car simulator, [paper]
+Comma.ai: Learning a Driving Simulator, [paper]
+NGSIM: US Highway 101 Dataset, [docs]
+Collected-Autonomous-Driving-algorithm
+Path Planning
+RL & IRL & GAIL
+Autonomous Driving
+Simulator & Dataset

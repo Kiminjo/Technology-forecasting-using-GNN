@@ -1,0 +1,18 @@
+Guidance, navigation, and control.
+./scripts/setup.sh
+Set the MAAV_SOFTWARE_DIR environment variable on your machine to the path to the maav software folder on your machine. Add export MAAV_SOFTWARE_DIR='path' to your shell config.
+mkdir build
+cd build
+cmake ..
+make -j
+
+extract into datasets/
+./bin/tums Vocabulary/ORBvoc.txt tests/tums/TUM1.yaml datasets/rgbd_dataset_freiburg1_xyz tests/tums/associations/fr1_xyz.txt
+MAAV Software
+Table Of Contents
+GNC
+Perception
+Setup and Running
+Compile the code:
+Download the TUMs dataset (GNC):
+Run the example (GNC):

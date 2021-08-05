@@ -1,0 +1,81 @@
+
+
+
+A self-constructing web app framework powered by a self-driving DOM.
+Cell has one and only one design goal: Easy.
+Try downloading to your local machine and open it in your browser.
+Seriously, there is no additional code or dependency, no environment to set up. What you see is what you get.
+Here's the generated DOM tree, as viewed in Chrome inspector:
+
+A couple of things to note from the code:
+Cell has no API. 100% of your code will be vanilla Javascript, and there is no framework method or class to implement.
+To use Cell, you simply define a variable that describes the DOM content and behavior.
+When you follow the 3 rules below, Cell turns it into HTML.
+When you define a Javascript object, its attributes map 1:1 to DOM attributes. So,
+maps to:
+For example,
+becomes:
+Cell lets you store data and application logic directly on HTML elements.
+To define a variable on an element's context, simply prepend your attribute name with "_". Cell will treat it as data and make sure it doesn't affect the view.
+Here we use _items to store an array, _index to store an integer counter, and _next to store a function that will run this element by incrementing _index and iterating through _items.
+When Cell loads, it first looks for all Javascript variables that have a $cell key.
+When it finds one, it takes that blueprint object (called a "Genotype" in Cell) and creates a DOM tree ("Phenotype") from it.
+
+So far this is just a static DOM tree. To make it dynamic, you need to write a program that "remote controls" these HTML elements.
+Normally Javascript frameworks maintain a separate centralized data structure and application context (Model-View-Controller or some variation) that synchronizes with and controls HTML elements dynamically.
+Cell takes a decentralized approach. It creates a DOM tree where each element is self-aware (It can contain an entire Model-View-Controller environment of its own) and can therefore "drive" itself autonomously (Internally called "Nucleus").
+
+Instead of having a central master application control the DOM, Cell directly injects application context into each relevant HTML element so they can run on their own, independent from the outside world.
+Learn more about the underlying architecture here.
+Cell has no overarching framework that powers each and every corner of your app.
+
+Normally web app frameworks maintain a central "Model-View-Controller" architecture (or similar) which takes care of everything throughout the app's lifecycle.
+Cell works differently. It just creates the DOM and then goes away, because each HTML element it creates can self-drive itself with its own model-view-controller. Instead of controlling the DOM remotely with a framework's API, with Cell you control it directly and natively.
+Nowadays, just to make a simple web app you need to learn all kinds of middlemen technologies.
+These tools were born out of necessity as web apps became more complex. But if you take a fundamentally different approach, you may not need them at all.
+
+Here are some of the reasons why these middlemen have been necessary, and why Cell doesn't need them.
+Normally web app frameworks let you use their API by extending or inheriting from their class. Cell has no class and no API method.
+Most web app frameworks depend on other complex libraries (Don't forget to npm install before doing anything!) Cell doesn't depend on any library.
+Just by choosing to use a framework you have already lost the war against dependency. From then on, you need to use npm install for every frontend Javascript library you need to use. Cell frees you from this loop and lets you use frontend Javascript libraries with simple <script src>.
+Cell stays away from inventing any framework-specific markup such as HTML templates. There's no template to compile.
+Cell is built with ES5, which works in ALL browsers (including IE). There's no need to transpile your code to use Cell, it just works right away.
+Cell is based on the same idea behind Jasonette, a simple way to build cross-platform iOS/Android native apps with nothing but JSON markup.
+Just like Jasonette, Cell lets you express application logic as a piece of flat data. This allows you to not only transform and manipulate data, but also the application logic itself.
+Let's say we have this view:
+We see many repeating span lines, so let's extract them out into a function:
+Notice how the Item is simply a stateless function. We run a map on it with the Coffee array and end up with the same structure as before.
+Normally web app frameworks implement reusable components with classes. You need to extend the framework's class and then create components from its instance.
+A "component" on Cell is nothing more than a stateless function. This is extremely liberating because functions have zero overhead compared to classes.
+Because of this functional programming approach:
+Normally when you use a web app framework, you write code that heavily depends on the framework API.
+So if you ever want to use a new framework, you have to rewrite the entire app, taking a huge amount of time to make it do exactly the same thing it used to do.
+With Cell, your can write code that never becomes useless, simply because:
+Being able to containerize your app's logic and data inside its HTML elements and then "ship" it to the DOM enables a lot of cool things.
+
+Looks like a DOM, Acts like a DOM, it actually IS a DOM
+Cell creates an "Actual DOM". There's nothing virtual or magical about it. It really IS just a pure HTML element.
+This means we can apply any 3rd party Javascript or CSS libraries (like jQuery, Bootstrap, Foundation, Select2, CodeMirror, etc.) the same way we would use it on vanilla HTML.
+Normally, using a web app framework is an all or nothing deal, because the framework takes over your entire frontend.
+Cell completely encapsulates your app's logic into discrete HTML elements, so integrating it into an existing web app or website is as simple as copy and paste.
+Cell
+Philosophy
+Try Now
+There Is No Framework
+There are only 3 rules
+How it works
+What problems this solves
+Rule #1. Attributes map 1:1 to DOM attributes by default.
+Rule #2. Use 7 special keywords to declare the cell structure
+Rule #3. Use the "_" Prefix to Store Data and Logic on an HTML Element
+1. Cell is a Single Function that Creates a DOM Tree.
+2. Self-driving DOM
+1. There is No God (There is No Framework)
+2. There are No Middlemen
+3. App as Data
+4. Extreme Modularity with Functional Programming
+5. Write Future-proof Code
+6. Native DOM as App Container
+Download and Try it!
+A. Integrate with ANY Web Technology Natively.
+B. Plug into EXISTING Websites like a widget.

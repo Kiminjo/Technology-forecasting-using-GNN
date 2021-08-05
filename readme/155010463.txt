@@ -1,0 +1,27 @@
+Code Quality
+We will use Conda for managing environments. We recommend installing Miniconda for Python 3.8 here. Then create an environment with
+activate it with
+and install all dependencies with
+Then clone the repo in a directory of your choice
+and install it
+Also, our training data is stored here  so download it and unzip it in the same folder as perception.
+Misc code, camera calibration etc.
+Code for specific tasks like
+etc
+In order to create your own algorithm to test:
+Create <your_algo>.py and put it in one of the specific task folders in perception/tasks.
+Create a class which extends the TaskPerceiver class. perception/tasks/TaskPerceiver.py includes a template with documentation for how to do this.
+Visualization tools Code for testing tasks (Ideally this should be placed a separate folder called tests).
+After writing the code for your specific task algorithm, you can do one of two things:
+Add this to the end of .py file:
+and then run
+Add this to the perception/init.py file:
+and then run
+The algorithm parameter is required. If data isn't specified, it'll default to your webcam. If profile isn't specified, it will be off by default. Add the save_video tag if you want to save your vis test as an mp4 file.
+Flowchart on TaskPerceiver, TaskReceiver, AlgorithmRunner.
+Perception Code Overview
+Installation
+misc:
+tasks:
+vis:
+wiki:

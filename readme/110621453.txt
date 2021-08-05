@@ -1,0 +1,16 @@
+The AWS Connected Vehicle Solution is a reference implementation that provides a foundation for automotive product transformations for connected vehicle services, autonomous driving, electric powertrains, and shared mobility.
+To get started with the AWS Connected Vehicle Solution, please review the solution documentation. -vehicle-solution/
+The AWS Connected Vehicle Solution project consists of microservices that facilitate the functional areas of the platform. These microservices are deployed to a serverless environment in AWS Lambda.
+Each microservice follows the structure of:
+Copyright 2017-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
+or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+Configure the bucket name of your target Amazon S3 distribution bucket
+Clone the repository, then build the distibutables:
+Deploy the distibutables to an Amazon S3 bucket in your account. Note: you must have the AWS Command Line Interface installed.
+Get the link of the aws-connected-vehicle-solution.template uploaded to your Amazon S3 bucket.
+Deploy the AWS Connected Vehicle Solution to your account by launching a new AWS CloudFormation stack using the link of the aws-connected-vehicle-solution.template.
+AWS Connected Vehicle Solution
+Getting Started
+Building distributables for customization
+File Structure

@@ -1,0 +1,11 @@
+/src/ directory of catkin_ws for Roboys' automated driving project. It consists of a conglomeration of code enabling us to achieve our next goal of Roboy riding his rickshaw from the subway station to UTUM. This ranges from from sensor setup for environmental perception to mapping, navigation and finally control output. For more information, visit Roboy.org.
+To build, follow the instructions below or create a Docker as described here.
+Clone this repository to your catkin workspace's source directory by running the following command (notice the dot in the end!).
+To simply install all packages listed below run
+After you completed all of the above steps, run
+Automated Driving /src/
+Clone
+ToDo
+Build
+Install Packages
+Prepare Git Submodules

@@ -1,0 +1,92 @@
+Speed, steering, and object detection for an autonomous RC car
+Stuff required for the car to drive, majority of the program.
+Stuff we would like to complete.
+This project is mostly focused on the software side of the problem but we are running it on real hardware
+Standalone driving simulation to test code without the required hardware
+Setup the included Gradle project and make sure to include the Aparapi and Raspivid-j libraries.
+Compile and run MrModule.java in the com.apw.carcontrol package, by default its set to run on a car with the expected hardware and driver dlls but if you are running it on your own computer with TrakSim or any equivalent use the cmd argument sim, this should launch a new TrakSim window and start driving the car. If you wish to run the program with no visual display/window run with the argument nosim.
+
+TrakSim was originally designed to simulate the PatsAcres go-kart track, but now has a "Build Map" function so you can design your own track layouts using a (somewhat crude) text specification file described here.
+Traksim was written by Tom Pittman and is extensively documented on his website, read it if you desire a better understanding of the program.
+TrakSim docs & explanations
+or contact Tom at TPittman@IttyBittyComputers.com
+This project was created and is maintained by a group of highschool students in Portland, Oregon.
+Bugs and requests: submit them through the project's issues tracker.
+
+Questions: ask them at StackOverflow with the tag REPO.
+
+Website: AVP_HS
+
+Travis.
+Google Java Style Guide, enforced by Google Java Formatter with google-java-format-gradle-plugin.
+
+Image processing.
+Speed control.
+Pedestrian & object detection.
+Steering.
+PWM / Arduino Interfacing.
+GPU parallelization.
+Arduino driver rewrite.
+Raspberry Pi.
+Website.
+TrakSim replacement.
+RC Car
+Onboard SBC - LattePanda (insert specific version here).
+Arduino integrated with LP to control servos.
+Frontmounted camera - FLIR Chameleon 3 Camera.
+Aparapi - Open-source framework for executing native Java code on the GPU through OpenCL.
+Fly2Cam - Tom explains it better here.
+JSSC - Java Simple Serial Connector.
+Firmata - The Arduino Firmata library implements the Firmata protocol for communicating with software on the host computer.
+APW3
+TrakSim and its supporting classes, as well as an exmple track to run it with.
+DriveDemo - Deprecated since eb8e01c
+A program designed to demonstrate how to use both TrakSim and the servo & camera interfaces simulated by TrakSim.
+Fly2Cam
+A minor revision of the Java interface to the JNI (C-coded) DLL which accesses the Pt.Grey Chameleon3 or FireFly camera driver DLLs. FlyCamera.dll is included here.
+noJSSC
+A non-functional (stub) plug-compatible substitute for the JSSCAPI, which may be used in its place when running TrakSim in stand-alone mode on any computer.
+FakeFirm
+A Java clone of the C# API released by LP for driving digital outputs and servos that diverts a copy of the servo commands to TrakSim.
+TrakSim and its supporting classes, as well as an exmple track to run it with.
+A program designed to demonstrate how to use both TrakSim and the servo & camera interfaces simulated by TrakSim.
+A minor revision of the Java interface to the JNI (C-coded) DLL which accesses the Pt.Grey Chameleon3 or FireFly camera driver DLLs. FlyCamera.dll is included here.
+A non-functional (stub) plug-compatible substitute for the JSSCAPI, which may be used in its place when running TrakSim in stand-alone mode on any computer.
+A Java clone of the C# API released by LP for driving digital outputs and servos that diverts a copy of the servo commands to TrakSim.
+[1] - Clicking anywhere on the minimap in the top right will move the car to your click location.
+[2] - Clicking anywhere on the map in the bottom right will turn your car to the angle from the car to your click.
+[3] - Clicking on the bottom middle of the window on the small brownish bar will start driving.
+UP - Increase manual speed by 1.
+DOWN - Decrease manual speed by 1.
+LEFT - Steer left by 5.
+RIGHT - Steer right by 5.
+P - Tell the car that its stopped at a red light.
+O - Tell the car that its stopped at a yellow light.
+I - Tell the car that its stopped at a green light.
+U - Tell the car that its stopped at a stop sign.
+Y - Increments stop distance.
+B - Enable/disable blob rendering.
+V - Enable/disable overlay rendering.
+F - Begins camera calibration.
+C - Enable/disable writing blobs to console.
+S - Enable/disable writing speed to console.
+M - Increment blob color mode.
+SPACE - Change image filter.
+F11 - Toggle Fullscreen window (if using WindowModule).
+Autonomous Vehicle Project
+TrakSim
+About
+CI
+Style Guide
+License
+Main Components
+Non-Essentials
+Hardware
+Dependencies
+Components
+Running
+Using TrakSim
+IttyBittyComputers
+Branch specific build status
+Keybinds
+Track

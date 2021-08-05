@@ -1,0 +1,18 @@
+This is the entry of team KACADU (Karlsruhe Cognitive Autonomous Driving Unit) for the Audi Autonomous Driving Cup 2016.
+Team KACADU is the 2016 student team supported by the FZI Forschungszentrum Informatik. Besides this code basis a lot of additional material from other years as well as publications describing the code and supplementary simulation frameworks can be found on the official website:
+Please visit Audi Autonomous Driving Cup at www.fzi.de
+The most up to date version of the core functionality can be found in oadrive (-forschungszentrum-informatik/oadrive), an easily integratable core library with a minimum of dependencies (no ADTF or ROS dependency).
+Almost everything is licensed under BSD (see file LICENSE). There are some parts integrated from oadrive that are licensed under CDDL. See there for more details. Copyright belongs partially to the FZI (Forschungszentrum Informatik) or Audi (the files are marked accordingly).
+oadrive: This folder holds the data processing and logic of our entry. It can be run from within ADTF, or separately (for simulation and offline reconstruction). Main project here: -forschungszentrum-informatik/oadrive
+aadcUser Folder: This is the aadcUser folder as given to us by Audi, with our modifications. Building this folder is only possible when oadrive has already been built (and installed).
+ADTF_Project Folder: This folder holds the ADTF project files which are used to run the code using the adtf_devenv program.
+The project needs various configuration files to run properly. Examples of these files are provided, but to work properly, they need to be adjusted to your specific camera setup. If you have any questions, don't hesitate to contact us.
+kacadu@lists.kit.edu
+kuhnt@fzi.de
+Audi Autonomous Driving Cup at FZI website
+AADC 2016 - Team KACADU
+License
+Structure:
+Setup:
+Configuration:
+Contact:

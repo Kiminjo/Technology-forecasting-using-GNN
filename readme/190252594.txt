@@ -1,0 +1,68 @@
+
+Pylot is an autonomous vehicle platform for developing and testing autonomous vehicle components (e.g., perception, prediction, planning) on the CARLA simulator and real-world cars.
+The easiest way to get Pylot running is to use our Docker image. Please ensure you have nvidia-docker on your machine before you start installing Pylot. In case you do not have nvidia-docker please run ./scripts/install-nvidia-docker.sh
+We provide a Docker image with both Pylot and CARLA already setup.
+Following, start the simulator in the container:
+Finally, start Pylot in the container:
+In case you desire to visualize outputs of different components (e.g., bounding boxes), you have to forward X from the container. First, add your public ssh key to the ~/.ssh/authorized_keys in the container:
+Finally, ssh into the container with X forwarding:
+If everything worked ok, you should be able to see a visualization like the one below:
+
+Alternatively, you can install Pylot on your base system by executing the following steps:
+Next, start the simulator:
+In a different terminal, setup the paths:
+Finally, run Pylot:
+Pylot comprises of several components: obstacle detection, traffic light detection, lane detection, obstacle tracking, localization, segmentation, fusion, prediction, planners, and control. Each component is implemented using one or more ERDOS operators and can be executed in isolation or with the entire Pylot application. Please read the Documentation for a more in depth description.
+
+Run the following command to see a demo of all the components, and the Pylot driving policy:
+The demo will execute: obstacle detection, traffic light detection, segmentation, prediction, planning, and the driving policy.
+You can also run components in isolation:
+Pylot supports three object detection models: frcnn_resnet101, ssd-mobilenet-fpn-640 and ssdlite-mobilenet-v2. The following command runs a detector in isolation:
+In case you want to evaluate the detector (i.e., compute mAP), you can run:
+In case you are not satisfied with the accuracy of our obstacle detector, you can run a perfect version of it:
+If the detector does not run at your desired frequency, or if you want to track obstacles across frames, you can use a mix of detector plus tracker by running:
+Pylot has uses a separate component for traffic light detection and classification. The following command runs the component in isolation:
+In case you require higher accuracy, you can run perfect traffic light detection by passing the --perfect_traffic_light_detection flag.
+In order to run Pylot's segmentation component in isolation execute the following command:
+Similarly, pass --perfect_segmentation if you desire ideal pixel semantic segmentation.
+Pylot offers a simple linear prediction component:
+The planning component provides two planning options, which can be specified using the --planning_type flag:
+Pylot supports three controllers, which can be specified using the control flag:
+You can run all the components, together with one of the two policies by executing:
+In case you want to debug the application, you can active additional logging by passing: --log_file_name=pylot.log --v=1 to your command.
+Pylot also provides a script for collecting CARLA data such as: RGB images, segmented images, obstacle 2D bounding boxes, depth frames, point clouds, traffic lights, obstacle trajectories, and data in Chauffeur format.
+Run python3 data_gatherer.py --help to see what data you can collect. Alternatively, you can inspect this configuration for an example of a data collection setup.
+In case you want to build your own images from the latest code, you can execute:
+The script creates two Docker images: one that contains the CARLA simulator and another one that contains ERDOS and Pylot.
+Pylot can also be used as a baseline for executing on the CARLA Leaderboard routes. We provide an agent that offers reference implementations for perception (i.e., detection, tracking), localization (Extended Kalman filter), prediction, planning (e.g., waypoint follower, Frenet optimal trajectory, RRT*, Hybrid A*), and control.
+To test this agent you can pull our image which has all the necessary software already installed.
+Alternatively, you can manually install the dependencies on your machine by following the instructions provided below:
+Similar to regular Pylot, the Challenge agent not only connects different reference implementation, but also provides the option of testing them in different configurations (e.g., test prediction, planning and control with perfect perception). This can be done by changing the flags in the challenge configuration according to the specification from the Pylot documentation.
+Setup instructions
+Documentation
+Pylot components
+Data collection
+Build Docker image
+CARLA autonomous driving challenge
+Getting involved
+Community on Slack: Join our community on Slack for discussions about development, questions about usage, and feature requests.
+Github Issues: For reporting bugs.
+Setup instructions
+Pylot components
+Data collection
+Build your own Docker image
+CARLA autonomous driving challenge
+Getting Involved
+Deploy using Docker
+Visualizing components
+Manual installation instructions
+Notes on the Pylot CARLA challenge agent
+Obstacle detection
+Traffic light detection
+Lane detection
+Obstacle tracking
+Segmentation
+Prediction
+Planning
+Control
+Debug logs

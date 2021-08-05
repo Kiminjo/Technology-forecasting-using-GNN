@@ -1,0 +1,59 @@
+
+
+Differential robot simulated on Stage. You can add your own map, own robot. ROS nodes developed only include the wallfollowing robot using IR sensors. Wall distance is controlled by a Proportional controller. Integral and Derivative gain may be needed but are not used here.
+Explore the docs »
+
+View Demo · Report Bug · Request Feature
+
+
+This simulation package was developed during the Robotcraft '19 program. A basic right hand follower algorithm was provided by the supervisers but we decided to tune a P(ID) controller, which resulted in a smoother drive than anyone for the amazebot !
+To setup ROS, run the "install_melodic.sh" script in the scripts directory using sh install_melodic.sh or chmod+x scripts/install_melodic.sh && ./ install_melodic.sh
+You can also use tutorials. There's a bunch of them, including in the ros wiki.
+Now that you have ROS, to setup the project on your local machine:
+If everything went smoothly, you should now have this repo's package as well as its dependencies.
+Running the nodes is quite easy as launch files were made.
+See the open issues for a list of proposed features (and known issues).
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+Otherwise just create the issue yourself, and we'll discuss and assign you to it if serves the project !
+To create a PR:
+Follow the given link to make a successful and valid PR: -a-pull-request/
+To send a PR, follow these rules carefully, otherwise your PR will be closed:
+According to what type of issue you believe it is.
+For any doubts related to the issues, i.e., to understand the issue better etc, comment down your queries on the respective issue.
+Distributed under the MIT License. See LICENSE for more information.
+Erwin Lejeune - @spida_rwin - erwin.lejeune15@gmail.com
+Everyone part of the original team or that assisted throughout the development.
+About the Project
+Setup
+Run
+Reactive
+Teleoperation
+Roadmap
+Contribute
+License
+Contact
+Contributors
+Reactive
+Teleoperation
+Circle Maze : roslaunch robotcraft-ros-navigation circle_maze.launch
+Worldmap Maze : roslaunch robotcraft-ros-navigation reactive.launch
+Square Maze : roslaunch robotcraft-ros-navigation square_maze.launch
+Only one map available : roslaunch robotcraft-ros-navigation teleop.launch
+Nicolas Filliol
+Jan Tiepelt
+Giovanni Alexander Bergamaschi
+Oleksandr Koreiba
+Erwin Lejeune
+Table of Contents
+About the Project
+Setup
+Run
+Roadmap
+Contribute
+License
+Contact
+Contributors
+Amazebot Wallfollowing Package
+Reactive Navigation :
+Teleoperation :
+Contribute on proposed features

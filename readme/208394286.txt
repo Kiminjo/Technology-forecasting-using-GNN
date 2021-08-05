@@ -1,0 +1,66 @@
+Quang-Hieu Pham     Pierre Sevestre     Ramanpreet Singh Pahwa     Huijing Zhan     Chun Ho Pang     Yuda Chen     Armin Mustafa     Vijay Chandrasekhar     Jie Lin    
+A*3D dataset is a step forward to make autonomous driving safer for pedestrians and the public in the real world.
+Paper on arXiv => "A*3D: An Autonomous Driving Dataset in Challeging Environments"
+Click the following .gif for full-version video !
+
+We collect raw sensor data using the A*STAR autonomous vehicle, which is equipped with the following sensors:
+The following depicts the Sensor setup for A*3D data collection vehicle platform.
+The data collection covers the entire Singapore including highways, neighborhood roads, tunnels, urban, suburban, industrial, HDB car parks, coastline, etc.
+NuScenes only covers a small portion of Singapore roads (highlighted in red).
+25% frames with heavy occlusion.
+Radial distance.
+Distribution of object orientation.
+Box dimensions.
+Object-density: Cross-dataset Evaluation
+High object-density vs. Low object-density
+Day-time vs. Night-time
+In progress ...
+If using our data in your research work, please cite the following paper:
+230K human-labeled 3D object annotations in 39,179 LiDAR point cloud frames and corresponding frontal-facing RGB images.
+Captured at different times (day, night) and weathers (sun, cloud, rain).
+[Oct 04, 2019] Note: The ground-truth annotations for test set (1,500 frames) are not released. We encourage you to send us the detection predications on test set for our evaluation, we can post your results on leaderboard with your consent. Will update the evaluation protocol and format shortly.
+[Oct 04, 2019] A*3D is ready for download. To get the dataset, please follow the instructions at Download. Currently, we only release the full set with 1 LiDAR and 1 camera data. We will add data for the other camera later.
+[Sep 27, 2019] We received many requests for download link of A*3D. Still need some time to fix remaining issues like masking out face/license plate, cleaning up the data, finalizing data format, and of course preparing a non-commercial use agreement for signing. It would not take too long (1-2 more weeks), will keep you posted once the data is ready.
+[Sep 23, 2019] A*3D is featured on Import AI, one of the Must-Read AI Newsletters by Open AI’s Jack Clark. See Here.
+Two PointGrey Chameleon3 USB3 Global shutter color cameras (CM3-U3-31S4C-CS) with 55Hz frame rate, 2048 × 1536 resolution.
+A Velodyne HDL-64ES3 3D-LiDAR with 10Hz spinrate, 64 laser beams.
+The data collection covers the entire Singapore including highways, neighborhood roads, tunnels, urban, suburban, industrial, HDB car parks, coastline, etc.
+NuScenes only covers a small portion of Singapore roads (highlighted in red).
+17% frames with high object-density.
+The number of annotations per frame for A*3D dataset are much higher than KITTI dataset.
+The A*3D dataset comprises 7 annotated classes corresponding to the most common objects in road scenes.
+The number of annotations per frame for A*3D dataset are much higher than KITTI dataset.
+The A*3D dataset comprises 7 annotated classes corresponding to the most common objects in road scenes.
+25% frames with heavy occlusion.
+About half of the vehicles are partially or highly occluded.
+Average number of points inside the bounding box of each class and the Log number of points within bounding box.
+Radial distance.
+Distribution of object orientation.
+Box dimensions.
+About half of the vehicles are partially or highly occluded.
+Average number of points inside the bounding box of each class and the Log number of points within bounding box.
+Object-density: Cross-dataset Evaluation
+A pre-trained model of PointRCNN on KITTI suffers almost a 15% drop in mAP on A*3D validation set.
+When trained on our high-density subset, PointRCNN achieves much better performance on the KITTI validation set, especially on Moderate and Hard with almost 10% improvements.
+High object-density vs. Low object-density
+When increasing the training data, the performance improvements are marginal.
+The best result comes from mixing high and low density samples.
+Day-time vs. Night-time
+We are the first to provide a systematic study on the effects of night-time on 3D object detection systems with F-PointNet and AVOD methods.
+A pre-trained model of PointRCNN on KITTI suffers almost a 15% drop in mAP on A*3D validation set.
+When trained on our high-density subset, PointRCNN achieves much better performance on the KITTI validation set, especially on Moderate and Hard with almost 10% improvements.
+When increasing the training data, the performance improvements are marginal.
+The best result comes from mixing high and low density samples.
+We are the first to provide a systematic study on the effects of night-time on 3D object detection systems with F-PointNet and AVOD methods.
+A*3D: An Autonomous Driving Dataset in Challeging Environments
+Introduction
+News
+Video Demonstration
+Dataset
+Benchmarking
+Download
+Citation
+Introduction | News | Video Demonstration | Dataset | Benchmarking | Download
+Sensor Setup
+Data Collection
+Dataset Statistics

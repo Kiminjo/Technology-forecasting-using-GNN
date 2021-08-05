@@ -1,0 +1,5 @@
+Makes the F110 an OpenAI Gym Environment. Also allows distributed computation by offloading batches to a server, and recieving a neural network back. Currently can do a bunch of cool things, check out f110_core.py & algorithms directory to get a better idea.
+Additionally, add f110_gym/src to your PYTHONPATH
+f110_gym
+Description
+Installation

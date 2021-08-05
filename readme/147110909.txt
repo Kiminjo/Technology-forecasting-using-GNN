@@ -1,0 +1,9 @@
+Utilities for autonomous driving. Based on donkeycar autonomous RC-car project
+Recording the training includes saving screencaps and corresponding controller values (throttle and steering axes).
+Training takes your test data in and saves a model file to use for driving.
+Letting the AI behind the wheel means that a script starts taking screencaps and feeding them into the trained neural network model. Neural network then returns throttle and steering value, which in turn are pushed through a virtual joystick.
+maximum-aittack
+Digital racing with supervised learning
+Recording your laps
+Training the model
+Driving

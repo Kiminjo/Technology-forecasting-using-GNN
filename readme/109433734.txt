@@ -1,0 +1,6 @@
+Final project for "Navigating Data Structures" in the Introduction to Self Driving Cars Nanodegree
+To run this project you will need:
+Open project_notebook.ipynb in a Jupyter notebook and go through the instructions listed there!
+isdc-router-planner-project
+Project Requirements
+Reviewer Instructions

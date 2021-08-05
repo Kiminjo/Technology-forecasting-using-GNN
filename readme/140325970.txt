@@ -1,0 +1,23 @@
+
+NoisePage is a relational database management system developed by the Carnegie Mellon Database Group. The research goal of the NoisePage project is to develop high-performance system components that support autonomous operation and optimization as a first-class design principle.
+The NoisePage project is built and tested on Ubuntu 20.04. No other environments are officially supported.
+You can now connect to NoisePage over the Postgres client psql.
+Additional Notes:
+Please see the docs.
+If you are a current student at CMU,
+Contributions from non-CMU students are also welcome!
+Integrated machine learning components to forecast, model, and plan the system's behavior.
+Postgres compatible wire-protocol, SQL, and catalogs.
+Apache Arrow compatible in-memory columnar storage.
+Lock-free multi-version concurrency control.
+Just-in-time query compilation using the LLVM.
+Vectorized execution using relaxed-operator fusion (ROF).
+100% Open-Source (MIT License)
+If you have less than 16 GB of RAM, use -DNOISEPAGE_UNITY_BUILD=OFF in the cmake commands above.
+If you know what you're doing, install the prerequisite packages from ./script/installation/packages.sh manually.
+See the New Student Guide.
+Consider enrolling in one of the database courses.
+Key Features
+Quickstart
+For Developers
+Contributing

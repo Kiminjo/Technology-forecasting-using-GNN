@@ -1,0 +1,2 @@
+Custom autonomous path planner designed to integrate with a modified pure-pursuit path following algorithm. Includes features to support swerve drives. Please contact the team if you would like the Windows installation files.
+AutonomousPathPlanner

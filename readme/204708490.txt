@@ -1,0 +1,28 @@
+The openpass.eclipse.org website is generated with Hugo.
+This project is a work in progress. We are migrating the current website to Hugo.
+The rise of advanced driver assistance systems and partially automated driving functions leads to the need of virtual simulation to assess these systems and their effects.
+
+Install dependencies, build assets and start a webserver:
+This program and the accompanying materials are made available under the terms of the Eclipse Public License v. 2.0 which is available at -2.0.
+SPDX-License-Identifier: EPL-2.0
+Images, less and JavaScript files for the Eclipse Foundation look and feel.
+Hugo theme of the Eclipse Foundation look and feel.
+Have a bug or a feature request? Please search for existing and closed issues. If your problem or idea is not addressed yet, please open a new issue.
+Christopher Guindon (Eclipse Foundation)
+Copyright 2019 the Eclipse Foundation, Inc. and the openpass.eclipse.org authors. Code released under the Eclipse Public License Version 2.0 (EPL-2.0).
+
+
+Jakarta and Jakarta EE are Trademarks of the Eclipse Foundation, Inc.
+Eclipse® is a Trademark of the Eclipse Foundation, Inc.
+Eclipse Foundation is a Trademark of the Eclipse Foundation, Inc.
+openpass.eclipse.org
+Getting started
+Contributing
+Related projects
+Bugs and feature requests
+Author
+Trademarks
+Copyright and license
+Declared Project Licenses
+EclipseFdn/solstice-assets
+EclipseFdn/hugo-solstice-theme

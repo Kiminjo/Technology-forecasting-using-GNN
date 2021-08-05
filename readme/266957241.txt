@@ -1,0 +1,17 @@
+
+
+
+Clone master branch: git clone git@github.com:HotzoneAuto/diamond-auto.git
+build cyber
+build all modules
+Protobuf file generation :
+C/C++ coding style: Apollo adopted the Google C++ Style Guide. Make sure your code conforms to this style guide. You can use command bash apollo.sh lint to check if your code has any style problem. Or C++ Code format:
+Python coding style: Apollo adopted the Google Python Style Guide. You can use the yapf command yapf -i --style='{based_on_style: google}' foo.py to format a file foo.py.
+Diamond Auto: An Autonomous Application Based On Cyber RT
+Environment Setup
+Build
+Development ToolChain
+On site commissioning
+Code Clone
+setup Docker Container
+Coding style

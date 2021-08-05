@@ -1,0 +1,17 @@
+
+
+
+Let's Install Basical Library and Tools:
+ARM Platform :
+X86 Platform:
+More details about teminal.
+More details about develop toolschain you can find here：CyberRT_Developer_Tools
+Geekcar is provided under the MIT License.
+Geek Car, An Autonomous Application Based On Cyber RT
+Architecture
+Environment Setup
+Build Geek car
+Have a try
+Copyright and License
+Code Clone
+Installation

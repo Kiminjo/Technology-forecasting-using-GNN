@@ -1,0 +1,14 @@
+
+Autonomous driving is one of the great technical challenges of our time. There are tons of interesting applications of computer vision to autononmous driving, we'll explore a few of them in this module.
+We'll be using tensorflow to build a neural network in one lecture, but tensorflow (or other deep learning libraries) are not permitted in your programming challenge.
+The Python 3 Anaconda Distribution is the easiest way to get going with the notebooks and code presented here.
+(Optional) You may want to create a virtual environment for this repository:
+You'll need to install the jupyter notebook to run the notebooks:
+This repository requires the installation of a few extra packages, you can install them all at once with:
+(Optional) jupyterthemes can be nice when presenting notebooks, as it offers some cleaner visual themes than the stock notebook, and makes it easy to adjust the default font size for code, markdown, etc. You can install with pip:
+Recommend jupyter them for presenting these notebook (type into terminal before launching notebook):
+Recommend jupyter them for viewing these notebook (type into terminal before launching notebook):
+Autonomous Driving
+Lectures
+Note About Tensorflow
+Setup

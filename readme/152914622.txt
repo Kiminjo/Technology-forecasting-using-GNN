@@ -1,0 +1,52 @@
+
+This is the source code of Team LITdrive, the team of the Johannes Kepler University Linz for the Audi Autonomous Driving Cup 2018. This repository serves as an archive for interested teams and as a starting point for future competitions. You need the ADAS car and the AADC code base in order to setup this project.
+🚗 🚗 🚗
+And some important files:
+If you are working with ADTF, you might want to read about some Common ADTF Pitfalls.
+You might also want to use our famous ZeroMQ filter, which is used for pumping sensor data to a message queue and receiving it with another process, e.g. Python. Find some details on how to use ZeroMQ filters here.
+Additionally, you may find these external guides on ADTF very helpful:
+The following additional libraries need to be installed on the car.
+ZeroMQ is a low-overhead, low-latency, high-speed IPC library, which is used for pumping sensor data to a message queue and receiving it with another program, e.g. Python.
+On Windows, do the following:
+FFTW is a library for computing the discrete Fourier transform (DFT) in one or more dimensions, used on the microphone samples.
+On Windows, download the 64 bit binaries from here, extract the contents to C:\SDK\fftw\fftw-3.3.5-dll64 and execute the following commands in a VS2015 Developer Console (to generate the *.lib files from the *.dll files):
+🐧 Linux-only! This NVIDIA driver enables you to run TensorFlow graphs on the GPU.
+Restart machine and check with
+Eigen is a header-only library for various linear algebra stuff (matrices, vectors, solvers, etc.).
+🐧 Linux-only! Download the precompiled archive from here, extract and copy this to /opt/eigen/3.3.4 (such that you have share and include folders in there).
+Protocol Buffers are the binary message format for TensorFlow graph files.
+🐧 Linux-only! We need to build Protobuf. Prepare the environment with
+Next, download and extract the package
+Next, configure, make, install and update the shared library path
+The libraries should have been installed to /usr/local/lib, you can check this with
+TensorFlow is a machine learning framework used for our own machine learning models.
+🐧 Linux-only! Download the precompiled archive from here, extract and copy this to /opt/tensorflow/1.8.0 (such that you have external, include and lib folders in there). Next, configure the shared library.
+Darknet is an open source neural network framework written in C and CUDA and used for the YOLO Real-Time Object-Detection classifier.
+🐧 Linux-only! We need to build darknet from the sources. Darknet is built with CUDA support, but without OpenCV (the picture is already in raw format) or OpenMP.
+Darknet is now built and ready!
+config holds the ADTF projects LiveVisualization (for development) and UserConfiguration (competition graph)
+configuration_files holds calibration files for the camera, machine learning models, properties, etc.
+data holds map data for the localization filters
+description holds the stream type definitions for ADTF
+doc/adtf-pitfalls holds some notes about common ADTF pitfalls
+include holds headers and libraries (e.g., Eigen) which are used by all projects
+scripts holds some scripts for running the ADTF sessions and preparing the environment
+src/aadcBase holds filters provided by the organizers (arduino communication, jury interface, positioning, etc.)
+src/aadcDemo: holds demo filters for lane detection, object detection, controllers, sensor visualization and processing
+src/aadcUser holds the main filters for the competition, written in C++
+src/aadcUserPython holds the filters written in Python (and some additional notebooks)
+The build_*.sh scripts build, compile and install the project
+AADCConfig.cmake is the CMake configuration for configuring the entire project and all its dependencies
+ADTF3 Guides: Very beginner-friendly tutorial-style introduction (by Digitalwerk)
+ADTF3 Software Documentation: The core objects have very useful documentation
+Team LITdrive - Audi Autonomous Driving Cup 2018
+Project Structure
+Documentation
+Additional Libraries
+ZeroMQ
+FFTW
+NVIDIA Driver 396.xx
+Eigen 3.3.4
+Protobuf 3.5.0
+TensorFlow 1.8.0
+Darknet

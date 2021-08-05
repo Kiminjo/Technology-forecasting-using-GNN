@@ -1,0 +1,8 @@
+
+Awesome automated integration-test generation for robotic systems.
+We strongly encourage installing houston within a Python virtual environment, created via virtualenv or pipenv). To (create and) enter a pipenv project for houston, execute the following:
+Before installing houston, Z3 must be installed from source within the virtual environment:
+Once Z3 is installed, houston can be installed via:
+Houston
+Getting Started
+Executing a test case

@@ -1,0 +1,21 @@
+
+DiRa Platform Website - update soon
+DiRa Youtube Channel - update soon
+Research Pages AutoRally is associated with:
+We welcome bug fixes, ehancements, new features, and feedback at: -corp/DiRa/issues or email: manhlinh.nguyendinh@gmail.com
+Please contact to me before submit pull requests We use Gitflow, so master branch is reserved for releases.
+The documents contained in this repository provide all of the information required to construct and operate a complete DiRa platform. The platform has two primary parts, the chassis and compute box. The platform has two version:
+Look though the documentation and Download Pack1 or Download Pack2 for our latest release. Look over the Getting Started section in the chassis and compute box instruction documents, followed by the parts list and the operating procedures to get a sense of the build process, skill requirements, fabrication methods, and testing procedures. The AutoRally platform can be fabricated by a small team (2-3 students) of non-professionals. The build will go most smoothly if there is at least one person on the team familiar with basic soldering, 3D printing, Ubuntu and ROS configuration. We also link to tutorials for all of the skills required, so any interested party can easily acquire them.
+After learning How to build a DiRa car with DiRa Platfrom Instructions, You can learn and change Software package. You need to start concerning Prerequisite learning programs in Reference folder
+link - update soon
+Pack1: Jetson TK1 with Scale AG car
+Pack2: Jetson TX2 with Traxxas car
+DiRa
+Contributing
+Contents
+DiRa Platform Instructions
+Getting started
+Include folder:
+DiRa Software
+Getting started
+Include folder:

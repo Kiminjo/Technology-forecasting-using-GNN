@@ -1,0 +1,60 @@
+AutoRace 2017 in RoboWorld 2017 RBiz Challenge, Seoul Korea / Team Honey
+This package refers to the MIT Duckie Town source
+First you install turtlebot3 default setting. /
+The following are needed to be installed or downloaded
+turtlebot3_RBIZ package
+install the others
+These packages can be launched by following commands
+run roscore node ( remote pc side )
+run camera , openCR, Lidar node ( turtle_bot side )
+run line detection node ( remote pc side )
+run line filter node ( remote pc side )
+run motor control node ( remote pc side )
+ Please tuning the camera cal value(callibra_ros.yaml) to fit your airframe
+view image
+view topic
+Calibration install package
+Calibration package run
+turtlebot3_RBIZ package
+$ ~/catkin_ws/src && git clone 
+install the others
+$ sudo apt-get install libv4l-dev
+$ sudo apt-get install ros-kinetic-tf-conversions ros-kinetic-cv-bridge ros-kinetic-image-transport ros-kinetic-camera-info-manager ros-kinetic-theora-image-transport ros-kinetic-joy ros-kinetic-image-proc -y
+$ sudo apt-get install ros-kinetic-compressed-image-transport -y
+$ sudo apt-get install libyaml-cpp-dev -y
+$ sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran
+run roscore node ( remote pc side )
+$ roscore
+run camera , openCR, Lidar node ( turtle_bot side )
+$ roslaunch turtlebot3_auto_sensor image_get_usb_camera.launch
+$ roslaunch turtlebot3_bringup turtlebot3_robot.launch
+run line detection node ( remote pc side )
+$ roslaunch line_detect detect_line.launch
+$ Check the operation up to here 
+run line filter node ( remote pc side )
+$ roslaunch lane_filter lane_filter_node.launch
+run motor control node ( remote pc side )
+$ roslaunch motor_control motor_controller_node.launch
+When downloading and running, change the following file path to match your folder location
+File is turtlebot3_auto/line_detect/src/detect_line.py. 
+Modification point is /home/rt/catkin_ws/src/turtlebot3_auto/line_detect/src/callibra_ros.yaml
+Not yet support parking tunnel, Now only support line  
+view image
+$ rviz
+$ add  ->  By topic -> 
+view topic
+$ rqt
+$ 
+Calibration install package
+$ rosdep install camera_calibration
+Calibration package run
+$ roslaunch turtlebot3_auto_sensor image_get_usb_camera.launch
+$ rosrun camera_calibration cameracalibrator.py --size 7x5 --square 0.031 image:=/image_raw camera:=/
+$ use calibration pattern calibration pattern.pdf 
+and save calibration data  -> turtlebot3_auto/line_detect/src/callibra_ros.yaml
+autorace2017-team-honey
+Install
+Run
+Caution
+Tool
+Camera Calibration

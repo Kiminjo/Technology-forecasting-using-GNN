@@ -1,0 +1,34 @@
+This repository allows to run an autonomous mobility-on-demand scenario using the amodeus library.
+Try it, orchestrate your own fleet of amod-taxis! Watch a visualization of a traffic simulation in San Francisco generated using this repository.
+
+
+
+
+AMoDeus is jointly maintained and further developed by the Admins and Code Owners Christian Fluri (ETH Zürich), Joel Gächter (ETH Zürich), Sebastian Hörl (ETH Zürich), Claudio Ruch, Jan Hakenberg, ChengQi Lu (TU Berlin), and Marc Albert (nuTonomy).
+Please let us know if you'd like to contribute!
+The code format of the amod repository is specified in the amodeus profile that you can import from amodeus-code-style.xml.
+Follow these step-by-step instructions or the video to set up, prepare, and run your first simulation. You can get a sample simulation scenario at /
+
+Zurich
+
+San Francisco
+
+San Francisco
+TODO improve and adapt documentation, de-dockerize Run docker-compose up to run the San Fransisco simulation. This will run two services, aido-host and aido-guest, which will communicate over port 9382.
+The protocol is specified here.
+
+You may work on a Linux, Mac or Windows OS with a set of different possible IDEs. The combination Ubuntu, Java 8, Eclipse has worked well.
+Install Java SE Development Kit (version 8, or above)
+Install Apache Maven
+Install IDE (ideally Eclipse Oxygen or Photon)
+Install GLPK and GLPK for Java (Ensure you install compatible versions, e.g. here)
+Prerequisites are: GCC, Libtool, Swig and Subversion
+Install Git and connect to GitHub with SSH
+Prerequisites are: GCC, Libtool, Swig and Subversion
+amodeus.amod
+Admins
+First steps in the amod repository
+Gallery
+String Interface
+Prerequisites
+Getting Started

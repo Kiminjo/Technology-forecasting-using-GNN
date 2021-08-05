@@ -1,0 +1,20 @@
+This is our bachelor project at the Chair for Autonomous Intelligent Systems at the University of Freiburg for a self-driving car based on the paper "End-to-End Driving via Conditional Imitation Learning" by Codevilla et al. Here we implement the architecture given in the paper and attempt to create variations and improvements, including a version which first attempts to first perform semantic segmentation on the camera image first.
+
+This architecture is designed to run a simulated vehicle within Unreal Engine with the AirSim plugin.
+
+The different network variations are:
+Our architecture performs well and generalizes to new unseen environments quite well. The best performing variation is segmented, although we believe with more training, the self segmentation variation can perform equally well. We were unable to train the self segmentation network fully due to time constraints.
+To use our network, run the following command in a command line interpreter:
+Alternatively, to train the network, the following can be used:
+Our command line tool can unfortunately only run the standard network (i.e. with a single forward facing camera).
+We have also created a GUI for simpler usage. Open it with:
+It also allows the selection of the different network variations.
+This project is released under the GNU General Public License v3.0. Please review the License file for more details.
+AISProject
+Demo
+Network variations
+Results
+Usage
+License
+Command-Line
+GUI

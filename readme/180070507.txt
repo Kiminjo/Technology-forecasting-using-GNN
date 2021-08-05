@@ -1,0 +1,44 @@
+
+This repository contains applications and tools to help understand and develop Deep Learning Applications for NVIDIA AGX Platforms (DRIVE, Jetson and CLARA). The AGX Family is based around the Xavier SoC, a high performance Aarch64 based processor that is automotive safety grade. On board are a number of accelerators to help accelerate Deep Learning workloads. These include a Volta Based Integrated GPU, multiple Deep Learning Accelerators (DLA), multiple Programmable Vision Accelerators (PVA) as well as other ISPs and Video processors. For more information on Xavier check -agx.
+This repo uses bazel via a tool called dazel () to manage builds and cross-compilation inside a docker container.
+Install Docker
+Install NVIDIA-Docker
+Install Dazel
+Build the relevant docker container using one of the Dockerfiles provided in //docker
+Modify Dockerfile.dazel to be based on the image you just built
+Dazel behaves like bazel but runs the compilation in a specified docker container. Therefore traditional bazel commands work like:
+You will find the associated binaries in //bazel-out/k8-fastbuild/plugins/dali/TensorRTInferOp/libtensorrtinferop.so
+The AGX platforms are aarch64 based, so we need to cross compile the applications:
+There are two supported toolchains:
+In order to use this toolchain you must and have built a container that supports aarch64-linux (Dockerfiles will have names that contain aarch64-linux or both)
+To cross-compile targets for aarch64-linux append the following flag to your build command: --config=D5L-toolchain
+You will find the associated binaries in //bazel-out/aarch64-fastbuild/plugins/dali/TensorRTInferOp/libtensorrtinferop.so
+Note: D5L-toolchain is aliased to L4T-toolchain for Jetson users' convenience
+In order to use this toolchain you must obtain the QNX Toolchain and have built a container that supports QNX (Dockerfiles will have names that contain aarch64-qnx or both)
+To cross-compile targets for aarch64-qnx append the following flag to your build command: --config=D5Q-toolchain
+You will find the associated binaries in //bazel-out/aarch64-fastbuild/plugins/dali/TensorRTInferOp/libtensorrtinferop.so
+By default --config=[D5L/D5Q/L4T]-toolchain will target the latest supported version. Since versions might use slightly different dependencies, to build using an older build container you will also need to specify the exact PDK version you are targeting.
+If you want to run a target in a container, use a command similar to the following:
+This application demonstrates how to use DALI () and TensorRT () in order to create accelerated inference pipelines that leverage more than one accelerator on the Xavier SoC.
+If you rebuild a container but have not changed the name of it, dazel may not pick up that the environment has changed. To trigger a manual rebuild of the environment do:
+/
+-docker
+pip3 install dazel
+More precise instructions can be found in that directory's (README.md)
+e.g. FROM nvidia/drive_pdk:5.1.3.0
+e.g. dazel build //plugins/dali/TensorRTInferOp:libtensorrtinferop.so --config=D5L-toolchain
+e.g. dazel build //plugins/dali/TensorRTInferOp:libtensorrtinferop.so --config=D5Q-toolchain
+e.g. dazel build //plugins/dali/TensorRTInferOp:libtensorrtinferop.so --config=D5L-toolchain --define platforms=drive_pdk_5.1.6.0+linux
+DL4AGX
+Getting Started
+Applications
+Troubleshooting Steps
+Installing Dependencies
+Compiling Applications
+Cross-Compiling Applications
+Running Compiled Targets in a Container
+Multi-Device Inference Pipelines
+Refreshing the Build container
+aarch64-linux
+aarch64-qnx
+Building for older PDKs

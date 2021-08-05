@@ -1,0 +1,52 @@
+NOT MY WORK! Imported from , should be related to .
+This repository provides an Ackermann type of RC car simulation environment using V-REP and ROS. There are software packages integrated in order to make this happen.
+You can obtain nav_msgs/Odometry, sensor_msgs/IMU, tf, nav_msgs, geometry_msgs/Twist, sensor_msgs/Image, and sensor_msgs/LaserScan from the simulator. More precisely, the following are all ROS topic messages from V-REP. ##Topic name | message type##
+This repo integrates many existing open-source ROS packages such as
+The V-REP RC car scene model is from , and only a map, and sensors configurations are slightly modified. Other than that, the V-REP scene model is identical.
+ provides to publish ROS sensor_msgs/IMU topic message.
+ is used to provide extra simulated clock source. This software package simply publishes /clock topic based on the current machine clock.
+-planning/navigation is also used for mapping, localisation, and path planning. Frankly speaking, these software packages contain much information and may be a bit complicated those who isn't familiar with the basic understandings of some related theories. However there are awesome tutorials provided by ROS and other resources may help you get through the challenges. Note that you need this package for testing. Please run following commands for compilation.
+
+Autonomous navigation using a laser scanner 
+Up-to-scale poses estimation using ORB-SLAM 
+Install ROS indigo. Please follow instructions from [](Link URL) if you haven't installed it.
+Install V-REP. Please download V-REP 3.3.1 from [](Link URL) to your favourite folder.
+cloning this repo by typing
+open a terminal and run V-REP by typing
+at your V-REP installed path.
+and multiple topics recording are also possible by
+Here are some possible troubles and their workarounds that I found. Hope this helps somehow.
+Error message: YourPath/indigo_catkin_ws/src/autonomousrc_car/ackermann_robot/src/simulation.cpp:8:34: fatal error: vrep_common/VrepInfo.h: No such file or directory #include "vrep_common/VrepInfo.h" ^ compilation terminated. make[2]: *** [CMakeFiles/simulation.dir/src/simulation.cpp.o] Error 1 make[1]: *** [CMakeFiles/simulation.dir/all] Error 2
+Workaround "catkin clean" at YourPath/indigo_catkin_ws and "catkin build" again.
+Error message: ERROR: cannot launch node of type [teleop_twist_keyboard/teleop_twist_keyboard.py]: or ERROR: cannot launch node of type [map_server/map_server]: map_server
+Workaround Install dependencies and please have a look "Which are software packages included in this repo" section.
+Error message: My robot is not moving...or nothing happening.
+Workaround Please try to set a goal by clicking 2D Nav Goal from rviz top toolbar and dragging on rviz viewer (you will be able to see a green arrow).
+
+The V-REP RC car scene model is from , and only a map, and sensors configurations are slightly modified. Other than that, the V-REP scene model is identical.
+ provides to publish ROS sensor_msgs/IMU topic message.
+ is used to provide extra simulated clock source. This software package simply publishes /clock topic based on the current machine clock.
+-planning/navigation is also used for mapping, localisation, and path planning. Frankly speaking, these software packages contain much information and may be a bit complicated those who isn't familiar with the basic understandings of some related theories. However there are awesome tutorials provided by ROS and other resources may help you get through the challenges. Note that you need this package for testing. Please run following commands for compilation.
+ is the-state-of-the-art Monocular SLAM open source software package and it is not necessary to run the simulator, but it is a good example to demonstrate the images from V-REP can be utilised for other vision-based application.
+Install ROS indigo. Please follow instructions from [](Link URL) if you haven't installed it.
+Install V-REP. Please download V-REP 3.3.1 from [](Link URL) to your favourite folder.
+cloning this repo by typing
+ROS package compilation by
+Running V-REP
+Open 4 terminals and run following 4 commands for each terminal.
+If you want to see rostopic lists, then type
+If you want to see images or plot by choosing visualization and add image_view and plot
+If you want to record data from V-REP, then type
+create an empty folder.
+move into the empty folder, and type
+open a new terminal and play bag file by
+NOTE!!
+Here are the video demonstrations of these packages##
+Extracting images from a bag file
+What is this repository for?
+What can you do with this repo?
+Which are software packages included in this repo?###
+How do I get set up?
+How can I run all packages?
+How can I see rostopic and record data?
+Troubles and possible workarounds

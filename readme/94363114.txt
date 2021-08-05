@@ -1,0 +1,20 @@
+We are using Unity 2017.2.
+These commands will handle updating of the ROS submodules. Run them from the top directory of the project using git bash.
+git submodule update --init
+cd Assets/ROSBridgeLib
+git reset --hard HEAD
+printf '[submodule "Pointcloud"]\n\tpath = Pointcloud\n\turl = '>.gitmodules
+git submodule sync
+git submodule update --init
+Our Documentation
+Tablet Interface
+Fastrack
+Userpath Fastrack
+Oculus Input SDK
+Oculus Avatar SDK
+VRTK Documentation
+VRTK Releases
+Immersive Semi-Autonomous Aerial Command System
+Setup
+Related Repositories
+Additional Documentation

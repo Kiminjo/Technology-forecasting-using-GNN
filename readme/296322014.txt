@@ -1,0 +1,37 @@
+Paper | Slides | Project Page | ECCV 2020 Oral Video
+Ming Liang, Bin Yang, Rui Hu, Yun Chen, Renjie Liao, Song Feng, Raquel Urtasun
+Rank 1st in Argoverse Motion Forecasting Competition
+
+You need to install following packages in order to run the code:
+if you have any issues regarding horovod, please refer to horovod github
+You could check the scripts, and download the processed data instead of running it for hours.
+It takes 8 hours to train the model in 4 GPUS (RTX 5000) with horovod.
+We also supply training log for you to debug.
+You can download pretrained model from here
+Qualitative results
+Labels(Red) Prediction (Green) Other agents(Blue)
+
+Quantitative results
+check LICENSE
+If you use our source code, please consider citing the following:
+If you have any questions regarding the code, please open an issue and @chenyuntc.
+Install Dependancy
+Prepare Data
+Training
+Testing
+Licence
+Citation
+PyTorch>=1.3.1
+Argoverse API
+LaneGCN: Learning Lane Graph Representations for Motion Forecasting
+Table of Contents
+Install Dependancy
+Prepare Data: Argoverse Motion Forecasting
+Training
+Testing
+Licence
+Citation
+[Recommended] Training with Horovod-multigpus
+[Recommended] Training/Debug with Horovod in single gpu
+Inference test set for submission
+Inference validation set for metrics

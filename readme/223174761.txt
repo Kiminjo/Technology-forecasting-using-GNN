@@ -1,0 +1,50 @@
+
+This is the repository for the Hyrise Cockpit. The goal of the Cockpit is to visualise the runtime behaviour of multiple Hyrise instances. For that the Cockpit can generate a mix of workloads to set the Hyrise instances under pressure. It is also possible to activate different plugins on different Hyrise instances and compare the impact of them.
+For more information related to the Hyrise database, please refer to .
+The Hyrise Cockpit is mainly developed for Linux (preferrably Ubuntu 20.04 LTS version). It also supports Mac to facilitate the local development of the Cockpit.
+The Cockpit supports a number of benchmarks (the benchmarks are meant to facilitate research, not for TPC-compliant benchmarking; e.g., the TPC-H benchmark does not include the refresh stream).
+It is possible to combine different benchmarks. A benchmark/workload is defined via a driver. If you want to implement your own benchmark/workload please have a look at -a-Driver .
+The current plugins are supported at the moment:
+There are three different set ups available:
+To install the Cockpit natively, please have a look at:
+-(Native-Setup)
+It is possible to run the Cockpit completely in docker. The docker setup also includes two Hyrise instances for the Cockpit with all necessary dependencies (benchmark tables, plugins). This setup is at the moment the easiest to setup. Please checkout the following guide for the setup:
+-Setup
+To use a native Hyrise database (not in docker) it is very important that you set it up correctly to work with the Cockpit. You find a detailed guide under:
+-Things
+You can also use a native Hyrise with a running Cockpit in docker.
+If you want to contribute to this project you can setup the development environment described like in the following guide:
+-Environment-Setup
+You can find a detailed guide on how to use the Cockpit under -guide.
+Compression
+Clustering
+IndexSelection
+Native installation
+Docker set up
+Developer set up
+@Alexander-Dubrawski
+@Bensk1
+@Bouncner
+@Alexander-Dubrawski
+@Bensk1
+@Bouncner
+@caterinamandel98
+@cH3n7i
+@fabianhe
+@kathwill
+@MaxSchneider1337
+@monasobh
+@PeterTsayun
+@schTi
+Hyrise Cockpit
+Getting started
+Using the Cockpit
+Maintainers
+Contributors
+Supported Systems
+Supported Benchmarks
+Supported Plugins
+Install Cockpit
+Using Docker
+Setting up native Hyrise Database
+Setting up development environment

@@ -1,0 +1,263 @@
+
+A curated list of awesome LIDAR sensors and its applications.
+LIDAR is a remote sensing sensor that uses laser light to measure the surroundings in ~cm accuracy. The sensory data is usually referred as point cloud which means set of data points in 3D or 2D. The list contains hardwares, datasets, point cloud-processing algorithms, point cloud frameworks, simulators etc.
+Contributions are welcome! Please check out our guidelines.
+Conventions
+Manufacturers
+Datasets
+Libraries
+Frameworks
+Algorithms
+Basic matching algorithms
+Semantic segmentation
+Simultaneous localization and mapping SLAM and LIDAR-based odometry and or mapping LOAM
+Object detection and object tracking
+Simulators
+Related awesome
+Others
+Basic matching algorithms
+Semantic segmentation
+Simultaneous localization and mapping SLAM and LIDAR-based odometry and or mapping LOAM
+Object detection and object tracking
+Any list item with an OctoCat has a GitHub repo or organization
+Any list item with a RedCircle 🔴 has YouTube videos or channel
+Any list item with a Paper 📰 has a scientific paper or detailed description
+Velodyne - Velodyne is a mechanical and solid-state LIDAR manufacturer. The headquarter is in San Jose, California, USA.
+YouTube channel 🔴
+ROS driver
+Ouster - LIDAR manufacturer, specializing in digital-spinning LiDARs. Ouster is headquartered in San Francisco, USA.
+YouTube channel 🔴
+GitHub organization
+Livox - LIDAR manufacturer.
+YouTube channel 🔴
+GitHub organization
+SICK - Sensor and automation manufacturer, the headquarter is located in Waldkirch, Germany.
+YouTube channel 🔴
+GitHub organization
+Hokuyo - Sensor and automation manufacturer, headquartered in Osaka, Japan.
+YouTube channel 🔴
+Pioneer - LIDAR manufacturer, specializing in MEMS mirror-based raster scanning LiDARs (3D-LiDAR). Pioneer is headquartered in Tokyo, Japan.
+YouTube channel 🔴
+Luminar - LIDAR manufacturer focusing on compact, auto-grade sensors. Luminar is headquartered Palo Alto, California, USA.
+Vimeo channel 🔴
+GitHub organization
+Hesai - Hesai Technology is a LIDAR manufacturer, founded in Shanghai, China.
+YouTube channel 🔴
+GitHub organization
+Robosense - RoboSense (Suteng Innovation Technology Co., Ltd.) is a LIDAR sensor, AI algorithm and IC chipset maufactuirer based in Shenzhen and Beijing (China).
+YouTube channel 🔴
+GitHub organization
+Ibeo - Ibeo Automotive Systems GmbH is an automotive industry / environmental detection laserscanner / LIDAR manufacturer, based in Hamburg, Germany.
+YouTube channel 🔴
+Innoviz - Innoviz technologies / specializes in solid-state LIDARs.
+YouTube channel 🔴
+Quanenergy - Quanenergy Systems / solid-state and mechanical LIDAR sensors / offers End-to-End solutions in Mapping, Industrial Automation, Transportation and Security. The headquarter is located in Sunnyvale, California, USA.
+YouTube channel 🔴
+Cepton - Cepton (Cepton Technologies, Inc.) / pioneers in frictionless, and mirrorless design, self-developed MMT (micro motion technology) lidar technology. The headquarter is located in San Jose, California, USA.
+YouTube channel 🔴
+Blickfeld - Blickfeld is a solid-state LIDAR manufacturer for autonomous mobility and IoT, based in München, Germany.
+YouTube channel 🔴
+GitHub organization
+Neuvition - Neuvition is a solid-state LIDAR manufacturer based in Wujiang, China.
+YouTube channel 🔴
+YouTube channel 🔴
+ROS driver
+YouTube channel 🔴
+GitHub organization
+YouTube channel 🔴
+GitHub organization
+YouTube channel 🔴
+GitHub organization
+YouTube channel 🔴
+YouTube channel 🔴
+Vimeo channel 🔴
+GitHub organization
+YouTube channel 🔴
+GitHub organization
+YouTube channel 🔴
+GitHub organization
+YouTube channel 🔴
+YouTube channel 🔴
+YouTube channel 🔴
+YouTube channel 🔴
+YouTube channel 🔴
+GitHub organization
+YouTube channel 🔴
+Ford Dataset - The dataset is time-stamped and contains raw data from all the sensors, calibration values, pose trajectory, ground truth pose, and 3D maps. The data is Robot Operating System (ROS) compatible.
+Paper 📰
+GitHub repository
+Audi A2D2 Dataset - The dataset features 2D semantic segmentation, 3D point clouds, 3D bounding boxes, and vehicle bus data.
+Paper 📰
+Waymo Open Dataset - The dataset contains independently-generated labels for lidar and camera data, not simply projections.
+Oxford RobotCar - The Oxford RobotCar Dataset contains over 100 repetitions of a consistent route through Oxford, UK, captured over a period of over a year.
+YouTube channel 🔴
+Paper 📰
+EU Long-term Dataset - This dataset was collected with our robocar (in human driving mode of course), equipped up to eleven heterogeneous sensors, in the downtown (for long-term data) and a suburb (for roundabout data) of Montbéliard in France. The vehicle speed was limited to 50 km/h following the French traffic rules.
+NuScenes - Public large-scale dataset for autonomous driving.
+Paper 📰
+Lyft - Public dataset collected by a fleet of Ford Fusion vehicles equipped with LIDAR and camera.
+KITTI - Widespread public dataset, pirmarily focusing on computer vision applications, but also contains LIDAR point cloud.
+Semantic KITTI - Dataset for semantic and panoptic scene segmentation.
+YouTube video 🔴
+CADC - Canadian Adverse Driving Conditions Dataset - Public large-scale dataset for autonomous driving in adverse weather conditions (snowy weather).
+Paper 📰
+UofTPed50 Dataset - University of Toronto, aUToronto's self-driving car dataset, which contains GPS/IMU, 3D LIDAR, and Monocular camera data. It can be used for 3D pedestrian detection.
+Paper 📰
+PandaSet Open Dataset - Public large-scale dataset for autonomous driving provided by Hesai & Scale. It enables researchers to study challenging urban driving situations using the full sensor suit of a real self-driving-car.
+Cirrus dataset A public datatset from non-uniform distribution of LIDAR scanning patterns with emphasis on long range. In this dataset Luminar Hydra LIDAR is used. The dataset is available at the Volvo Cars Innovation Portal.
+Paper 📰
+Paper 📰
+GitHub repository
+Paper 📰
+YouTube channel 🔴
+Paper 📰
+Paper 📰
+YouTube video 🔴
+Paper 📰
+Paper 📰
+Paper 📰
+Point Cloud Library (PCL) - Popular highly parallel programming library, with numerous industrial and research use-cases.
+GitHub repository
+Open3D library - Open3D library contanins 3D data processing and visualization algorithms. It is open-source and supports both C++ and Python.
+GitHub repository
+YouTube channel 🔴
+PyTorch Geometric 📰 - A geometric deep learning extension library for PyTorch.
+GitHub repository
+PyTorch3d - PyTorch3d is a library for deep learning with 3D data written and maintained by the Facebook AI Research Computer Vision Team.
+GitHub repository
+Kaolin - Kaolin is a PyTorch Library for Accelerating 3D Deep Learning Research written by NVIDIA Technologies for game and application developers.
+GitHub repository
+Paper 📰
+PyVista - 3D plotting and mesh analysis through a streamlined interface for the Visualization Toolkit.
+GitHub repository
+Paper 📰
+pyntcloud - Pyntcloud is a Python 3 library for working with 3D point clouds leveraging the power of the Python scientific stack.
+GitHub repository
+GitHub repository
+GitHub repository
+YouTube channel 🔴
+GitHub repository
+GitHub repository
+GitHub repository
+Paper 📰
+GitHub repository
+Paper 📰
+GitHub repository
+Autoware - Popular framework in academic and research applications of autonomous vehicles.
+GitLab repository
+Paper 📰
+Baidu Apollo - Apollo is a popular framework which accelerates the development, testing, and deployment of Autonomous Vehicles.
+GitHub repository
+YouTube channel 🔴
+GitLab repository
+Paper 📰
+GitHub repository
+YouTube channel 🔴
+Iterative closest point 🔴 - The must-have algorithm for feature matching applications (ICP).
+Normal distributions transform 🔴 - More recent massively-parallel approach to feature matching (NDT).
+RangeNet++ 📰 - Fast and Accurate LiDAR Sematnic Segmentation with fully convolutional network.
+GitHub repository
+YouTube video 🔴
+PolarNet 📰 - An Improved Grid Representation for Online LiDAR Point Clouds Semantic Segmentation.
+GitHub repository
+YouTube video 🔴
+Frustum PointNets 📰 - Frustum PointNets for 3D Object Detection from RGB-D Data.
+GitHub repository
+Study of LIDAR Semantic Segmentation - Scan-based Semantic Segmentation of LiDAR Point Clouds: An Experimental Study IV 2020.
+Paper 📰
+GitHub repository
+GitHub repository
+YouTube video 🔴
+GitHub repository
+YouTube video 🔴
+GitHub repository
+Paper 📰
+GitHub repository
+LOAM J. Zhang and S. Singh 🔴 - LOAM: Lidar Odometry and Mapping in Real-time.
+LeGO-LOAM - A lightweight and ground optimized lidar odometry and mapping (LeGO-LOAM) system for ROS compatible UGVs.
+YouTube video 🔴
+Cartographer - Cartographer is ROS compatible system that provides real-time simultaneous localization and mapping (SLAM) in 2D and 3D across multiple platforms and sensor configurations.
+YouTube video 🔴
+SuMa++ 📰 - LiDAR-based Semantic SLAM.
+GitHub repository
+YouTube video 🔴
+OverlapNet 📰 - Loop Closing for LiDAR-based SLAM.
+GitHub repository
+YouTube video 🔴
+LIO-SAM 📰 - Tightly-coupled Lidar Inertial Odometry via Smoothing and Mapping.
+GitHub repository
+YouTube video 🔴
+YouTube video 🔴
+YouTube video 🔴
+GitHub repository
+YouTube video 🔴
+GitHub repository
+YouTube video 🔴
+GitHub repository
+YouTube video 🔴
+Learning to Optimally Segment Point Clouds 📰 - By Peiyun Hu, David Held, and Deva Ramanan at Carnegie Mellon University. IEEE Robotics and Automation Letters, 2020.
+YouTube video 🔴
+GitHub repository
+Leveraging Heteroscedastic Aleatoric Uncertainties for Robust Real-Time LiDAR 3D Object Detection 📰 - By Di Feng, Lars Rosenbaum, Fabian Timm, Klaus Dietmayer. 30th IEEE Intelligent Vehicles Symposium, 2019.
+YouTube video 🔴
+What You See is What You Get: Exploiting Visibility for 3D Object Detection 📰 - By Peiyun Hu, Jason Ziglar, David Held, Deva Ramanan, 2019.
+YouTube video 🔴
+GitHub repository
+YouTube video 🔴
+GitHub repository
+YouTube video 🔴
+YouTube video 🔴
+GitHub repository
+CoppeliaSim - Cross-platform general-purpose robotic simulator (formerly known as V-REP).
+YouTube channel 🔴
+OSRF Gazebo - OGRE-based general-purpose robotic simulator, ROS/ROS2 compatible.
+GitHub repository
+CARLA - Unreal Engine based simulator for automotive applications. Compatible with Autoware, Baidu Apollo and ROS/ROS2.
+GitHub repository
+YouTube channel 🔴
+LGSVL - Unity Engine based simulator for automotive applications. Compatible with Autoware, Baidu Apollo and ROS/ROS2.
+GitHub repository
+YouTube channel 🔴
+AirSim - Unreal Engine based simulator for drones and automotive. Compatible with ROS.
+GitHub repository
+YouTube video 🔴
+YouTube channel 🔴
+GitHub repository
+GitHub repository
+YouTube channel 🔴
+GitHub repository
+YouTube channel 🔴
+GitHub repository
+YouTube video 🔴
+Awesome point cloud analysis
+Awesome robotics
+Awesome robotics libraries
+Awesome ROS2
+Awesome artificial intelligence
+Awesome computer vision
+Awesome machine learning
+Awesome deep learning
+Awesome reinforcement learning
+Awesome SLAM datasets
+Awesome electronics  
+Awesome vehicle security and car hacking
+Pointcloudprinter - A tool to turn point cloud data from aerial lidar scans into solid meshes for 3D printing.
+Pcx - Point cloud importer/renderer for Unity.
+Bpy - Point cloud importer/renderer/editor for Blender, Point Cloud visualizer.
+Semantic Segmentation Editor - Point cloud and image semantic segmentation editor by Hitachi Automotive And Industry Laboratory.
+Photogrammetry importer - Blender addon to import reconstruction results of several libraries.
+Awesome LIDAR
+Contents
+Conventions
+Manufacturers
+Datasets
+Libraries
+Frameworks
+Algorithms
+Simulators
+Related awesome
+Others
+Basic matching algorithms
+Semantic segmentation
+Simultaneous localization and mapping SLAM and LIDAR-based odometry and or mapping LOAM
+Object detection and object tracking

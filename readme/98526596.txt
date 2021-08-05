@@ -1,0 +1,17 @@
+
+Sources for AutoRace Track settings
+
+
+
+
+
+
+Get 3D CAD model data of the race track from the folder
+Get Sources of AutoRace Referee system run in OpenCR board from autorace_referee
+AutoRace Track sources
+RBiz Challenge 2017 TurtleBot3 AutoRace
+AutoRace 2018 (Maybe in ROSCon2018?)
+If you need more information, please contact contactus2@robotis.com
+Video - Event
+Video - Team RealRiceThief (1st Place Prize)
+Video - Team Sherlotics

@@ -1,0 +1,30 @@
+The result of our work can be seen in this short video:
+
+In simulators/speed-dreams execute the following commands:
+Mosquitto (/), which is not provided by this repository
+Run time dependencies, which can be looked up in the respective directories of the simulators and genode
+Libboost (vers. 1.58 or higher)
+Protobuf (library and compiler in vers. 3)
+The repository consists of multiple submodules, which first need to be fetched via git submodule update --init.
+Please follow the instructions in SA/VM, but it's only necessary to do this process once (so don't redo it if you already did all the step in SA/VM).
+One can adapt the address and port SD2 listens on for the QEMU SA/VM connection in simulations/speed-dreams/src/drivers/human/human.cpp
+For the SA/VM and ECU, one can adapt the configuration by using the *.run files in the respective directories
+Start a mosquitto server
+Start speed-dreams 2 by executing ./simulators/speed-dreams/build/games/speed-dreams-2
+Configure a race in speed-dreams to consist of 3 usr bots and 1 human player (use the espie track) and start it
+Start up the QEMU SA/VM by executing make -C build/genode-foc_x86_64/ run/savm (it will connect to speed-dreams)
+Start up the QEMU ECU by executing make -C build/genode-foc_x86_64/ run/ecu
+In speed-dreams: press the 'enter' key and reduce the simulation time to 0.25 by pressing the '-' key two times (this may be unnecessary, depending on your configuration - if you're unsure, just use 0.25 and slowly increase the simulation speed with the '+' key until it becomes unresponsive)
+Use the provided mosquitto_pub by mosquitto to publish the go command: ./mosquitto_pub -h <ip-address> -p <port> -t state -m 'go; 1'
+The bot will now autonomously park, the controls will be reactivated once the car is done parking
+To abort the parking manoeuver, just publish go with value 0: ./mosquitto_pub -h <ip-address> -p <port> -t state -m 'go; 0'
+Final Result
+Repository structure
+Dependencies
+Build instructions
+Configuration
+Run instructions
+Execute parking scenario
+Speed-dreams 2
+SA/VM
+ECU

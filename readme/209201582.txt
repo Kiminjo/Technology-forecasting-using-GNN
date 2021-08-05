@@ -1,0 +1,6 @@
+2019-2020 code for Scoops the robot.
+/robot/: code to run on robot
+/frontend/: code to run on control center computer
+/docs/: documentation
+robot2020
+Directory Structure

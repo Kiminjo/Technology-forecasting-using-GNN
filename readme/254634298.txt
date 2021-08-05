@@ -1,0 +1,28 @@
+This repository is based on A2-Synchroton and contains an implementation of STARC (Synchronous Transmissions for Autonomous Reservation Coordination). STARC is a decentralized protocol for intersection management of autonomous vehicles. The movement is coordinated using reservations to guarantee safe crossings. Chaos constitutes the foundation of the protocol. STARC extends Chaos with dynamic network support as well as an election and handover mechanism to cooperatively manage the intersection in a distributed manner.
+The STARC protocol itself is implemented in Contiki and is accompanied by a VANET plugin for Cooja. Its current implementation in Contiki OS targets the TelosB Sky platform.
+Please start with the basic Contiki installation at -ng/contiki-ng/wiki. The docker setup might be a good way to get things working quickly. Afterward, just clone this repository and execute the following steps (inside the container if you are using docker).
+We first need to build the Cooja JAR:
+We are then able to build the VANET plugin:
+Add the plugin to the Cooja project dirs in the ~/.cooja.user.properties or activate the plugin manually in Cooja.
+Then run Cooja:
+You can then just load the wanted simulation from the root folder. Use sim-starc.csc for the STARC and sim-traffic-lights.cscfor the traffic lights scenario.
+As the simulation does not contain any nodes, you may need to start the simulation with CTRL+S.
+You can alter simulation params manually in the simulation files:
+The following table describes the available parameters:
+The Chaos interval is fixed at compile time. The compile command therefore needs to be adjusted. An example for 2 seconds:
+Radio failures are injected at compile time. The compile command also needs to be changed. To inject failures, add another failures argument to the compile command:
+You can specify failures using the inverse of the failure rate. To inject failures with a probability of 0.001 you would use
+The STARC protocol is implemented in two separate components. The first one is the driving control that is part of the VANET plugin for Cooja (written in Java). The second is the intersection node based on Chaos/A2-Synchroton written in C for ContikiOS. They communicate using a serial connection with custom encoding to send binary data.
+The intersection node runs the STARC protocol and handles the Chaos communication. You can find the relevant code in a2-synchrotron-contiki/apps/chaos/intersection/intersection-node.c. The next table gives an overview of the different classes used.
+The VANET plugin simulates the dynamic behavior of the vehicles. For each vehicle, a Contiki node is created, that is simulated by the main Contiki simulation. Each Contiki node is linked to its vehicle and acts as a transmitter for the STARC protocol. The plugin handles the driving and the resulting physics and synchronizes the position of the node with the position of the car to create the corresponding radio environment. We thus simulate the effect of the changing positions due to the vehicles’ movement on the signal strength. A serial connection enables the communication between the node and the vehicle. A node in Cooja represents a radio transmitter module of its vehicle, while the plugin handles the autonomous driving of the car. The main simulation of Cooja is simulated in steps of milliseconds. Cooja executes the simulation of the plugin every 20 ms. Cars, sensors, and the node positions are hence updated 50 times in a simulated second.
+You find the VANET plugin at a2-synchrotron-contiki/tools/cooja/apps/cooja-vanet-plugin. The most important files are listed below.
+For questions regarding A2-Synchroton, we refer to the official A2-Synchroton repository. In case of any further questions, don't hesitate to write an email to starc(at)patrickrathje.de
+STARC
+How do I get set up?
+Overview
+Intersection Node
+Who do I talk to?
+Simulation Parameters
+VANET Plugin for Cooja
+Changing the Chaos Interval
+Adding Radio Failures

@@ -1,0 +1,7 @@
+Autonomous underwater vehicle platform based on ROS
+Install dependencies:
+Initialize and update git submodules used in project:
+Use following commands to build:
+Do not forget to setup workspace before you start to work:
+stingray
+Building

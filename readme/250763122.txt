@@ -1,0 +1,20 @@
+
+
+
+You only look once (YOLO) is a state-of-the-art, real-time object detection system. On a Pascal Titan X it processes images at 30 FPS and has a mAP of 57.9% on COCO test-dev.
+YOLOv3 is extremely fast and accurate. In mAP measured at .5 IOU YOLOv3 is on par with Focal Loss but about 4x faster. Moreover, you can easily tradeoff between speed and accuracy simply by changing the size of the model, no retraining required!
+YOLOv3 uses a few tricks to improve training and increase performance, including: multi-scale predictions, a better backbone classifier, and more.
+For Further Reference, click here.
+
+
+Vedant Khairnar
+Pranav Manbhekar
+Vishal Kriplani
+Piyush Chotiya
+Autonomous Driving
+Developers:
+You Only Look Once (YOLO)
+Demo:
+(1) Path Lane Detection
+(2) Object Detection
+Example of test image

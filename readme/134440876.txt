@@ -1,0 +1,19 @@
+The Mule: the forbidden love-child issuing from a male donkey (a jack) and a mare. Sure footed. Even tempered. Ok, maybe your friends laugh at you from their fancy horses, their thoroughbreds, their imported Arabians; but we'll see who gets the last laugh!
+muleAI is inspired by the DonkeyCar project. We decided not to fork, but to rewrite.
+muleAI is a systematic re-implementation of some core functionality with some priorities in mind:
+muleAI is a lightweight python library that facilitates research and development in autonomous mobility at RC-scale.
+muleAI is a foundation for further experiments in mobility, autonomous hardware, embedded AI, Internet Of Things, ...
+UPDATE? Tensor flow 1.8 (includes keras as tf.keras)
+Simplicity and consistency in modular design
+Clean, well-structured implementation conforming to standard software design principles
+As much as possible is exposed to configuration, allowing rapid changing of parameters during racing days
+Allows for fast timestep analysis, strict ordering and alignment of states
+Enforce proper interface for all new parts
+Include default behaviors such as class strings
+D-pad left/right on the PS3 controller iterates over adjustment settings
+D-pad up/down on the PS3 controller adjusts that value by SHIFT amount
+Currently able to adjust max forward/reverse throttle and steering
+Release candidate 1.0
+Dependencies
+Features - Mule autonomous vehicle operations software platform
+Behaviour changes

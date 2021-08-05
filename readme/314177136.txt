@@ -1,0 +1,41 @@
+To build a motion prediction model to reliably predict the motion/movement of traffic agents (e.g. cars, cyclists and pedestrians) which are within an Autonomous Vehicles (AVs) environment. In short, to predict the trajectories of traficc participants (AKA agents)
+"The division of the ride-hailing company that is responsible for its research and development of self-driving vehicle technology (hence the name, which is borrowed from SAE’s levels of autonomy for cars, with Level 5 being the highest)."
+SAE's: Society of Automotive Engineer's
+Recall Competition Goal: Predict the trajectories of other traffic participants.
+Note: "Due to the high amount of multi-modality and ambiguity in traffic scenes, the used evaluation metric to score this competition is tailored to account for multiple predictions." Lyft Motion Prediction for Autonomous Vehicles.
+Allowed to employ:
+Evaluation & Scoring
+We are encouraged to employ/make submissions of multi-modal predictions as traffic scenes can contain a large amount of ambiguity & uncertainty. Furthermore, we are "asked to submit predictions for a private test set (no ground truth is available)" and our "solutions will be scored by Kaggle." [^1].
+The scoring is done by calculating the negative log-likelihood of the ground truth data given the multi-modal predictions.
+
+
+
+
+[^1]: Competition metrics scoring page in the L5Kit repository on GitHub
+Uni-modal models: Yields 1 prediction per input sample
+Multi-modal: Yields multiple hypotheses (up to 3) - further described by a confidence vector.
+We are encouraged to employ/make submissions of multi-modal predictions as traffic scenes can contain a large amount of ambiguity & uncertainty. Furthermore, we are "asked to submit predictions for a private test set (no ground truth is available)" and our "solutions will be scored by Kaggle." [^1].
+The scoring is done by calculating the negative log-likelihood of the ground truth data given the multi-modal predictions.
+Get a good, solid grasp of the data.
+Familiarise thy self with Lyft's Level 5 departments L5Kit Python library.
+Understand Numpy structured arrays.
+Understand the zarr data format.
+Understand the 4 Numpy structured array types scenes, frames, agents and tl_faces.
+Understand the World, Agent, Image, Satellite and Semantic coordinate systems.
+Briefly understand rasterization
+"Skim" through the IPython Notebook on visualizing the data
+Actually understand the (agent motion prediction process)[]
+Familiarise thy self with Lyft's Level 5 departments L5Kit Python library.
+Understand Numpy structured arrays.
+Understand the zarr data format.
+Understand the 4 Numpy structured array types scenes, frames, agents and tl_faces.
+Understand the World, Agent, Image, Satellite and Semantic coordinate systems.
+Briefly understand rasterization
+
+Lyft Motion Prediction for Autonomous Vehicles (AVs)
+Contents
+Challenge Goal
+Challenge Host: Lyft, Level 5
+Challenge Evaluation
+Tasks List
+Terminologies & Concepts

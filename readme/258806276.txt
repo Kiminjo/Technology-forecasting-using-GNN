@@ -1,0 +1,2 @@
+Common repository for the MUR driverless stack
+mur_common

@@ -1,0 +1,41 @@
+
+This repository contains software for 1/10th scale autonomous race cars to compete in the F1/10 competition. It is developed by the Autonomous Racing Project Group of TU Dortmund.
+
+We provide several LIDAR based driving algorithms:
+Our software works on physical hardware and in a simulated environment using Gazebo. Further features are:
+You need to install the Robot Operating System (ROS) to use our software. We target ROS Kinetic on Ubuntu 16.04, but ROS Melodic seems to work as well.
+Note for VM users: Gazebo 7.0.0, which is installed with ROS Kinetic by default, does not work on a virtual machine. To solve this, Gazebo has to be updated to at least 7.4.0 as explained here.
+Install dependencies:
+Clone the repository:
+Install missing ROS dependencies:
+Compile while inside the ros_wsdirectory:
+Set up enviroment variables for your shell:
+Use a launch file to start ROS and Gazebo:
+These arguments can be passed to the launch files above. For example, to use the gazebo.launch file without emergency stop and with car highlighting, run:
+The arguments can be changed permanently by editing the launch files.
+Our car is based on a 1/10th scale RC car (Traxxas Ford Fiesta) with these additions:
+This project (excluding git submodules) is under MIT and GPLv3 dual licensed - see the MIT.LICENSE and GPLv3.LICENSE file for details.
+Fast and efficient wallfollowing based on fitting circles into the LIDAR scan
+ROS navigation stack based implementation that uses SLAM, a precalculated map and path planning
+Deep Reinforcement Learning (Q-Learning and Policy Gradient)
+Neural Networks with evolutionary training
+Automatic emergency braking
+Dead Man's Switch
+Teleoperation via keyboard, Xbox and Playstation controller
+Speedometer and Lap Timer
+CPU/GPU board (NVIDIA Jetson)
+motor controller (FOCBOX)
+LIDAR scanner (Hokuyo UST-10LX)
+an inertial measurement unit (Invensense MPU-9250)
+optional: brushless DC motor (replaces the standard brushed motor)
+optional: stereo camera (ZED)
+For general information and documentation check out our wiki page.
+For source code documentation check out the auto-generated Doxygen documentation.
+Autonomous Racing Software Stack and Simulation Enviroment
+Features
+Installation
+Usage
+Hardware
+Documentation
+License
+Launch file arguments

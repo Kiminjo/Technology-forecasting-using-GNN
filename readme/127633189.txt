@@ -1,0 +1,2 @@
+Short course about self-driving cars
+sdc_course

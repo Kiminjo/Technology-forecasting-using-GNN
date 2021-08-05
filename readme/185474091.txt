@@ -1,0 +1,52 @@
+Desktop Automation Framework. Drive your keyboard and mouse with text files.
+Playing a playlist:
+Recording a playlist:
+windows:
+mouse:
+keyboard:
+clipboard:
+all keys are from pyautogui
+Grammer Definition
+You can record your mouse and keyboard to a playlist file by:
+Note, not all keys are working yet.
+A keymap to fix some is here.
+Install from local repository:
+file has steps and playlists
+steps are the only thing run
+play runs a playlist
+play "name" "nameB" ... [N];: run one or more playlists, optionally repeat N times.
+delay x.y;: set delay between steps to x.y seconds
+sleep x.y;: sleep for x.y seconds
+screen "screen";: set the screen resolution identifier
+shell "quoted strings"+;: exec a command from the program
+active "someName";: name the active window
+focus "someName";: focus a named window
+mouse x y s;: move the mouse to x,y in s seconds
+coord "name" s;: move the mouse to a named coordinate in s seconds
+coord "name" x y s;: move to a named coordinate with offset in s seconds
+click;: click the left mouse button
+btnclick [left,middle,right];
+btndown [left,middle,right];
+btnup [left,middle,right];
+drag [left,middle,right] x y s;: drag the mouse to x,y in s seconds
+scroll n;: scroll n lines, negative is up
+hscroll n;: horizontal scroll n "clicks", negative is left
+keypress "key";
+keydown "key";
+keyup "key";
+hotkeys "quoted" "keys" ...;: press some keys together
+write "quoted string\n";: type a string, "\n" is enter
+copy;, just ctrl-c
+paste;, just ctrl-v
+save_clipboard "name"; save the clipboard contents to "name"
+load_clipboard "name"; load the clipboard contents from "name"
+copy_clipboard "name"; copy && save the clipboard contents to "name"
+paste_clipboard "name"; load the clipboard contents from "name" && paste
+self-driving-desktop
+Running
+Playlists
+Grammar
+Recording
+Development Setup
+Top-level:
+Steps:

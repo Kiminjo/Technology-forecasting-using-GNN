@@ -1,0 +1,11 @@
+
+This project presents different approaches to the follow-the-line exercise but using artificial intelligence to complete the circuits. The solutions presented are:
+For more information about the project you can consult the website of Behavior Studio.
+If you want to contribute, please first check out CONTRIBUTING.md section.
+
+Using classification networks.
+Using regression networks.
+Using reinforcement learning.
+Solution for real robots.
+Behavior Studio
+Contributing to the project

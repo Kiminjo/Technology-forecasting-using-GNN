@@ -1,0 +1,17 @@
+The goal of this project is to create a program which can navigate in a meaningful way while avoiding obstacles in its path.
+Google Drive (UPDATED)
+Design doc (Old)
+kart/: Package holding source code for project (analogous to 'src' folder in Java or C)
+test/: Package containing test classes and methods for testing classes/methods in the kart package.
+lib/: Directory containing compiled C for use by project.
+numpy
+Cython
+freenect
+vispy (for visualization of data)
+PyQt5 (for visualization: used by VisPy)
+kart/: Package holding source code for project (analogous to 'src' folder in Java or C)
+test/: Package containing test classes and methods for testing classes/methods in the kart package.
+lib/: Directory containing compiled C for use by project.
+Go-Kart AI
+Dependencies:
+Folders & Packages

@@ -1,0 +1,30 @@
+
+This is a Terraform module that deploys H2O.ai Driverless AI on Oracle Cloud Infrastructure (OCI). It is developed jointly by Oracle and H2O.ai.
+First off you'll need an OCI tenancy. If you don't have one, you can sign up here.
+DAI requires a license key. If you don't already have a key, you can get a trial key. You can deploy these templates before you get a key, but you'll be prompted for a key at first login.
+To deploy, simply click the magic button!
+
+That will direct you over to ORM. Once there, walk through the wizard. When that's complete, run an apply.
+The apply prints the URL of H2O Driverless AI when it completes. The deployment creates a self-signed certificate, so you'll need to confirm the exception.
+Logging into that we see:
+
+After accepting the agreement, we can see the login screen. Use the login defined in the variables.tf file:
+
+The documentation here provides a walkthrough and some good next steps. There are a bunch of public data sets to get you started. Here's an example of an experiment I set up on one using that walkthrough.
+
+This machine is using Oracle Linux (OL). The default login is opc. You can SSH into the machine with a command like this:
+
+H2O is installed under /opt/h2o. Logs from the install are under /var/log/messages and viewable with root privileges.
+You can also login to the web console here to view the IaaS that is running DAI.
+
+When you no longer need the deployment, you can login to ORM and destroy the deployment. When that's complete, you can destroy the stack.
+Marketplace - There's a listing here that deploys the same code that is in this Quick Start. It's kept in sync using our CI/CD.
+Resource Manager - OCI Resource Manager (ORM) is Oracle's Terraform as a service. Instructions on deploying with it follow.
+oci-h2o
+Ways to Deploy
+Prerequisites
+Deploy
+Connect to DAI
+SSH to the Instance
+View DAI in the Console
+Destroy the Deployment

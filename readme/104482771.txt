@@ -1,0 +1,46 @@
+Be sure that your workstation is running Ubuntu 16.04 Xenial Xerus or Ubuntu 14.04 Trusty Tahir. Ubuntu downloads can be found here.
+If using a Virtual Machine to install Ubuntu, use the following configuration as minimum:
+Follow these instructions to install ROS
+Dataspeed DBW
+Download the Udacity Simulator.
+Install Docker
+Build the docker container
+Run the docker file
+Since both pose_cb and traffic_cb update final_waypoints,the final_waypoints_pub should be extracted out from pose_cb
+Hang Wang (Team Lead) : hwang12wou@gmail.com
+Yanqing Jing : 1410854263@qq.com
+Xiao Wang : wangxiaonku@gmail.com
+Calvin Low : calsaviour@gmail.com
+Yuzhu Li : rainbamboo554155@hotmail.com
+Be sure that your workstation is running Ubuntu 16.04 Xenial Xerus or Ubuntu 14.04 Trusty Tahir. Ubuntu downloads can be found here.
+If using a Virtual Machine to install Ubuntu, use the following configuration as minimum:
+2 CPU
+2 GB system memory
+25 GB of free hard drive space
+Follow these instructions to install ROS
+ROS Kinetic if you have Ubuntu 16.04.
+ROS Indigo if you have Ubuntu 14.04.
+Dataspeed DBW
+Use this option to install the SDK on a workstation that already has ROS installed: One Line SDK Install (binary)
+Download the Udacity Simulator.
+2 CPU
+2 GB system memory
+25 GB of free hard drive space
+ROS Kinetic if you have Ubuntu 16.04.
+ROS Indigo if you have Ubuntu 14.04.
+Use this option to install the SDK on a workstation that already has ROS installed: One Line SDK Install (binary)
+If not meet the min distance, never make the v to 0
+If meet the min distance and light is still red, make v to 0 and stop update wp
+If red light detected but distance less than min distance(which means light turn red after car run through the cross), dont decelerate
+Solved
+Speed in real test either too fast or too slow
+ChaseWind (追风) Self-driving Car
+Team Members:
+1. Code restructure
+2. Stop Strategy
+3. Break logic code redundency
+4. Speed control
+Native Installation
+Docker Installation
+Usage
+Issues and bug report

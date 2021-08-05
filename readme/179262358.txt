@@ -1,0 +1,52 @@
+Navigation and localisation dataset for self driving cars and autonomous robots.
+Research in the domain of autonomous mobile vehicles have tremendously expanded in the last few years . From one of many possible applications of general mobile robotics and a geeky interest of technical visionaries it became a large topic for both scientific and commercial sectors. Despite the undoubted motivation of financial bounties and pursuit of the emerging trends, this boom is also fueled with openly available data allowing more people to be part of it. To equip a car with state of the art sensors can easily become too expensive for small subjects such as start-ups or research groups on local universities. Sharing data allows much more researchers to participate in the progress of the field and enrich it with novel ideas, which, in the end, rewards everybody. Second good reason for data sharing is a possibility to bypass the necessity of building and maintaining the sensory apparatus, which otherwise requires extra resources and engineering skills not related to the actual research topic of artificial intelligence. Having the opportunity to build our own data acquisition system and exceeding current state of the art in some of its parameters, we have decided to make the data publicly available.
+Adam Ligocki · Aleš Jelínek · Luděk Žalud
+
+
+
+
+It is a good practice to sort the data according to its content. The time of recording serves mostly as a unique identifier and a brief description is good to get a quick overview of the recording, but both are cumbersome to use, if a whole database of all recordings is needed to be searched through. For this reason, we have employed a system of tags, which allow us to highlight the most important content and enable easy filtration of the recordings
+Data structure for each record is shown in the table below.
+RGB camera - 1920x1200px, optics: 8mm front (70deg FoV), 6mm lateral (90deg FoV)
+.mp4 video - file with h265 data encoding (can be extracted into separated image files)
+timestamps.txt - <system timestamp, image seq. number, internal camera timestamp>
+Details
+IR camera FlIR Tau 2- 640x512px, optics: 19mm (69deg FoV)
+.mp4 video - file with h265 data encoding (can be extracted into separated image files)
+timestamps.txt - <system timestamp, image seq. min temp., max temp>
+Details
+LiDAR Velodyne HDL-32e
+scans.zip - zip file contains all the scans taken by LiDAR during the recording. Scans are in .pcd file firmat
+timestamps.txt - <system timestamp, scan seq. number, internal LiDAR’s timestamp>
+Details
+IMU Xsens MTi-G-710
+imu.txt - <system timestamp, lin. acc. (X, Y, Z), ang. vel (X, Y, Z), orientation (X, Y, Z, W)>
+mag.txt - <system timestamp, mag. field (X, Y, Z)>
+gnss.txt - <system timestamp, latitude, longitude, altitude>
+d_quat.txt - <system timestamp, delta orientation (X, Y, Z, W)>
+pressure.txt - <system timestamp, pressure>
+time.txt - <system timestamp, UTC (year, month, day, hour, minute, second, nanosecond)>
+temp.txt - <system timestamp, temp>
+Details
+GNSS Trimble 982BX
+pose - <system timestamp, latitude, longitude, altitude, heading vector>
+time - <system timestamp, UTC (year, month, day, hour, minute, second, nanosecond)>
+Details
+Calibrations
+Currently the calibration is performed manually as a best guess. In near future we are going to provide the results of the better calculated by the dedicated software tools.
+The brief overview of the data distribution in the various time of the day, weather conditions or the environment types.
+To get the data on your computer please clone the repository and use any torrent client app to open the .torrent file that you are interested in. After loading the .torrent file check the data folders that you are interested in and start the content downloading.
+For better search through the data please use the recordings_table.md in the root directory.
+If you have used our data, please cite our original paper
+The research was supported by ECSEL JU under the project H2020 737469 AutoDrive - Advancing fail-aware, fail-safe, and fail-operational electronic components, systems, and architectures for fully automated driving to make future mobility safer, affordable, and end-user acceptable. This research has been financially supported by the Ministry of Education, Youth and Sports of the Czech republic under the project CEITEC 2020 (LQ1601).
+The work has been performed in the project NewControl: Integrated, Fail-Operational, Cognitive Perception, Planning and Control Systems for Highly Automated Vehicles, under grant agreement No 826653/8A19006. The work was co-funded by grants of Ministry of Education, Youth and Sports of the Czech Republic and Electronic Component Systems for European Leadership Joint Undertaking (ECSEL JU).
+some IR frames in recording session no. 1 are misordered
+IMU linear acceleration data has an inverted sign
+For right LiDAR data the 18th row is missing and for left LiDAR data the 15th row is missing (counted from the bottom).
+Brno Urban Dataset
+Example Visualization
+Data Description
+Data Download
+Known Bugs
+Attribution
+Acknowledgement

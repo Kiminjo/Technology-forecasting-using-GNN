@@ -1,0 +1,7 @@
+Source setup file
+. [install_prefix]/share/citysim/setup.sh
+Open world
+gazebo worlds/simple_city.world
+Building
+Running
+Updating world file

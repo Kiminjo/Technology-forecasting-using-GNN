@@ -1,0 +1,47 @@
+This Tutorial contains installation instructions for the packages released along with Ford Multi AV Dataset. For more details please visit the website.
+To get more details about the Ford AV Dataset, please visit avdata.ford.com
+This code repository has been tested on on Ubuntu 16.04 with ROS Kinetic and Ubuntu 18.04 with ROS Melodic.
+These packages depend on
+Clone the latest version from this repository into your catkin workspace and compile the packages using the following snippet. If you do not have a catkin workspace, please read this tutorial to create one.
+ford_demo - This package contains the launch files, rviz plugins and helper scripts. The multi_lidar_convert launch file uses the velodyne package.
+fusion_description - This package contains the Ford fusion URDF for visualization in Rviz. The physical parameters mentioned in the URDF are just for representation and visualization and do not represent the actual properties of a Ford Fusion vehicle.
+map_loader - Map loader package loads the ground plane reflectivity and 3D pointcloud maps as ROS PointCloud2 messages. The package subscribes to vehicle pose to decide what section of the map to display. Various dynamic parameters include:
+map origin - The origin is located at Lat and Long of 42.294319, -83.223275. The map and poses are with respect to this origin
+Please note that the poinclouds are computation intensive in general. If you're running a 16gb system, the visualization could lag due to large pointclouds. Tune the publish_rate, neighbor_dist parameters to optimize based on your application.
+To get with quickly started, download the sample data. In order to download more data, visit the download page of the website
+In order to run the demo, you will need the rosbag, maps and the calibration files. These can be downloaded here. Once you have these files, run the demo launch file using
+In a new terminal, run the rosbag file
+To view the live lidar pointcloud, in a new terminal, run the launch file
+
+In order to convert bag files to human readable csv files, we provide a python script bag_to_csv.py. This python script uses a yaml config file to determine which topics need to be converted to csv files. A sample config.yaml file is provided in the ford_demo/scripts folder. In order to convert a bag file, run the the following command
+For further details, please refer to the following paper:
+Siddharth Agarwal, Ankit Vora, Gaurav Pandey, Wayne Williams, Helen Kourous and James McBride, "Ford Multi-AV Seasonal Dataset", in arXiv preprint arXiv:2003.07969,2020.[arxiv][pdf]
+If you use this dataset, please cite our paper or use the following Bibtex.
+python 2.x
+Standard ROS packages (roscpp, rospy, sensor_msgs, std_msgs, tf2_ros)
+rviz
+pcl (>=1.7)
+pcl_conversions
+velodyne
+ford_demo - This package contains the launch files, rviz plugins and helper scripts. The multi_lidar_convert launch file uses the velodyne package.
+fusion_description - This package contains the Ford fusion URDF for visualization in Rviz. The physical parameters mentioned in the URDF are just for representation and visualization and do not represent the actual properties of a Ford Fusion vehicle.
+map_loader - Map loader package loads the ground plane reflectivity and 3D pointcloud maps as ROS PointCloud2 messages. The package subscribes to vehicle pose to decide what section of the map to display. Various dynamic parameters include:
+publish_rate - Rate at which the each PointCloud2 map is published (hz)
+pcd_topic - Name of the 3d pointcloud map or ground plane reflectivity map topic
+pose_topic - Name of the pose topic to determine vehicle location (default: /pose_ground_truth)
+neighbor_dist - The radius lookup to publish map tiles (m). A value of 128 means the publisher will publish map tiles whose origin lies within 128m (euclidean distance) of the origin of the tile the vehicle is in.
+map origin - The origin is located at Lat and Long of 42.294319, -83.223275. The map and poses are with respect to this origin
+Please note that the poinclouds are computation intensive in general. If you're running a 16gb system, the visualization could lag due to large pointclouds. Tune the publish_rate, neighbor_dist parameters to optimize based on your application.
+publish_rate - Rate at which the each PointCloud2 map is published (hz)
+pcd_topic - Name of the 3d pointcloud map or ground plane reflectivity map topic
+pose_topic - Name of the pose topic to determine vehicle location (default: /pose_ground_truth)
+neighbor_dist - The radius lookup to publish map tiles (m). A value of 128 means the publisher will publish map tiles whose origin lies within 128m (euclidean distance) of the origin of the tile the vehicle is in.
+Ford AV Dataset Tutorial
+Website
+System Requirements
+Installation
+Package Description
+Dataset Download
+Usage
+Publication
+Dependencies

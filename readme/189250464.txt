@@ -1,0 +1,53 @@
+ISsoft Insights 2019 - Workshop by AlexeySas and OlegKarasik
+This workshop goal is to introduce attendee to Robot Operating System (ROS) design and create simple self-driving car architecture.
+By completing workshop you will:
+We have used Windows Virtual Machines (Standard_NV6) in Azure to host workshop environment. While it is possible to execute workshop on your local machine here we are listing everything required to run it as we did.
+Here is high-level overview of setup on Windows:
+
+The “green” components are what would be installed on Windows and “blue” are what would be installed on Ubuntu
+Install the following software:
+WARNING
+Installation of "NVIDIA Graphics Driver 425.3" is required only when configuring Standard_NV6 virtual machines.
+Enable the following features:
+Download the following releases:
+Clone the following repositories:
+To run the workshop we need to install Ubuntu 18.04 on WSL. Despite traditional way of installing Ubuntu through Windows Store we would install it manually. These steps are extracted from official Microsoft documentation and adapter to workshop directory structure.
+Here is the mapping of the above downloads to expected directory structure:
+When preparations of directory tree is done please execute: clone/install/install.ps1 script. This script will install Ubuntu to WSL and initialize it with all required software.
+The scripts automatically does:
+NOTE: Installation could take around 1-2 hours
+To run the workshop you will need a presentation and guide. Both of these can be found in documentation directory.
+We use ROS, CARLA Simulator as engine and CARLA ROS bridge to connect ROS to CARLA.
+This project is owned by Coherent Solutions.
+This project is licensed under the MIT License - see the LICENSE.md for details.
+Learn basics of Robot Operating System (ROS) including: nodes, messages, topics, packages, launches.
+Learn basics about ROS build-tools and infrastructure.
+Learn basics of PID and Stanley controllers.
+Get experience working with CARLA and developing ROS package.
+Have Fun.
+7-zip
+Anaconda3 with Python 3.7
+Visual Studio Code
+VcXsrv
+NVIDIA Graphics Driver 425.31
+WARNING
+Installation of "NVIDIA Graphics Driver 425.3" is required only when configuring Standard_NV6 virtual machines.
+Windows Subsystem for Linux
+Releases of CARLA 0.9.3 (Windows and Linux)
+Release of CARLA ROS bridge 0.9.3
+this repository
+Installs Visual Studio Code Python extension
+Installs and Upgrades Ubuntu distributive
+Installs python-pip, python-protobuf, python-scipy packages and pip/simple-pid, pip/pygame pip packages
+Installs and Configures ros-melodic-desktop-full package
+Building Self-Driving Car Architecture with Robot Operating System
+Prerequisites
+Asknowlegements
+Authors
+License
+Software & Features
+Downloads
+Clone
+Preparing Ubuntu 18.04
+Preparing Directory structure
+Executing Workshop

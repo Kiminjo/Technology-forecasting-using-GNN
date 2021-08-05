@@ -1,0 +1,12 @@
+
+SRM Autonomous Underwater Vehicle Code.
+
+
+This repository contains the code used by the software team of SRM Autonomous Underwater Vehicle (SRMAUV). Our website is srmauv.com.
+Ubuntu 16.04
+ROS Kinetic Kame
+ZARNA
+About:
+Prerequisites:
+Installation:
+Additonal dependencies:

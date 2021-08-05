@@ -1,0 +1,25 @@
+AutoRace 2017 in RoboWorld 2017 RBiz Challenge, Seoul Korea / Team Loading
+for all the files inside of src forder.
+Change this line for your workspace environment
+Python3.5
+Ubuntu 16.04
+Opencv3.2
+ROS
+Tensorflow
+find_object_2d (ROS package)
+usb_cam (ROS package)
+turtlebot3_bringup (ROS package)
+Fish eye camera
+Intel Joule
+Turtlebot3 burger
+camera calibration
+haar cascade
+A* Pathfinding Algorithm
+recognizing rectangular box
+blob tetection using Opencv
+tensorflow in ROS
+autorace2017-team-loading
+Requirements
+Hardware
+Usage
+Some projects which inspired me

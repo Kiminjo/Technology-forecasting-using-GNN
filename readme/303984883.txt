@@ -1,0 +1,12 @@
+Description
+This repository contains the model of the Nissan Leaf development vehicle used by the Research Centre for Vehicle Industry, Széchenyi István University (SZE-JKK).
+
+Created to be used with LGSVL 2020.06.
+You can find here the lgsvl_nissanleaf_ros package which contains additional launch files and nodes, for further information about this refer to the readme of the package.
+ROS related 🤖 - lgsvl_nissanleaf_ros
+Wiki page 📃 - wiki
+Install video 🔴 - youtube
+Lgsvl - github
+Nissan Leaf LGSVL
+Auxiliary ROS package
+Getting started

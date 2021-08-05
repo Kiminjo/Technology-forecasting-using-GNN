@@ -1,0 +1,35 @@
+.
+├─assets
+├─dist
+├─images
+├─mask_rcnn.egg-info
+├─mrcnn
+├─mask_rcnn_coco.h5 ❤️
+└─samples
+  └── .ipynb_checkpoints
+  └── balloon
+  └── coco
+  └── kaggle_wad
+  └── nucleus
+  └── shapes
+the files with heart are newly added. Not neccessary to download the mask_rcnn_coco.h5
+it can be downloaded automatically.
+cd into the kaggle_wad directory
+one thing should be noticed that your own directories of images and masks should be defined in the train.py
+└─mrcnn
+  └── config.py ❤️
+  └── model.py
+  └── parallel_model.py
+  └── utils.py
+  └── visualize.py
+  └── init.py
+most parameters in the config.py, few in the kaggle_wad/train.py
+cd into the kaggle_wad directory
+Validate the format of submission csv file.
+MASK_rcnn_train_custom_data
+Installation
+Directory Structure
+Training
+Tuning hyper-parameters
+Detection
+Evaluate Submission

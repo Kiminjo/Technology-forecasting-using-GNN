@@ -1,0 +1,58 @@
+
+
+
+Linux distributions Bionic (Ubuntu 18.04)
+C++ 11 compiler or newer.
+Installation guide for Vortex-AUV and ROS Melodic: -AUV
+Further documentation for ROS Melodic: 
+
+Figure by: Kristoffer Rakstad Solberg
+Enter the folder where you want to clone the repostory:
+Clone the repository:
+Compile the code by running "catkin build" inside the workspace:
+Builtin simulator worlds:
+ROS launch arguments:
+Launch all modules required for operating Manta:
+Execute your state machine of choice. i.e:
+Builtin finite state machines:
+To choose a different simulator world, use ROS launch argument 'pool'. Builtin pools:
+ROS launch arguments:
+Builtin finite state machines:
+Shell-launch scripts can be used when the intention is to launch Gazebo Simulator, AUV modules, and a Finite State Machine (FSM) simultaneously. It spares a bit of time in case of repeated launches, and requires only a single terminal to launch everything.
+Go to the simualator folder and mark the scripts as executables (only needs to be done once):
+Execute a launch script (must start from the same folder or using a full path). i.e:
+Available launch scripts and descriptions:
+Script CLI arguments:
+This package contains plugins to allow simulating UUVs with Gazebo. For installation and usage instructions, please refer to the documentation pages. To send questions, report bugs or suggest improvements, please use the Issues page.
+If you are using this simulator for your publication, please cite:
+In you are willing to contribute to this package, please check the instructions in CONTRIBUTING
+This software is a research prototype, originally developed for the EU ECSEL Project 662107 SWARMs.
+The software is not ready for production use. However, the license conditions of the applicable Open Source licenses allow you to adapt the software to your needs. Before using it in a safety relevant setting, make sure that the software fulfills your requirements and adjust it according to any applicable safety standards (e.g. ISO 26262).
+UUV Simulator is open-sourced under the Apache-2.0 license. See the LICENSE file for details.
+For a list of other open source components included in UUV Simulator, see the file 3rd-party-licenses.txt.
+basin_sim.launch
+cybernetics_sim.launch
+robosub_sim.launch
+vortex_sim.launch
+simtest.launch
+pooltest.launch
+go_to_and_inspect_point.launch
+basin_pool
+cybernetics_pool
+robosub_pool
+vortex_pool
+empty_underwater_world
+simtest.launch
+pooltest.launch
+go_to_and_inspect_point.launch
+Manta Autonomous Underwater Vehicle (AUV) simulator: Gazebo UUV simulator rebuilt for Vortex NTNU purposes
+Prerequisites
+Note: The simulator depends on ROS Melodic and Vortex-AUV
+1. Download and build the customized UUV simulator for Manta AUV
+2. Run Vortex Simulator
+Credits
+Purpose of the project
+License
+Method 1. Using launch files
+Method 2. Using combined Simulator and AUV-modules launch file
+Method 3. Using Shell (bash) scripts

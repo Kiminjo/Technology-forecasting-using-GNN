@@ -1,0 +1,12 @@
+A tensorflow implementation for VoxelNet.
+Since c928317, data augmentation is done in an online manner, so there is no need for generating augmented samples.
+TBD
+Thanks to @ring00 for the implementation of VFE layer and Jialin Zhao for the implementation of the RPN.
+MIT
+VoxelNet-tensorflow
+Requirement
+Usage
+Data augmentation
+Result
+Acknowledgement
+License

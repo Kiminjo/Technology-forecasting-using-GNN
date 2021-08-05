@@ -1,0 +1,155 @@
+This is the project repo for the final project of the Udacity Self-Driving Car Nanodegree: Programming a Real Self-Driving Car. For more information about the project, see the project introduction here.
+Following diagram describes the overall system archicture showing ROS nodes and topics those are used to communicate among different parts of this 'Self Driving' vehicle susbsystems for this project
+This node takes in data from the /image_color, /current_pose, and /base_waypoints topics and publishes the locations to stop for red traffic lights to the /traffic_waypoint topic.
+
+Here we introduce a new ROS message named Light (int32 index, uint8 sate) to publish not only the index of the closest traffic light but also the state(COLOR) of it and publish into node /traffic_waypoint. Waypoint updater node (see bellow) will use this information to slow down for a closest Yellow or RED light and will eventually stop when the closest light is RED; in all other cases (GREEN, UNKNOWN) the car will continue to move on within given speed limit.
+For Details on Traffic light detection see the section bellow "2.1.1. Traffic Light detection"
+The purpose of this node is to update the target velocity property of each waypoint based on traffic light and obstacle detection data. This node will subscribe to the /base_waypoints, /current_pose, /obstacle_waypoint, and /traffic_waypoint topics, and publish a list of waypoints ahead of the car with target velocities to the /final_waypoints topic. Here we limite the lookahead waypoint into 50 points and was working with no issues.
+
+waypoint updater node takes into consideration of a closest traffic light published into /traffic_waypoint node, for yellow/red light it will slow down the vehicle and move to a full stop for a Red light while trying not to exceed the allowed jerk limit, it is defined as MAX_DECEL = 0.5 m/s^3
+if the near by traffic light state is green or there is no traffic light the car will continue with regular speed while not exceeding the maximum allowed velocity limit in Kmph. Maximum allowed velocity is configured in ros/src/waypoint_loader.launch and in ros/src/waypoint_loader_site.launch and is retrieved as ros param from /waypoint_loader/velocity by this node and update the lookahead waypoint's velocity accordingly
+A package containing code from Autoware which subscribes to /final_waypoints and publishes target vehicle linear and angular velocities in the form of twist commands to the /twist_cmd topic.
+Carla is equipped with a drive-by-wire (dbw) system, meaning the throttle, brake, and steering have electronic control. This package contains the files that are responsible for control of the vehicle: the node dbw_node.py and the file twist_controller.py, along with a pid and lowpass filter is used to finally drive the car. The dbw_node subscribes to the /current_velocity topic along with the /twist_cmd topic to receive target linear and angular velocities.
+
+Additionally, this node will subscribe to /vehicle/dbw_enabled, which indicates if the car is under dbw or driver control. This node will publish throttle, brake, and steering commands to the /vehicle/throttle_cmd, /vehicle/brake_cmd, and /vehicle/steering_cmd topics.
+For details on DBW and the PID controller see sectin "2.4.1. Drive by Wire(DBW) and PID Controller"
+This involves
+We got the images of traffic light captured by simulator's camera and that by Carla's(Udacity's self driving car) rosbag here. We placed simulator and real car's images under sim_data and real_data folder respectively. Further divided each of them into train and test folders with 30% images in test folder.
+
+Please note that the dataset had a lot of redundant images, meaning, the images were very similar to each other. A series of similar images is shown below:
+
+These images wouldnt add any "more" information and a model wouldnt learn anything new from these similar images.
+We used labelImg to draw bounding box around the traffic light object(s) in the images and label them as either red or yellow or green or unknown
+Labelling real images:
+
+Labelling sim images:
+
+labelImg creates .xml for each image with information of the image itself and details of the bounding box and its label:
+
+Using a helper function xml_to_csv.py, all the .xml are merged into a single .csv file. Another helper function generate_tfrecord.py is used to generate the TFRecord .record file which is the file format needed by TensorFlow. Slight modifications were made to the above two helper functions and are placed in this repository.
+The dataset has 711 1368x1096 real images and 280 800x600 sim images out of which 30% of each is used as test images. The real images maynot have any traffic light object or have only one traffic light object. The sim images too maynot have any traffic light object or have one or more traffic light object. So the number of objects for classification is 648 real objects and 669 sim objects. Below is the distribution of objects based on label:
+
+As seen from the above image, the distribution is not same. The real data has more of green label and the sim data has more of red label. This imbalance in the dataset will lead the model to be biased towards the label which is more in number. This issue can be fixed by adding more of those images with labels which are less in number. While adding the images, care should be taken not to add similar images but to add images with translation and/or images with different brightness/saturation/hue etc.
+We tried 3 models from the Tensorflow detection model zoo. These models are pre-trained on the COCO dataset, the Kitti dataset, and the Open Images dataset. The 3 models we choose are ssd_mobilenet_v1_coco, ssd_inception_v2_coco and faster_rcnn_resnet101_coco.
+First we tarined the sim data on the ssd_mobilenet_v1_coco model as it is the lightest and fastest model among the other models in the Tensorflow detection model zoo. The loss graph is as shown below:
+
+The model was trained for 5000 steps which took around 7hrs and the TotalLoss was ~0.35. Some results are shown below:
+
+Next we trained the real data on same model for 5000 steps and the loss graph is as below:
+
+The TotalLoss was really bad and was around ~7.5 and this model couldnt classify any objects.
+We tested the SSD_INCEPTION, SSD_MOBILE_V2 and FASTER_RCNN frozen models supplied by Tensorflow, and eventually settled for the F-RCNN model due to its remarkable speed and accuracy
+For more detail, see F-RCNN model for Intelli-Car
+All the required steps for training and exporting the inference graph are describe details here
+tl_detector.py is subscribed for topics /image_color, which provides an image stream from the car's camera. These images are used to determine the color of upcoming traffic lights. Based on Camera encoding this images is converted into RGB i.e. (cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB)) before feed into for classification.
+The classification module, tl_classifier.py is based on CarND Object Detection Lab A new ros parameter named 'model_path' has introduced in tl_detector/launch/tl_detector.launch and in tl_detector/launch/tl_detector_site.launch to locate the frozen inference graph at runtime. By default it is set to FRCNN graph for both Simulator and Real track i.e. tl_detector/light_classification/frozen_models/sim/faster_rcnn_resnet101_coco_2018_01_28/frozen_inference_graph.pb and tl_detector/light_classification/frozen_models/real/faster_rcnn_resnet101_coco_2018_01_28/frozen_inference_graph.pb in corresponding launch file above. Inference graph for ssd_moobile_v2 or ssd_inception_v2 can be found here
+Once messages are being published to /final_waypoints, the vehicle's waypoint follower publishes twist commands to the /twist_cmd topic. The drive-by-wire node (dbw_node.py) subscribe to /twist_cmd and use various controllers to provide appropriate throttle, brake, and steering commands. These commands can then be published to the following topics:
+/vehicle/throttle_cmd
+/vehicle/brake_cmd
+/vehicle/steering_cmd
+We use the given simple pid controller(pid.py) was use to smoothly drive the car in both track, autonomously.
+Since a safety driver may take control of the car during testing, we can not assume that the car is always following the PID commands. If a safety driver does take over, the PID controller will mistakenly accumulate error. For this reason dbw_node.py is subscribed to ros topic /vehicle/dbw_enabled and when this is off, it resets the PID controller's error function to zero.
+P Component
+P controller steers the car proportion(inversely, Tau) to Cross Track Error. In this project where the car is driven by the waypoints, CTE was simulated as
+error = Desired velocity - current velocity of the car at a time
+If this number is negative means we want to reduce this error.
+In other word if the above is positive, car drives faster and if negative, car slows down. With a higher Tau the car will oscillate faster.
+We used Kp as 0.4, other variation we tried is 0.8 with no significant impact
+D Component
+In PD-controller, for this prooject, when the car is reducing the speed to reduce the error, it won’t just go shooting for the reference velocity but it will notice that it is already reducing the error and as the error is becoming smaller overtime, it counter steers i.e it steers up again, this will allow it to gracefully approach the reference velocity
+We do not use the D controller here so Kd was set to zero.
+I Component
+A car might have a form of wheels not aligned appropriately, in robotics it is called Systematic bias. Systematic bias will significantly increase the CTE in PD controller, so the differential term will not be able to compensate for this. This is where the I components come to play which is measured by the integral or the sum of the CTEs over time. Integral coefficient (Ki) should be carefully optimized in small steps as it has a large impact on the overall performance. We use a small value for ki = 0.1 based on trail and error
+Low pass filter
+An average of current velocities are used to derive the current velocity in order to avoid any sporadic spike.
+Throttle: The PID controller in the twist_controller.py calculates the throttles, which is calculated as Kpvel_err + Ki * vel_err_integral + Kd vel_err_delta. The vel_err is calculated as the difference between the target_vel and the current_vel. The PID controller is only active if the dbw is enabled to avoid error accumulation. The Kp, Ki, Kd provided by Udacity works well in the simulator. Some other value were experimented and no significant performance improve have been seen. For the car in real world further fine tuning might be necessary.
+Steering: For getting the steering value we use the Yaw_controller.py provided to us. It adjusts the angular velocity setpoint, based on our current speed. It uses the formula linear velocity = angular velocity * radius in physics.
+Brake: Torque value for braking = deceleration x vehicle mass x wheel radius
+Speed/accuracy trade-offs for modern convolutional object detectors
+SSD: Single Shot MultiBox Detector
+MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
+TensorFlow Models
+The PASCAL Visual Object Classes Homepage
+udacity/CarND-Object-Detection-Lab
+Please use one of the two installation options, either native or docker installation.
+Be sure that your workstation is running Ubuntu 16.04 Xenial Xerus or Ubuntu 14.04 Trusty Tahir. Ubuntu downloads can be found here.
+If using a Virtual Machine to install Ubuntu, use the following configuration as minimum:
+The Udacity provided virtual machine has ROS and Dataspeed DBW already installed, so you can skip the next two steps if you are using this.
+Follow these instructions to install ROS
+Dataspeed DBW
+Download the Udacity Simulator.
+Install Docker
+Build the docker container
+Run the docker file
+To set up port forwarding, please refer to the instructions from term 2
+Launch correctly using the launch files provided in the capstone repo. The launch/styx.launch and launch/site.launch are used to test code in the simulator and on the vehicle respectively. The submission size limit is within 2GB.
+Car smoothly follows waypoints in the simulator.
+Car follows the target top speed set for the waypoints' twist.twist.linear.x in waypoint_loader.py. This has been tested by setting different velocity parameter(Kph) in /ros/src/waypoint_loader/launch/waypoint_loader.launch.
+Car stops at traffic lights when needed.
+Depending on the state of /vehicle/dbw_enabled, Car stop and restart PID controllers
+Publish throttle, steering, and brake commands at 50hz.
+Finally for Simulated Track 1 we tested with velocity 40 Kmph and for track 2, 10 Kmph as the default velocity given in corresponding launch file.
+waypoint updater node takes into consideration of a closest traffic light published into /traffic_waypoint node, for yellow/red light it will slow down the vehicle and move to a full stop for a Red light while trying not to exceed the allowed jerk limit, it is defined as MAX_DECEL = 0.5 m/s^3
+if the near by traffic light state is green or there is no traffic light the car will continue with regular speed while not exceeding the maximum allowed velocity limit in Kmph. Maximum allowed velocity is configured in ros/src/waypoint_loader.launch and in ros/src/waypoint_loader_site.launch and is retrieved as ros param from /waypoint_loader/velocity by this node and update the lookahead waypoint's velocity accordingly
+Training
+Data collection
+Given rosbag data was used to capture images for training
+Label the data
+select a proper Model (Meta-architecture and Feature Extractor) to train with the Label images
+export the inference graph
+Classification
+Get the realtime image from Carla's Camera
+Use the frozen inference graph above to classify if there is a traffic light in the image and what is the color of this light.
+Data collection
+Given rosbag data was used to capture images for training
+Label the data
+select a proper Model (Meta-architecture and Feature Extractor) to train with the Label images
+export the inference graph
+Given rosbag data was used to capture images for training
+Label the data
+select a proper Model (Meta-architecture and Feature Extractor) to train with the Label images
+export the inference graph
+Get the realtime image from Carla's Camera
+Use the frozen inference graph above to classify if there is a traffic light in the image and what is the color of this light.
+Low pass filter
+An average of current velocities are used to derive the current velocity in order to avoid any sporadic spike.
+Throttle: The PID controller in the twist_controller.py calculates the throttles, which is calculated as Kpvel_err + Ki * vel_err_integral + Kd vel_err_delta. The vel_err is calculated as the difference between the target_vel and the current_vel. The PID controller is only active if the dbw is enabled to avoid error accumulation. The Kp, Ki, Kd provided by Udacity works well in the simulator. Some other value were experimented and no significant performance improve have been seen. For the car in real world further fine tuning might be necessary.
+Steering: For getting the steering value we use the Yaw_controller.py provided to us. It adjusts the angular velocity setpoint, based on our current speed. It uses the formula linear velocity = angular velocity * radius in physics.
+Brake: Torque value for braking = deceleration x vehicle mass x wheel radius
+Be sure that your workstation is running Ubuntu 16.04 Xenial Xerus or Ubuntu 14.04 Trusty Tahir. Ubuntu downloads can be found here.
+If using a Virtual Machine to install Ubuntu, use the following configuration as minimum:
+2 CPU
+2 GB system memory
+25 GB of free hard drive space
+The Udacity provided virtual machine has ROS and Dataspeed DBW already installed, so you can skip the next two steps if you are using this.
+Follow these instructions to install ROS
+ROS Kinetic if you have Ubuntu 16.04.
+ROS Indigo if you have Ubuntu 14.04.
+Dataspeed DBW
+Use this option to install the SDK on a workstation that already has ROS installed: One Line SDK Install (binary)
+Download the Udacity Simulator.
+2 CPU
+2 GB system memory
+25 GB of free hard drive space
+ROS Kinetic if you have Ubuntu 16.04.
+ROS Indigo if you have Ubuntu 14.04.
+Use this option to install the SDK on a workstation that already has ROS installed: One Line SDK Install (binary)
+Installation
+The team "Intelli-car"
+1. Submission checklist and requirements
+2. System Architecture Diagram
+2.1.1 Traffic Light detection
+2.4.a. Drive by Wire(DBW) and PID Controller
+3. References
+Native Installation
+Docker Installation
+Port Forwarding
+Usage
+Real world testing
+2.1 Traffic Light detection Node
+2.2 Waypoint updater Node
+2.3 Autoware Node
+2.4 Drive by Wire(DBW) Node
+2.1.1.a Training
+2.1.1.b. Classification
+2.4.1.a PID

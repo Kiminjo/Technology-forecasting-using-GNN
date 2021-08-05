@@ -1,0 +1,19 @@
+Autonomous-Tracking-Car
+Known bug 1: Images in the server are not displayed to the web app. There is an issue with loading the images from the server when trying to display them to the web app photos page.
+Known bug 2: The follow me feature is not completely matured. It can only follow the users if they are in frame and are only moving away or closer to the vehicle, the vehicle cannot turn with the follow me feature.
+Known bug 3: The frames per second and live stream is off by an average of a second from real time (may vary due to internet connection).
+This you will need: Arduino Raspberry pi (model 3+ preferred since you will need a good amount of computing power and wifi chips come standard in pi3 and up)
+Picamera ATC car
+use the program you must be on the raspberry pi and have access to a screen or you can ssh into a pi, if you prefer the latter you can follow this guide -into-raspberry/
+Then you will need to activate the picamera on the raspiberry pi, here a tutorial on how enable it 
+Once you sucesssfully have the pi setup with the picamera enabled you can now git clone the master branch to get started with the program.
+From the ATC folder run the command: pip3 install -r requirements.txt this will get the required dependencies for you to run the project
+Next you will need to go into the flask directory using: cd flask
+Once you are inside the pi you will need to make an adjustment to the code to make it run on your ip adress, to do this follow this guide to identify your ip address 
+Once you have your ip address, change the code in app.py's main to have it connect to your ip address (the port does not need to changed)
+Now you will be able to run the program! to do this you type in the command: python3 app.py
+Once it is running the terminal will give you and address which you can copy and paste into your browser to access the webapp to control the car!
+ATC
+Features
+Bugs
+How to run ATC

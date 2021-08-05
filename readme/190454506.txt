@@ -1,0 +1,20 @@
+The goal of the competition was to create an autonomous car, which can navigate in a labyrinth, change lanes, follow a safety car and then compete in a speed race. The detailed rule book is in the project root directory as "rules_hun.pdf".
+The website of the competition: /
+Video of the competition (our robot can be seen at 1:01:00): -2019-kozvetites
+The brain of the car was a STM32F446RE developer board.
+The autonomous car's base is a HPI MAVERICK STRADA XT.
+The code is written in C language. The project is based on FreeRTOS and consists of several tasks.
+Tasks:
+96 TCRT5000 reflective sensors for line following
+BOSCH BNO055 absolute orientation sensor
+Sharp GP2Y0A02YK0F analog distance sensor
+Multichannel ADC reading with DMA
+Line following with state space controller
+Motor speed with PID controller
+Labyrinth solving algorithm (Dijkstra's algorithm, Graph-based)
+SUMMARY
+HARDWARE
+SOFTWARE
+MCU
+Sensors
+Mechanics

@@ -1,0 +1,28 @@
+This repository provides a collection of microservices to interface with components to power autonomous systems using OpenDLV.io software ecosystem.
+
+The microservices for OpenDLV.io are created automatically on changes to this repository via Docker's public registry for:
+The following microservices are available:
+proxy-oxts: interface to OXTS GPS/INSS units:
+docker run --rm --net=host chalmersrevere/opendlv.io-multi:proxy-oxts-latest
+signal-viewer: view signals in your web-browser:
+docker run --rm --net=host chalmersrevere/opendlv.io-amd64:signal-viewer-v0.0.1 111
+
+vehicle-view: view selected vehicle onboard data in your web-browser:
+docker run --rm --net=host chalmersrevere/opendlv.io-amd64:vehicle-view-v0.0.1 111
+
+Usage
+License
+x86_64
+armhf
+aarch64
+proxy-oxts: interface to OXTS GPS/INSS units:
+docker run --rm --net=host chalmersrevere/opendlv.io-multi:proxy-oxts-latest
+signal-viewer: view signals in your web-browser:
+docker run --rm --net=host chalmersrevere/opendlv.io-amd64:signal-viewer-v0.0.1 111
+vehicle-view: view selected vehicle onboard data in your web-browser:
+docker run --rm --net=host chalmersrevere/opendlv.io-amd64:vehicle-view-v0.0.1 111
+This project is released under the terms of the GNU GPLv3 License
+OpenDLV.io - A modern software ecosystem to power autonomous systems
+Table of Contents
+Usage
+License

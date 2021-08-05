@@ -1,0 +1,34 @@
+Check out our latest news and subscribe to our mailing list to get the latest updates.
+LG Electronics America R&D Lab has developed an HDRP Unity-based multi-robot simulator for autonomous vehicle developers. We provide an out-of-the-box solution which can meet the needs of developers wishing to focus on testing their autonomous vehicle algorithms. It currently has integration with The Autoware Foundation's Autoware.auto and Baidu's Apollo platforms, can generate HD maps, and can be immediately used for testing and validation of a whole system with little need for custom integrations. We hope to build a collaborative community among robotics and autonomous vehicle developers by open sourcing our efforts.
+To use the simulator with Apollo 6.0 or master, first download the simulator binary, then follow our Running with latest Apollo docs.
+To use the simulator with Autoware.auto, first download the simulator binary, then follow the guide on our Autoware.auto.
+For users in China, you can view our latest videos here and download our simulator releases here (code: 6k91). 对于中国的用户，您也可在哔哩哔哩上观看我们最新发布的视频，从百度网盘(提取码: 6k91)上下载使用我们的仿真器。
+If you are using SVL Simulator for your research paper, please cite our ITSC 2020 paper: LGSVL Simulator: A High Fidelity Simulator for Autonomous Driving
+You can find complete and the most up-to-date guides on our documentation website.
+Running the simulator with reasonable performance and frame rate (for perception related tasks) requires a high performance desktop. Below is the recommended system for running the simulator at high quality. We are currently working on performance improvements for a better experience.
+Recommended system:
+The easiest way to get started with running the simulator is to download our latest release and run as a standalone executable.
+Currently, running the simulator in Windows yields better performance than running on Linux.
+See the full installation guide here.
+If you would like to customize the simulator, build simulation content, or access specific features available in Developer Mode, you can clone the project with Unity Editor, and build the project from source.
+Check out our instructions for getting started with building from source here.
+NOTE: If using a release older than "2021.1", please follow the instructions on our documentation archives.
+Look here for a guide to currently available functionality and features.
+Please feel free to provide feedback or ask questions by creating a Github issue. For inquiries about collaboration, please email us at contact@svlsimulator.com.
+Copyright (c) 2019-2021 LG Electronics, Inc.
+This software contains code licensed as described in LICENSE.
+4 GHz Quad Core CPU
+Nvidia GTX 1080, 8GB GPU memory
+Windows 10 64 Bit
+SVL Simulator: An Autonomous Vehicle Simulator
+Stay Informed
+Introduction
+Paper
+Getting Started
+Simulator Instructions (from 2021.1 release onwards)
+Contact
+Copyright and License
+Downloading and starting simulator
+Building and running from source
+Guide to simulator functionality
+Website | Documentation | Download

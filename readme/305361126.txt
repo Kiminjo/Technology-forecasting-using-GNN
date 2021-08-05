@@ -1,0 +1,59 @@
+경희대학교 실내 자율주행 응용 서비스 개발 공모전 Team Gitta입니다.
+<화분 자동 관리 실내 자율주행차>
+System Configuration
+Self-driving Process
+QRcode Processing And Robot Arm Control
+Gitta Web Interfate
+
+
+
+
+Because the height, distance, and angle of the pot are automatically measured using the QR code, users only need to enter simple information about the pot in our websites
+
+When the self-driving car arrives in front of the pot, it stops and starts detection.
+QRcode processing program in the raspberry pi detects QR code and decodes it. The information in the Qrcode is the source of the pot. It Checks that the value is equal to the id of the pot that needs to be watered.
+If the id values match, get coordinates of four points of the QR code. Using the coordinates of the points, the angle, height, and distance of the pot are determined.
+QRcode processing program in the raspberry pi locates the QRcode and draw blue lines using opencv
+
+The angle of the pot and the self-driving car is determined using the position of the QR code point.
+QRcode processing system divides the sections by angle and checks which section of the pot comes in. After the decision is determined, the value is sent to the robot arm stm board using serial communication.
+
+
+The height of the pot is measured using the point position at the top of the QR code.
+QRcode processing program determines which section comes in according to the height of the pot and send it to the robot arm stm board.
+
+
+The length of four sides is measured using four points of the QR code.
+Using this length, the distance between the pot and the self-driving car is determined.
+Using the distance between the pot and the self-driving car, the robot arm decides how much the arm should stretch and sends the value to the stm board using serial communication.
+
+QRcode processing program brings registered feedwater information from database by matching the id of the Qrcode
+It calculates the operation time of the water pump using the water supply information and send it to the stm board.
+Using the values received by serial communication in the previous step on the stm board, operate robot arms and water pumps.
+After the robot arm and the water pump are finished, the robot arm will return to its initial state. A message is issued in the robot wheel raspberry pi via mqtt to inform that the water supply operation is over.
+A website where users register their own pot information and generate QR codes
+The user enters the information of the plant to be registered. The entered information is stored in the database.
+When the user enters the pot information and clicks the Register button, A QR code containing the unique id value of the pot is generated.
+The user prints the generated QR code in size 5*5 and attaches it to the top of the pot.
+The user can check the information of the pot registered.
+System Configuration
+Self-driving Process
+QRcode Processing And Robot Arm Control
+Gitta Web Interfate
+2020 Self-driving-Contest
+Table of Contents
+System Configuration
+Self-driving Process
+QRcode Processing And Robot Arm Control
+Gitta Web Interface
+QR code detection
+Measuring the angle between pot and self-driving car
+Measuring the height of the pot
+Measuring the distance between pot and self-driving car
+Water supply transmission
+Robot arm and water pump operation
+Register
+Result
+Mypage
+[Differences in robot arm movement depending on the angle]
+[Differences in robot arm movement depending on the height]

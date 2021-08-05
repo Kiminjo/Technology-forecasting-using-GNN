@@ -1,0 +1,12 @@
+In the application's root directory run:
+Installation Guide
+Install general requisite tools
+Install Anaconda (replace the URL with the one that is suitable for your platform)
+Install required conda packages
+Install protobuf and moviepy
+Caffe pre-reqs
+Build CAFFE (you would need to tweak some files if you want to build caffe for CPU only mode)
+Install Tensorflow
+Build aivsol-TFFRCNN
+Place model weights
+Run the application

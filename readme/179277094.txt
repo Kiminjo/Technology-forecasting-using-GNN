@@ -1,0 +1,35 @@
+
+
+BARK is a semantic simulation framework for autonomous agents with a special focus on autonomous driving. Its behavior model-centric design allows for the rapid development, training and benchmarking of various decision-making algorithms. Due to its fast, semantic runtime, it is especially suited for computationally expensive tasks, such as reinforcement learning.
+The BARK ecosystem is composed of multiple components that all share the common goal to develop and benchmark behavior models:
+BARK-ML: Machine learning library for decision-making in autonomous driving.
+BARK-MCTS: Integrates a template-based C++ Monte Carlo Tree Search Library into BARK to support development of both single- and multi-agent search methods.
+BARK-Rules-MCTS: Integrates traffic rules within Monte Carlo Tree Search with lexicographic ordering.
+BARK-DB: Provides a framework to integrate multiple BARK scenario sets into a database. The database module supports binary seriliazation of randomly generated scenarios to ensure exact reproducibility of behavior benchmarks accross systems.
+BARK-Rule-Monitoring: Provides runtime verification of LTL Rules on simulated BARK traces.
+CARLA-Interface: A two-way interface between CARLA and BARK. BARK behavior models can control CARLA vehicles. CARLA controlled vehicles are mirrored to BARK.
+Bark is available as PIP-Package for Ubuntu and MacOS for Python>=3.7. You can install the latest version with pip install bark-simulator. The Pip package supports full benchmarking functionality of existing behavior models and development of your models within python. The pip-package not yet includes MCTS and Carla interfaces.
+After installing the package, you can have a look at the examples to check how to use BARK.
+Highway: ' import bark.examples.highway:
+
+Merging: import bark.examples.merging:
+
+Intersection: import bark.examples.intersection:
+
+If you want to write own behavior models in C++ or contribute to the development of Bark. Use git clone -simulator/bark.git or download the repository from this page. Then follow the instructions at How to Install BARK.
+To get step-by-step instructions on how to use BARK, you can run our IPython Notebook tutorials using bazel run //docs/tutorials:run. For a more detailed understanding of how BARK works, its concept and use cases have a look at our documentation.
+If you use BARK, please cite us using the following paper:
+BARK specific code is distributed under MIT License.
+BARK-ML: Machine learning library for decision-making in autonomous driving.
+BARK-MCTS: Integrates a template-based C++ Monte Carlo Tree Search Library into BARK to support development of both single- and multi-agent search methods.
+BARK-Rules-MCTS: Integrates traffic rules within Monte Carlo Tree Search with lexicographic ordering.
+BARK-DB: Provides a framework to integrate multiple BARK scenario sets into a database. The database module supports binary seriliazation of randomly generated scenarios to ensure exact reproducibility of behavior benchmarks accross systems.
+BARK-Rule-Monitoring: Provides runtime verification of LTL Rules on simulated BARK traces.
+CARLA-Interface: A two-way interface between CARLA and BARK. BARK behavior models can control CARLA vehicles. CARLA controlled vehicles are mirrored to BARK.
+BARK - a tool for Behavior benchmARKing
+BARK Ecosystem
+Quick Start
+Paper
+License
+Pip-package
+Development setup

@@ -1,0 +1,32 @@
+This autonomous vehicle project's goal is to create autonomous racing vehicles in the simplest possible way—a good first car. The name is a mash-up of Fubar Labs, the mysterious planes called "foo fighters" and "foobar" the ubiquitous getting started variables for programming. The control system can scale to any vehicles using RC controls.
+Autonmous Vehicle Project at Fubar Labs for the Autonomous Powerwheels Racing compeition.
+Code is installed from the Raspberry PI using PLatform IO
+Obtain the car code by cloning the project
+Install system packages
+Install poetry
+Install platformio
+Use poetry to create the generate the car
+Use poetry to create the car code and service
+Test the PI Hat
+Test the Car Runner
+Verify the leds and switches are working.
+Set up the raspberry pi services
+Verify the car serice is running the car runner
+Find a system with a good gpu. It was slow but worked on a Raspberry PI 4.
+The training command:
+Run the training:
+Autonomous Powerwheels Racing Pittsburg Makerfiare 2017
+We totally did laps. We were on the track on time and ready to go!
+Autonmous Powerwheels Racing Makerfaire NYC 2017
+Autonmous Vehicle Competition via Sparkfun at Denver Makerfaire 2017
+What is FOO Cars?
+How has this project been used?
+Quickstart
+Pepare the RC Car and Arduino
+Prepare your PI
+Training code
+FUBAR Labs Autonomous Racing Vehicles
+Car Code
+Note for Arduino
+Teensy 3.2 Code
+Arduino Code

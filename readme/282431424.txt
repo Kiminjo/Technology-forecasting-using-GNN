@@ -1,0 +1,35 @@
+Press 2D Nav Goal, hold it in the spot you want to send the goal, and turn it to the direction you want your robot to have when it reaches the goal.
+Use argument goal_seq when launching: roslaunch simulation gazebo_simulation.launch goal_seq:=true.
+For more information on how it works and how to modify the goal sequence check simulation readme.
+Use argument manual_control when launching: roslaunch simulation gazebo_simulation.launch manual_control:=true.
+Open another terminal and run: rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+General Information
+Setup
+How to run
+How to send a goal
+Send a goal using RViz
+Send a goal using move_base_sequence
+How to control the robot
+Control the robot using rqt
+Control the robot with the keyboard
+Resources
+Workspace Structure
+Send a goal using RViz
+Send a goal using move_base_sequence
+Control the robot using rqt
+Control the robot with the keyboard
+git init
+git remote add origin 
+git fetch --all
+git pull origin master
+Table of Contents
+General Information
+Setup
+How to run
+How to send a goal
+How to control the robot
+Workspace Structure
+Send a goal using RViz
+Send a goal using move_base_sequence
+Control the robot using rqt
+Control the robot with the keyboard

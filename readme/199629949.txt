@@ -1,0 +1,30 @@
+
+Get this repo: git clone -perception-group/Aircap_Pose_Estimator.git
+Python2.7
+ROS Melodic []
+Other requirementas pip install -r requirements.txt
+torchgeometry v0.1.0
+Download SMPL from [/] and extract its content in the parent directory i.e. Aircap_Pose_Estimator/
+Go to , register and login.
+Download AirCap-Pose_Estimator-minimaldata from 
+Extract the contents (directory named "data") to the repo dir.
+Python2.7
+ROS Melodic []
+Other requirementas pip install -r requirements.txt
+torchgeometry v0.1.0
+ git clone 
+ cd kornia
+ git checkout v0.1.0
+ python setup.py install
+Download SMPL from [/] and extract its content in the parent directory i.e. Aircap_Pose_Estimator/
+optional requirements
+Mayavi for results visualization. Install Mayavi for Python2.7 from #installing-with-pip
+Mayavi for results visualization. Install Mayavi for Python2.7 from #installing-with-pip
+run Aircap_Pose_Estimator demo as in paper python fittingscript.py /path/to/result/directory
+results will be saved in /path/to/result/directory. Mean error for each joint will be in the file /path/to/result/directory/final_err_res.npy
+To visualize results, execute python viz_res.py /path/to/result/directory to launch the visualization of results alongwith the ground truth.
+Aircap_Pose_Estimator
+Data
+Install Requirements
+Run Aircap_Pose_Estimator demo
+optional requirements

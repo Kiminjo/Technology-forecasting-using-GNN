@@ -1,0 +1,52 @@
+The code in this repo is our submission for the final project of the Udacity Self-Driving Car Nanodegree: Programming a Real Self-Driving Car. For more information about the project, see the project introduction here.
+Our group, the "Overtakers", consists of the following members:
+The structure of the project code is shown below:
+The Udacity team has provided us with helpful walkthroughs to guide us through the coding of most of the core functions of the self driving car. As such, the majority of our codebase aligns closely with the demo code shown to us in the walkthroughs. Our main contributions to the project code are as follows:
+Please use one of the two installation options, either native or docker installation.
+Be sure that your workstation is running Ubuntu 16.04 Xenial Xerus or Ubuntu 14.04 Trusty Tahir. Ubuntu downloads can be found here.
+If using a Virtual Machine to install Ubuntu, use the following configuration as minimum:
+The Udacity provided virtual machine has ROS and Dataspeed DBW already installed, so you can skip the next two steps if you are using this.
+Follow these instructions to install ROS
+Dataspeed DBW
+Download the Udacity Simulator.
+Install Docker
+Build the docker image
+Run the docker container
+Install nvidia-docker
+Run the docker file
+Run Sim
+For example
+NB You may need to update the cryptography packages:
+To set up port forwarding, please refer to the instructions from term 2
+You can extract simulator images by uncommenting the following code in ros/src/tl_detector/tl_detector.py in image_cb:
+Some already extracted images can be found here
+implementing a classifier that uses frozen graphs pre-trained with camera images from the simulation and from the Carla test track (see how we derived the frozen graphs in our traffic light classifier repo here) to identify the state of traffic light signals as observed by the car's video stream in tl_classifier.py and tl_detector.py
+revising the waypoint_follower in pure_pursuit_core.h to lower the threshold test for updating the twist commands which has the effect of reducing the swerving of the car from side to side when following the waypoints
+Be sure that your workstation is running Ubuntu 16.04 Xenial Xerus or Ubuntu 14.04 Trusty Tahir. Ubuntu downloads can be found here.
+If using a Virtual Machine to install Ubuntu, use the following configuration as minimum:
+2 CPU
+2 GB system memory
+25 GB of free hard drive space
+The Udacity provided virtual machine has ROS and Dataspeed DBW already installed, so you can skip the next two steps if you are using this.
+Follow these instructions to install ROS
+ROS Kinetic if you have Ubuntu 16.04.
+ROS Indigo if you have Ubuntu 14.04.
+Dataspeed DBW
+Use this option to install the SDK on a workstation that already has ROS installed: One Line SDK Install (binary)
+Download the Udacity Simulator.
+2 CPU
+2 GB system memory
+25 GB of free hard drive space
+ROS Kinetic if you have Ubuntu 16.04.
+ROS Indigo if you have Ubuntu 14.04.
+Use this option to install the SDK on a workstation that already has ROS installed: One Line SDK Install (binary)
+Udacity - Self Driving Nanodegree - Capstone Project
+Project Overview
+Setup instructions
+Native Installation
+Docker Installation (CPU)
+Docker Installation With Nvidia GPU
+Port Forwarding
+Usage
+Simulator dataset
+Real world testing

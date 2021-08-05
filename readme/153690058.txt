@@ -1,0 +1,4 @@
+Simulated Autonomous Vehicle Infrastructure
+The project wiki has more details on how to run everything: -lab/SAVI/wiki
+This project uses the Jason BDI framework. To get started: -tutorial/getting-started/
+SAVI

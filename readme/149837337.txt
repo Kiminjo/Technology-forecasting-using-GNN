@@ -1,0 +1,11 @@
+Autonomous vehicle motion planning implementation/simulation
+modified  with motion planning implementation
+Required Dependencies:
+gazebo 8, ros kinetic
+uninstall gazebo 7: sudo apt-remove gazebo7* ros-kinetic-gazebo* sudo apt-get install ros-kinetic-gazebo8*
+Usage:
+standard compile with catkin_make in catkin_ws
+source devel/setup.bash
+roslaunch prius_sim full_sim.launch
+tune the controller PID with rqt reconfigure :) s for steering p for pedal
+AutonomousCar

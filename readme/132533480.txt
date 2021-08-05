@@ -1,0 +1,62 @@
+Autonomous RC Car for Baby
+There are some problem to convert sdk-linux-am57xx-evm-04.03.00.05 to 05.00.00.15.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Master
+Sanghoon Lee
+Member
+Hyunwoo Park
+Sangjae Ahn
+Sanghoon Lee
+Hyunwoo Park
+Sangjae Ahn
+Hyungju Kim:
+Sangyong Jung:
+Sunghwan Jang:
+Siyun Kim:
+Hanbyul Jung:
+Daesung Choi:
+Minho Kim:
+Taeyoung Eun:
+Wooseok Lee:
+Hanna Moon:
+Hoseong Lee:
+Hyungjun Yu:
+Jihee Moon:
+Jiwan Yoon:
+Soojeong Hwang:
+Yukyoung Chung:
+Yeonsung Yoon:
+Yoosung Lee:
+Sungyong Ha:
+RC_Car
+Important Project Issue
+Contribution Summary
+Master
+Member
+Sanghoon Lee
+E-mail Address - gcccompil3r@gmail.com
+Hyunwoo Park
+E-mail Address - phw820@naver.com
+Sangjae Ahn
+E-mail Address

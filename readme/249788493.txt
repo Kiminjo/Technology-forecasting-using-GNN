@@ -1,0 +1,47 @@
+DDAD is a new autonomous driving benchmark from TRI (Toyota Research Institute) for long range (up to 250m) and dense depth estimation in challenging and diverse urban conditions. It contains monocular videos and accurate ground-truth depth (across a full 360 degree field of view) generated from high-density LiDARs mounted on a fleet of self-driving cars operating in a cross-continental setting. DDAD contains scenes from urban settings in the United States (San Francisco, Bay Area, Cambridge, Detroit, Ann Arbor) and Japan (Tokyo, Odaiba).
+
+The data can be downloaded here: train+val (257 GB, md5 checksum: c0da97967f76da80f86d6f97d0d98904) and test (37GB GB, md5 checksum: cb244da1865c28898df3de7e904a1200). To load the dataset, please use the TRI Dataset Governance Policy (DGP) codebase. The following snippet will instantiate the dataset:
+The DGP codebase provides a number of functions that allow loading one or multiple camera images, projecting the lidar point cloud into the camera images, intrinsics and extrinsics support, etc. Additionally, please refer to the Packnet-SfM codebase (in PyTorch) for more details on how to integrate and use DDAD for depth estimation training/inference/evaluation and state-of-the-art pretrained models.
+DDAD includes high-resolution, long-range Luminar-H2 as the LiDAR sensors used to generate pointclouds, with a maximum range of 250m and sub-1cm range precision. Additionally, it contains six calibrated cameras time-synchronized at 10 Hz, that together produce a 360 degree coverage around the vehicle. The six cameras are 2.4MP (1936 x 1216), global-shutter, and oriented at 60 degree intervals. They are synchronized with 10 Hz scans from our Luminar-H2 sensors oriented at 90 degree intervals (datum names: camera_01, camera_05, camera_06, camera_07, camera_08 and camera_09) - the camera intrinsics can be accessed with datum['intrinsics']. The data from the Luminar sensors is aggregated into a 360 point cloud covering the scene (datum name: lidar). Each sensor has associated extrinsics mapping it to a common vehicle frame of reference (datum['extrinsics']).
+The training and validation scenes are 5 or 10 seconds long and consist of 50 or 100 samples with corresponding Luminar-H2 pointcloud and six image frames including intrinsic and extrinsic calibration. The training set contains 150 scenes with a total of 12650 individual samples (75900 RGB images), and the validation set contains 50 scenes with a total of 3950 samples (23700 RGB images).
+The test set contains 235 scenes, each 1.1 seconds long and consisting of 11 frames, for a total of 2585 frames (15510 RGB images). The middle frame of each validation and each test scene has associated panoptic segmentation labels (i.e. semantic and instance segmentation). These annotations will be used to compute finer gained depth metrics (per semantic class and per instance). Please note that the test annotations will not be made public, but will be used to populate the leaderboard on an external evaluation server (coming soon).
+
+
+
+
+Total: 150 scenes and 12650 frames.
+Total: 50 scenes and 3950 frames.
+Total: 235 scenes and 2585 frames.
+USA locations: ANN - Ann Arbor, MI; SF - San Francisco Bay Area, CA; DET - Detroit, MI; CAM - Cambridge, Massachusetts. Japan locations: Tokyo and Odaiba.
+The figure below shows the placement of the DDAD LiDARs and cameras. Please note that both LiDAR and camera sensors are positioned so as to provide 360 degree coverage around the vehicle. The data from all sensors is time synchronized and reported at a frequency of 10 Hz. The data from the Luminar sensors is reported as a single point cloud in the vehicle frame of reference with origin on the ground below the center of the vehicle rear axle, as shown below. For instructions on visualizing the camera images and the point clouds please refer to this IPython notebook.
+
+Please refer to the the Packnet-SfM codebase for instructions on how to compute detailed depth evaluation metrics.
+The associated IPython notebook provides a detailed description of how to instantiate the dataset with various options, including loading frames with context, visualizing rgb and depth images for various cameras, and displaying the lidar point cloud.
+
+Please use the following citation when referencing DDAD:
+Vitor Guizilini, Rares Ambrus, Sudeep Pillai, Allan Raventos and Adrien Gaidon, [paper], [video]
+To ensure privacy the DDAD dataset has been anonymized (license plate and face blurring) using state-of-the-art object detectors.
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+How to Use
+Dataset details
+Dataset stats
+Sensor placement
+Evaluation metrics
+IPython notebook
+References
+Privacy
+License
+DDAD - Dense Depth for Autonomous Driving
+How to Use
+Dataset details
+Dataset stats
+Sensor placement
+Evaluation metrics
+IPython notebook
+References
+Privacy
+License
+Training split
+Validation split
+Test split
+3D Packing for Self-Supervised Monocular Depth Estimation (CVPR 2020 oral)

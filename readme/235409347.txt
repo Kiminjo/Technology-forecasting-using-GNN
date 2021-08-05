@@ -1,0 +1,5 @@
+You will be using a copy of this repo for all development in the class. This repo provides starter code for the ROS subscriptions, publishers and control loops you will be using. Note that for the purposes of this course, this repository depends upon the ut_automata repository found here: -amrl/ut_automata. Please follow the instructions on that repo's README or from the UT AUTOmata reference manual before continuing.
+cs378_starter
+Using this Repo
+Duplicate the Repo
+Clone and Build

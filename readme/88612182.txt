@@ -1,0 +1,9 @@
+Maven multi-module project; Eclipse (eclipse2me) .project file available.
+From root dir:
+From root dir:
+See dolphin-neptus-plugin repository. Actual Platform definition for Neptus, along with UI interface etc, can be found in the dolphin-neptus-plugin
+The Dolphin language repository
+Organization
+Compilation
+Execute IMC standalone runtime
+JAR file for Neptus plugin

@@ -1,0 +1,10 @@
+This project is an extension of the MATSim traffic simulation framework that adds shared automated vehicles to the simulation.
+The AV extension is currently kept compatible with the following MATSim versions:
+Alternatively, you can clone this repository and use the current development version from the develop branch. Currently, it is 1.0.4-dev. It is compatible with MATSim 12.0-2019w37. However, we recommend using the DMC extension with a stable version of MATSim.
+To use the AV extension you first need to add the ETH MATSim Bintray repository to your pom.xml:
+Add the following to your pom.xml dependencies to use the extension with version 1.0.3 and MATSim 11, for instance:
+This repository makes use of the GitFlow repository model. This means that development is taking place in the develop branch, while the current production version can be found in the master branch. Note that, contrary to the basic model, we use multiple master branches to maintain versions of the code that are compatible with different releases of MATSim. For instance, master-11 is compatible with MATSim 11. The master branch is kept compatible with the master branch of the MATSim main repository. Backports are always derived from the master branch into the specific backport branches.
+For creating the backports, the recommended workflow is as follows: Branch backport-X from master, add changes for compatibility, merge back backport-X into master-X.
+Automated vehicles for MATSim
+Available versions
+Repository sturcture

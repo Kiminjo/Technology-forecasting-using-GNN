@@ -1,0 +1,68 @@
+An open-source full-stack software based on ROS framework, for self-driving applications. Targeting to facilitate the research in autonomous driving projects for low-speed applications in urban environments. This software comes with a built-in Gazebo based simulation, an end-to-end self-driving software and a user-friendly GUI to facilitate launching of the software.
+Used for trials on real-world automated vehicles.
+
+
+*Originally suggested at autoware.ai, tag: 1.10.0.
+These packages have been configured and modified significantly to fit the requirements of Project ASLAN.
+Complete Feature Log, available here
+Search for Software & Updates and click on 'Other Software'.
+Tick the boxes allowing software updates from 'canonical partners' and 'source code'.
+Press reload and enter your sudo password
+For more information please visit here
+Setup your computer to accept software from packages.ros.org.
+Setup your keys
+Update debian package index
+Install ROS Kinetic Desktop Full
+Set up your environment
+Install additional tools
+Initialise rosdep
+From the root of your catkin workspace, run
+If you have previously built your workspace with catkin build: Either clean your workspace with catkin clean and rebuild with catkin_make
+To start the Project ASLAN GUI, simply execute the bash script:
+
+Please take a moment to review the Contribution Guidelines in order to make the contribution process easy and effective. The issue tracker is the preferred channel for bug reports, feature requests and when working on new features implementation.
+Project Aslan Dockerhub: projaslan/aslan
+Project Aslan Website: www.project-aslan.org
+Quick Start Resources: rosbag, point cloud map and waypoints csv
+Online Tutorials: Youtube Channel
+A dedicated, trained and attentive safety driver must always be present in the driver's seat at all times and in all environments, monitoring the vehicle.
+THIS SOFTWARE IS FOR RESEARCH PURPOSES ONLY. YOU ARE RESPONSIBLE FOR COMPLYING WITH LOCAL LAWS AND REGULATIONS. NO WARRANTY EXPRESSED OR IMPLIED. ACCESS TO AND USE OF THIS SOFTWARE IS AT YOUR OWN RISK AND RESPONSIBILITY.
+Project Aslan has been inspired by and was built on top of the Autoware Foundation’s open-source projects. In particular, a number of fundamental technologies have been adopted from Autoware.AI. With StreetDrone’s customisations for its electric vehicle and integration with other third-party drivers, Project Aslan immensely benefits from the Autoware’s projects and the Autoware Foundation members’ contributions.
+Aslan Software is licensed under Apache 2 License
+Graphics User Interface (GUI) with integrated ROS tools
+Docker and Source Code installation
+Multiple Sensors Drivers
+High level supervisor node, monitoring the heath of the system and publishing diagnostics
+Object Detection using LiDAR and Radar
+Emergency stop reaction
+Vehicle Interface acting as a bridge between ROS and the embedded vehicle controllers.
+PID/Feedforward linear velocity feedback loop
+Tunable yaw to steering percentage conversion map
+Integrated Gazebo simulation model
+3 ways of simulation control: Aslan software, keyboard and joystick controllers
+Vehicle Models visualization and parameters description
+On-vehicle software testing and evaluation as well as parameters configuration
+Normal Distribution Transform (NDT)* for localization and mapping
+Voxel Grid and Ground Removal * point cloud filtering
+Route planning using waypoints *
+Path Planning based on A* Planner
+Comprehensive documentation of the source code in the repo and inside the GUI
+Online tutorials
+Quick start resources: rosbag, point cloud map and waypoints csv
+Project Aslan
+Features and Deployment support:
+Recommended System
+Requirements
+Getting Started
+Running the software
+Contributing
+Additional Resources
+Disclaimer
+License
+Installation
+1. Allow software updates
+2. Install ROS Kinetic Desktop Full
+3. Clone the Project ASLAN repository with submodules
+4. Install additional dependencies
+5. Initialise your catkin workspace
+6. Build your workspace

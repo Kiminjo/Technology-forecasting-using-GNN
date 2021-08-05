@@ -1,0 +1,39 @@
+中文版说明
+TianRacer详细中文操作手册
+Tianracer is a series of low cost auotonomous vehicles controlled in closed-loop, which could follow input commands more faithfully. All series Tianracers are equipped with NVIDIA development boards, e.g, Jetson Nano, Jetson TX2, Xavier, etc. Basic version Tianracer can reach a maximum speed at 3m/s and pro version can reach 10m/s.
+TianRacer ROS Wiki Our goal is to develop a low cost autonomous racing car with not only basic mapping, localization, navigation ability but also object detection, traffic light detection, lane keeping, etc. Now Tianracer inherits AI aiblity from Jetracer.
+Tianracer Nano version is a standard platform with all the hardware and software installed, ready-to go racing car.
+点击这里进入淘宝购买或咨询客服： Purchase from Taobao:
+We developed the Tianracer based on Hypha racecar. Please checkout the original authors' repo for more details. -ROS/hypharos_racecar
+Developer:
+Speed: 3m/s Control：closed-loop speed control Computer: Nvidia Jetson Nano Developer Kit Chassis: Motor + TianBoard Mini + Servo Lidar: Slamtec Rplidar A1 Camera: 1080P Fisheye Undistorted USB3.0 Remote Controller: DJI DT7 Battery: LiPo
+Tianracer can be simulated in F1tenth Simulator. Install the simulator first.
+Simulate Tianracer
+Tianracer can be brought up all at once, or separately.
+After bringing up the Tianracer, we provide three methods to perform slam for 2D laser.
+Map will be saved as tianbot_office in tianracer_slam/maps/
+After saving the map, the map can be used to perform navigation.
+Configure running ROS across multiple machines, then launch rviz in a PC with display
+HaoChih, LIN
+KaiChun, Wu
+Tianracer
+Instructions
+License: GPL v3
+Introduction
+Purchase from Tianbot Official Taobao Store
+Appreciation to HyphaROS RaceCar
+Specifications
+Installation
+Simulation
+Interfacing
+Mapping
+Navigation
+Tianracer Base
+Lidar
+RGBD Camera (if applicable)
+USB Camera
+GPS (if applicable)
+GMapping
+HectorSLAM
+Cartographer
+Save the Map

@@ -1,0 +1,63 @@
+
+This is the project repo for the final project of the Udacity Self-Driving Car Nanodegree: Programming a Real Self-Driving Car. For more information about the project, see the project introduction here.
+This project has been done by:
+
+Be sure that your workstation is running Ubuntu 16.04 Xenial Xerus or Ubuntu 14.04 Trusty Tahir. Ubuntu downloads can be found here.
+If using a Virtual Machine to install Ubuntu, use the following configuration as minimum:
+The Udacity provided virtual machine has ROS and Dataspeed DBW already installed, so you can skip the next two steps if you are using this.
+Follow these instructions to install ROS
+Dataspeed DBW
+Download the Udacity Simulator.
+Video recording of the traffic light detection and classification with video streams from ROS bag files:
+
+
+Non-black image of /tld/traffic_light topic shows the detected traffic light box and adds a colored bounding box (red, amber, green) with the classified color around the cropped traffic light image. GPU hardware and software: Nvidia GeForce 940MX, driver version: 378.13, CUDA 8.0.44, cuDNN v7, detection latency is 200-500ms.
+Waypoint updater publishes the next 200 waypoints ahead of the car position, with the velocity that the car needs to have at that point. Each 1/20 seconds, it does:
+Besides, the car is forced to stop at the last waypoint if either its velocity in /base_waypoints is set to 0 or the parameter ~force_stop_on_last_waypoint is true.
+This module takes place of controlling 3 values: the steering, the throttle and the brake.
+Steering is handled by a combination of predictive steering and corrective steering. Predictive Steering is implemented using the provided YawController class. Corrective steering is computed by calculating the cross-track-error which is then passed to a linear PID which returns the corrective steering angle. These are added together to give the final steering angle
+Throttle is controlled by a linear PID by passing in the velocity error(difference between the current velocity and the proposed velocity)
+If a negative value is returned by the throttle PID, it means that the car needs to decelerate by braking. The braking torque is calculated by the formula (vehicle_mass + fuel_capacity * GAS_DENSITY) * wheel_radius * deceleration
+Traffic light detection is based on pre-trained on the COCO dataset model ssd_mobilenet_v1_coco from 
+The traffic light classification model is a SqueezeNet model trained on some real life and simulator traffic light images in project -drift/traffic_light_classifier
+The ROS traffic light detector is implemented in node tl_detector in classes TLDetector and TLClassifier. TLDetector is responsible for finding a nearest traffic light position and calls TLClassifier.get_classification with the current camera image. TLClassifier first uses the SSD MobileNet model to detect a traffic light bounding box with the highest confidence. If the bounding box is found a cropped traffic light image is scaled to a 32x32 image and the SqueezeNet model infers the traffic light color (red, amber, green). If at least 3 last images were classified as red then TLDetector publishes the traffic light waypoint index in the /traffic_waypoint topic.
+Deborah Digges (team lead) - deb.angel919@gmail.com
+Max Ritter - mail@maxritter.net
+Christian Schaefer - christian@inf-Schaefer.de
+Pablo Perez -- pab.perez@gmail.com
+Michael Krasnyk
+Be sure that your workstation is running Ubuntu 16.04 Xenial Xerus or Ubuntu 14.04 Trusty Tahir. Ubuntu downloads can be found here.
+If using a Virtual Machine to install Ubuntu, use the following configuration as minimum:
+2 CPU
+2 GB system memory
+25 GB of free hard drive space
+The Udacity provided virtual machine has ROS and Dataspeed DBW already installed, so you can skip the next two steps if you are using this.
+Follow these instructions to install ROS
+ROS Kinetic if you have Ubuntu 16.04.
+ROS Indigo if you have Ubuntu 14.04.
+Dataspeed DBW
+Use this option to install the SDK on a workstation that already has ROS installed: One Line SDK Install (binary)
+Download the Udacity Simulator.
+2 CPU
+2 GB system memory
+25 GB of free hard drive space
+ROS Kinetic if you have Ubuntu 16.04.
+ROS Indigo if you have Ubuntu 14.04.
+Use this option to install the SDK on a workstation that already has ROS installed: One Line SDK Install (binary)
+just_traffic_light.bag
+loop_with_traffic_light.bag
+Update of closest waypoint. It does a local search from current waypoint until it finds a local minimum in the distance. If the local minimum is not near (less than 20m) then it assumes it has lost track and does perform a global search on the whole waypoint list.
+Update of velocity. If there is a red ligth ahead, it updates waypoint velocities so that the car stops ~stop_distance (node parameter, default: 5.0 m) meters behind the red light waypoint. Waypoint velocities before the stop point are updated considering a constant ~target_brake_accel (default: -1.0 m/s^2).
+Capstone project
+Members of Team Tokyo Drift
+Architecture Diagram
+Implementation details
+Installation
+Usage
+Real world testing
+Waypoint updater
+Drive By Wire Node
+Traffic light detector
+Steering
+Throttle
+Brake

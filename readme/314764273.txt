@@ -1,0 +1,32 @@
+
+
+[ 📺 Website | 🏗 Github Repo | 📜 Documentation | 🎓 Paper ]
+Welcome to PGDrive! PGDrive is an driving simulator with many key features, including:
+
+Please install PGDrive via:
+If you wish to contribute to this project or make some modification, you can clone the latest version of PGDrive locally and install via:
+You can verify the installation and efficiency of PGDrive via running:
+The above script is supposed to be runnable in all places. Note that please do not run the above command in the folder that has a sub-folder called ./pgdrive.
+Please run the following line to drive the car in the environment manually with keyboard!
+You can also enjoy a journey carrying out by our professional driver pretrained from reinforcement learning!
+A fusion of expert and manual controller, where the expect will try to rescue the manually controlled vehicle from danger, can be experienced via:
+To show the main feature, procedural generation, we provide a script to show BIG:
+Note that the above three scripts can not be run in headless machine. Please refer to the installation guideline in documentation for more information.
+Running the following line allows you to draw the generated maps:
+To build the environment in python script, you can simply run:
+We also prepare a Colab which demonstrates some basic usage of PGDrive as follows:
+We also define several Gym environment names, so user can start training in the minimalist manner:
+The following table presents some predefined environment names.
+More information about PGDrive can be found in PGDrive Documentation. Besides, the training code of our paper can be found in this repo.
+If you find this work useful in your project, please consider to cite it through:
+
+🎏 Lightweight: Extremely easy to download, install and run in almost all platforms.
+📷 Realistic: Accurate physics simulation and multiple sensory inputs.
+🚀 Efficient: Up to 500 simulation step per second and easy to parallel.
+🗺 Open-ended: Support generating infinite scenes and configuring various traffic, vehicle, and environmental settings.
+PGDrive: an open-ended driving simulator with infinite scenes
+🛠 Quick Start
+🚕 Examples
+📦 Predefined environment sets
+🏫 Documentations
+📎 Citation

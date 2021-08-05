@@ -1,0 +1,57 @@
+Docs are created using mkdocs with the theme ivory
+Run in development on :8000/
+ 
+Login/create user to readthedocs preferably through github for easy access to monodrive
+Get access to be a maintainer through someone who is already a maintainer. (like me, Katie)
+After having access, click on >> My Projects >> monoDrive
+Select latest and Build Version.
+ 
+Add new sections and documents to mkdocs.yml with their title and corresponding file from the docs folder.
+ 
+Consistency with the markdown effects the layout of the side panel as well as the over all consistency between sections. Here are some recommended guidelines:
+ 
+To center an image, wrap in a div with the class img_container like in the example above. Four separate sizes were created using css:
+thumbnail { width: 50px }
+sm_img { width: 200px }
+lg_img { width: 400px }
+wide_img { width: 90% }
+Add custom image sizes in extra.css
+ 
+Add a line between sections : <p>&nbsp;</p>
+There should always be an empty line before bulleted lists
+For instructions, add lines between list items
+Capitalize all header titles
+ 
+Created using mkdocs with the theme ivory
+Written in markdown
+Hosted through readthedocs
+Clone project
+Create python environment
+Docs are created using mkdocs with the theme ivory
+Run in development on :8000/
+Login/create user to readthedocs preferably through github for easy access to monodrive
+Get access to be a maintainer through someone who is already a maintainer. (like me, Katie)
+After having access, click on >> My Projects >> monoDrive
+Select latest and Build Version.
+thumbnail { width: 50px }
+ <img class="thumbnail" src=  alt="monoDrive"/>
+sm_img { width: 200px }
+ <img class="sm_img" src=  alt="monoDrive"/>
+lg_img { width: 400px }
+ <img class="lg_img" src=  alt="monoDrive"/>
+wide_img { width: 90% }
+ <img class="wide_img" src=  alt="monoDrive"/>
+Add a line between sections : <p>&nbsp;</p>
+There should always be an empty line before bulleted lists
+For instructions, add lines between list items
+Capitalize all header titles
+monoDrive Docs
+Getting Started
+Build
+Navigation / Side Panel
+Markdown & Styling
+Sources
+Headers
+Images
+Recommendations
+Sizing and Centering

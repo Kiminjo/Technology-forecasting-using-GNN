@@ -1,0 +1,77 @@
+The easiest way to experiment with self-driving AI
+Create a Miniconda env
+Clone
+Optional - Activate the Python conda env or virtualenv with Tensorflow installed, then
+Note: If you use Anaconda (we recommend Miniconda) - only use pip install in your deepdrive conda environment, never conda install
+Cloud setup instructions
+Note that we recorded the baseline dataset in sync mode which is much slower than async mode. Async mode probably is fine to record in, we just haven't got around to trying it out for v3.
+Optional: Convert to HDF5 files to tfrecords (for training MNET2)
+Grab the dataset
+Where <your-deepdrive-home> below is by default in $HOME/Deepdrive and can be configured in $HOME/.deepdrive/deepdrive_dir
+All values returned in the observation keep Unreal conventions, specifically
+Additional observation data can be exposed without compiling C++ or Blueprints by accessing the Unreal API with UnrealEnginePython.
+Agents are automatically graded via Botleague
+100GB (8.2 hours of driving) of camera, depth, steering, throttle, and brake of an 'oracle' path following agent. We rotate between three different cameras: normal, wide, and semi-truck - with random camera intrisic/extrinsic perturbations at the beginning of each episode (lap). This boosted performance on the benchmark by 3x. We also use DAgger to collect course correction data as in previous versions of Deepdrive.
+or for the legacy HDF5 files for training AlexNet
+If you'd like to check out our Tensorboard training session, you can download the 1GB tfevents files here, unzip, and run
+and checkout this view , which graphs wall time.
+
+If you experience low frame rates on Linux, you may need to install NVIDIA’s display drivers including their OpenGL drivers. We recommend installing these with CUDA which bundles the version you will need to run the baseline agent. Also, make sure to plugin your laptop. If CUDA is installed, skip to testing OpenGL.
+glxinfo | grep OpenGL should return something like:
+You may need to disable secure boot in your BIOS in order for NVIDIA’s OpenGL and tools like nvidia-smi to work. This is not Deepdrive specific, but rather a general requirement of Ubuntu’s NVIDIA drivers.
+To run tests in PyCharm, go to File | Settings | Tools | Python Integrated Tools and change the default test runner to pytest.
+Also, disable SciView per this answer.
+Linux
+Python 3.6+
+10GB disk space
+8GB RAM
+CUDA capable GPU (tested and developed on 970, 1070, and 1060's)
+1.7 <= Tensorflow < 2.0 See Tensorflow install tips
+Remote agent example - operates over the network using the deepdrive remote api
+Esc - Pause (Quit in Unreal Editor)
+Enter - Pause with no menu
+P - Pause in Unreal Editor
+1 - Chase cam
+2 - Orbit (side) cam
+3 - Hood cam
+4 - Free cam (use WASD to fly)
+Space - Handbrake
+Alt+Tab - Control other windows / Show mouse
+</kbd> - Unreal console - do things like stat FPS`
+M - Drive the car with the keyboard WASD - be sure sync is off - Also known issue: Only works in path-follower mode right now
+Ctrl-number - Change sun position - works for 1 => 7
+B - Show vehicle bounding boxes
+N - Show vehicle collision boxes
+Page Up - Next vehicle
+Page Down - Prev vehicle
+All distances are in centimeters per Unreal's default data type
+All rotations / angular values are in the order of roll, pitch, yaw in degrees
+x,y,z is forward, right, up
+Make sure to install the CUDA / cuDNN major and minor version the Tensorflow instructions specify. i.e. CUDA 9.0 / cuDNN 7.3 for Tensorflow 1.12.0. These will likely be older than the latest version NVIDIA offers. You can see all CUDA releases here.
+Use the packaged install, i.e. deb[local] on Ubuntu, referred to in this guide
+If you are feeling dangerous and use the runfile method, be sure to follow NVIDIA’s instructions on how to disable the Nouveau drivers if you're on Ubuntu.
+On Windows, use standard (non-CUDA packaged) display drivers which meet the min required. When installing CUDA, do a custom install and uncheck the display driver install.
+Deepdrive
+Simulator requirements
+Optional - baseline agent requirements
+Install
+Observation data
+Benchmark
+Dataset
+Architecture
+Frame rate issues on Linux
+Tensorflow install tips
+OpenGL
+Development
+Examples
+Key binds
+Cloud
+Forward-agent
+Synchronous forward-agent
+Mnet2 baseline agent
+Built-in C++ FSM / PID agent that can overtake in the canyons map
+Record training data for imitation learning / behavioral cloning
+Train on recorded data
+Train on our dataset
+Tensorboard
+Running unit tests

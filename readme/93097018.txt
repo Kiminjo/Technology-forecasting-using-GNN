@@ -1,0 +1,19 @@
+This ros package contains base code to run GRAVL's autonomous Kubota tractor.
+For current documentation see the wiki.
+
+Install ROS
+cd <your_catkin_ws>/src>
+Clone this project: git clone 
+Navigate to gravl directory cd <your_catkin_ws/src/gravl>
+Install dependencies pt1: sudo ./setup.bash
+Navigate back to the catkin works pace root: cd ..
+Install dependencies: rosdep install -iry --from-paths src
+Build the platform: catkin_make
+Run various routines outlined in the wiki
+State Controller - For switching between tractor behaviors and states
+Documentation - To run the tractor, see instructions here
+Overview
+Build Status
+Quick setup
+Dependencies
+Usage

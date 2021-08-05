@@ -1,0 +1,87 @@
+Main repository to setup the Maila project. The Maila project wants to build an autonomous car model on top of a traxxas summit rc car
+Docker. To intall Docker follow the procedure reported here
+Vcstool is a version control system (VCS) tool, designed to make working with multiple repositories easier. link
+Install Visual Studio Code
+There is a handy installation script that clones the repository list contained in .maila.repos, install the necessary Visual Studio Code extension and load the environment. If an src folder already exist in the repository the clone step is skipped.
+The remove_envoronment.sh script contains function to ease the process of running the docker image realized to support the development of the Maila software. There are 2 ways to interact with the system
+using visual studio code: here visual studio code will run the docker image and eventually we can use external terminal to connect to this images. For this just open vs-code in the workspace directory and let the ms-vscode-remote.remote-containers code extension to build and start the container for you.
+manual: we can start the container manually. At first source remote_environment.sh this will load a set of bash function that will speed up the process and then:
+When you have a running instance of the development docker when source emote_environment.sh the script will automatically attach to the running container. Alternatively if the source were done before running the container you could also use the function d_attach to attach to a running container
+When attaching to the docker console a set of aliases are loaded to ease the development
+To load the project aliases, the ros packages and environment variables run:
+If you want to automatically source the maila environment add the step on~/.bashrc .
+Build code
+Run test
+-there-a-clang-format-file-for-ros-2/
+-format
+(ref: -ubuntu-server-raspberry-pi/)
+Write SD Card
+change file "system-boot/network-config" and add wifi SSID and password
+(ref: -i2c-permissions-for-non-root-users.html)
+(ref: ) (ref: -to-set-up-softether-vpn-client-on-linux/) (ref: isc-dhcp-client)
+with text:
+(ref: -to-set-up-softether-vpn-client-on-linux/) (ref: -to-script-vpncmd-to-batch-command-connect-disconnect)
+with text:
+Docker. To intall Docker follow the procedure reported here
+Vcstool is a version control system (VCS) tool, designed to make working with multiple repositories easier. link
+sudo pip install vcstool
+Install Visual Studio Code
+using visual studio code: here visual studio code will run the docker image and eventually we can use external terminal to connect to this images. For this just open vs-code in the workspace directory and let the ms-vscode-remote.remote-containers code extension to build and start the container for you.
+code ./
+manual: we can start the container manually. At first source remote_environment.sh this will load a set of bash function that will speed up the process and then:
+d_build to build the image
+d_run to run the image in a container
+d_build to build the image
+d_run to run the image in a container
+MAILA_cd = cd <maila>/
+MAILA_cds = cd <maila>/src
+MAILA_cdd = cd <maila>/devel
+MAILA_cdi = cd <maila>/install
+MAILA_build build the code
+MAILA_force_clean clean the project
+MAILA_source source the MAILA environment
+for C++ .clang-format credits to DavetColemna link
+f7 build all the packages
+Write SD Card
+change file "system-boot/network-config" and add wifi SSID and password
+change hostname to "maila-raspi" (ref: -20-04-lts-change-hostname-permanently/)
+change password to "ubuntu:ubuntu" (ref: -a-user-password-in-ubuntu-linux-using-passwd/)
+installing docker (ref: -to-install-and-use-docker-on-ubuntu-20-04)
+software
+setup i2c user permission
+add udev rule
+reboot and test it
+setup i2c user permission on the pc and then starts the container
+if container is already started
+download softether vpn server
+create file for autoexecution at startup (ref; -to-run-script-on-startup-on-ubuntu-20-04-focal-fossa-server-desktop)
+set as executable
+enable service
+settings of VPN server (via manager on windows)
+run container
+download and install
+start vpn client batch file (-docs/1-manual/6._Command_Line_Management_Utility_Manual/6.2_General_Usage_of_vpncmd#6.2.3_Command_Line_Parameters_When_Starting_a_vpncmd_Command)
+test it!
+Maila the snail (Mailamaca)
+Setup VPN client
+Setup
+Utility
+RANDOM STUFF TO CLEAN
+Setup the workspace
+Setup of Rasperry on the Vehicle
+Setup VPN server
+Requirements
+First Setup
+Running docker
+Connecting to a running istance
+Folder navigation:
+Code compilation
+Miscellanea
+Load environment
+Style
+VS-Code integration
+Colcon commands
+Code formatting
+install Ubuntu Server 20.04
+add i2c grups
+add joy if needed

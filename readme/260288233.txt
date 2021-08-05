@@ -1,0 +1,18 @@
+LIME is an open source 3D LiDAR-based localisation framework. This framework enables localisation in a premapped environment. Prior mapping can be achieved by using packages like loam_velodyne and LeGO_LOAM. Wheel odometry is used to provide high frequency, low accuracy updates which are corrected by low frequency, high accuracy ICP corrections.
+
+video
+This package is built on top of the ROS ecosystem.
+This package has been tested on Ubuntu 16.04 & ROS kinetic.
+premapped_localization depends on the following libraries:
+Installing this package this package:
+In a terminal execute:
+If using a bagfile, in a different terminal, run:
+Make sure that the encoder data is being published at the topic /encoders of message type geometry_msgs/Twist and is of the following format:
+PCL : Installation instructions
+libpointmatcher : Installation instructions
+twist.linear.x -> left wheel encoder data
+twist.linear.y -> right wheel encoder data
+LIME : Localisation in Mapped Environment
+Installation
+Examples
+1. Using robot_localisation from this package with encoder data.

@@ -1,0 +1,68 @@
+
+
+The enhanced Communication Abstraction Layer (eCAL) is a middleware that enables scalable, high performance interprocess communication on a single computer node or between different nodes in a computer network. eCAL uses a publish - subscribe pattern to automatically connect different nodes in the network.
+eCAL automatically chooses the best available data transport mechanism for each link:
+Visit the eCAL Documentation at 🌐  for more information.
+
+eCAL is fast (1 - 10 GB/s, depends on payload size. Check the measured performance here)
+eCAL provides both publish-subscribe and server-client patterns
+eCAL is brokerless
+eCAL provides a C++ and C interface for easy integration into other languages (like python, csharp or rust)
+eCAL has powerful tools for recording, replay and monitoring all your data flows - decentralized
+eCAL is simple and zero-conf. No complex configuration for communication details and QOS settings are needed
+eCAL is message protocol agnostic. You choose the message protocol that fits to your needs like Google Protobuf, CapnProto, Flatbuffers...
+eCAL uses the standardized recording format HDF5
+eCAL integrates gently into your ROS2 environment with the eCAL RMW
+eCAL supports Intel and arm platforms
+eCAL runs on a wide variety of operating systems:
+Using eCAL in your project to exchange data is simple. After you have downloaded eCAL and installed CMake, you are good to go.
+Check out the Hello World example from the eCAL documentation for further details.
+eCAL comes with a set of read-to-use tools that will help you with developing, testing and debugging your software. Command line interface versions and easy to use GUI applications are available.
+The eCAL Monitor to visualize the data flow and inspect messages sent between publishers and subscribers
+The eCAL Recorder to record the data sent between your eCAL nodes
+The eCAL Player to replay the eCAL recordings later on
+eCAL Sys to define your system configuration and monitor your applications
+
+eCAL is licensed under Apache License 2.0. You are free to
+eCAL is provided on an “as is” basis without warranties or conditions of any kind.
+Shared memory for local communication (incredible fast!)
+UDP for network communication
+eCAL is fast (1 - 10 GB/s, depends on payload size. Check the measured performance here)
+eCAL provides both publish-subscribe and server-client patterns
+eCAL is brokerless
+eCAL provides a C++ and C interface for easy integration into other languages (like python, csharp or rust)
+eCAL has powerful tools for recording, replay and monitoring all your data flows - decentralized
+eCAL is simple and zero-conf. No complex configuration for communication details and QOS settings are needed
+eCAL is message protocol agnostic. You choose the message protocol that fits to your needs like Google Protobuf, CapnProto, Flatbuffers...
+eCAL uses the standardized recording format HDF5
+eCAL integrates gently into your ROS2 environment with the eCAL RMW
+eCAL supports Intel and arm platforms
+eCAL runs on a wide variety of operating systems:
+Windows (stable)
+Linux (stable)
+QNX (stable)
+MacOS (experimental)
+FreeBSD (experimental)
+Windows (stable)
+Linux (stable)
+QNX (stable)
+MacOS (experimental)
+FreeBSD (experimental)
+The eCAL Monitor to visualize the data flow and inspect messages sent between publishers and subscribers
+The eCAL Recorder to record the data sent between your eCAL nodes
+The eCAL Player to replay the eCAL recordings later on
+eCAL Sys to define your system configuration and monitor your applications
+GO language binding
+Rust language binding
+ROS2 eCAL Middleware Layer
+Iceoryx
+Dockerfiles for eCAL
+Use eCAL commercially
+Modify eCAL
+Distribute eCAL
+eCAL - enhanced Communication Abstraction Layer
+Facts about eCAL
+Example
+Tools from the eCAL ecosystem
+Related projects
+License

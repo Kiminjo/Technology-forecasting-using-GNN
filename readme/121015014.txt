@@ -1,0 +1,31 @@
+Team name:
+Forked and synced on April 26
+Feature Labels:
+Category Labels:
+
+Donkeycar is minimalist and modular self driving library for Python. It is developed for hobbiests and students with a focus on allowing fast experimentation and easy community contributions.
+
+After building a Donkey2 you can turn on your car and go to :8887 to drive.
+The donkey car is controlled by running a sequence of events
+See home page, docs or join the Slack channel to learn more.
+Experiment Treat this as an experiment - document hypothesis and findings
+GCP Integrating platform with cloud storage and training
+Code optimization Small changes to code base for improved useability
+Computer Vision Improving the CV system
+CI/CD Automating the synchronization of code between RPi and host repo, collaboration, etc.
+Donkeycar Updates & Examples
+Build instructions and Software documentation
+Slack / Chat
+Make an RC car drive its self.
+Compete in self driving races like DIY Robocars
+Experiment with autopilots, mapping computer vision and neural networks.
+Log sensor data. (images, user inputs, sensor readings)
+Drive your car via a web or game controler.
+Leverage community contributed driving data.
+Use existing hardware CAD designs for upgrades.
+Berlin Robocars Team KJM
+donkeycar: a python self driving library
+Getting driving.
+Modify your cars behavior.
+Quick Links
+Use Donkey if you want to:

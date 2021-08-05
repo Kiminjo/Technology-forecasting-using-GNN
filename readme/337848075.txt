@@ -1,0 +1,65 @@
+Visual Global Localization Based on Deep Neural Netwoks for Self-Driving Cars
+See DeepVGL videos:
+DEV version: -4YPR0AFLKq9Lh/view?usp=sharing
+IARA version: 
+Volta-da-UFES dataset download link: 
+A Deep neural network approach for Visual Global Localization, running in real time on low-cost GPUs.
+Enable DeepVGL in Carmen.
+Remember to copy/generate all necessary files to the module's config folder.
+required files:
+(needs to have python2.7 installed on system)
+If you want to train with our logs (Volta-da-UFES), follow to STEP 2.
+Define the logs that will be used to train the Darknet(make sure the bumblebee and velodyne folders are present).
+They are usually in "/dados".
+(Use 2 or more logs to correct execution of the scripts)
+Generate the logs.txt file with:
+1 - the absolute path to the logs.
+2 - the absolute path to the images target directory.
+3 - selected camera.
+4 - crop height (to eliminate IARA's car-hood).
+5 - log format (1 or 2).
+The first will be used to generate base poses, the other to live poses.
+ex.:
+Generate the pose files associated with the images, here called camerapos_files. They are a preview of datasets, but without any treatment.
+For that, I run a playback of each log using the process-ground-truth-generator.ini, with the localize_neural_dataset module turned on.
+Edit the process-ground-truth-generator.ini to adjust these lines to your case :
+and run:
+Generate images:
+execute the following command to generate the images from each log selected.
+UFES's dataset download link: 
+Save them at /dados/ufes
+Generate the logs.txt file with:
+1 - the absolute path to the logs.
+2 - the absolute path to the images target directory.
+3 - selected camera.
+4 - crop height (to eliminate IARA's car-hood).
+5 - log format (1 or 2).
+The first will be used to generate base poses, the other to live poses.
+ex.:
+Configure the following parameters on 'script/config.txt':
+Generate the dataset itself:
+SABGL: -UFES/SABGL
+WNN-CNN-GL: -UFES/WNN-CNN-GL
+table of poses / images.
+network weights.
+network configuration file.
+UFES's dataset download link: 
+Save them at /dados/ufes
+DeepVGL
+Operating MODE
+Training MODE
+LCAD previous works:
+Install Carmen first and enable the localize_neural module to perform the following steps.
+Get started
+STEP 1
+STEP 1.1
+STEP 1.2
+STEP 1.3
+STEP 1.4
+If you are going to use only your logs, go to step 3.
+STEP 2
+STEP 2.1 Download all image folders and respective camera pose files
+STEP 2.2
+STEP 3
+After finishing running the dataset.sh script, start training the darknet.
+Repeat steps 1.2 and 1.3 to each log selected for training.

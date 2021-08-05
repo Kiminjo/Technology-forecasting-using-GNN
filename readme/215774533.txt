@@ -1,0 +1,19 @@
+Autonomous Car
+It is a research project. Aim on this project is learning autonomous car features and coding a simple autonomous car on a simulation environment. And adding emergency priority feature to it.
+For Simulation environment Webots has been used on this project:
+
+Download Webots
+After download the program download Python 2.7 or Python 3.7
+For Windows:
+For Linux:
+Use the pip command to install:
+After these you can simply open the .wbt file on the project. And just start by clicking play button.
+You can watch the video by clicking on it ↓
+
+To be able to see distance sensor rays use ctrl+F10.
+For enabling to start and stop ambulance siren use e and q keys (currently wav file gives error in other computers we will check and fix as soon as possible).
+To call voice assistant just say Jarvis ;)
+VA responds to =>
+On the sample projects you can find a same named .wbt file we edited that world environment to use for testing our codes.
+If you want to look at the codes or develop more features on the project : File> Open Text File and choose any .py or for using PyCharm on it you can follow this manual
+ceng-407-408-2019-2020-Autonomous-Car

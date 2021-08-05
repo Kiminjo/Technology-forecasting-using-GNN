@@ -1,0 +1,36 @@
+This is Roboy's Autonomous Driving Team's (update hyperlink when website is up) main repository. Setup and usage is shown in the following sections. We have a wiki where we go into detail about everything we did.
+To start, please go to our Wiki page. Members of Roboy can find additional information about this project on our Confluence page.
+You will require ROS Kinetic and Catkin tools for the use of this repository.
+Environmental perception is achieved through the use of a Sick Lidar LMS 155, a IMU and a Intel Realsense Camera.
+In a first iteration, this data is used for generating a map of our environment through the use of Google Cartographer. Based on that map, our navigation stack is executed for path planning. Once a path is planned, we use Google Cartographers pure localization feture to find ourselfs on the map. This gives closed-loop feedback to the navigation stack for updating the path planning.
+We output steering parameters an dvelocity settings to the Rickshaw.
+A simulation of the above can be run from here.
+So now that you are here ... what do you want to do?
+After the stated packages have been build, connect the LIDAR to an appropriate power source (brown = positive -> red, blue = negative -> black) and an ethernet switch. You will need to connect your Laptop to that switch as well.
+Hint for VM users: This guide was written based on experiences from a USB-C only MacBook running Ubuntu 16.04 in VMware Fusion. When connecting ethernet through a ethernet to USB-C adapter, mount the adapter to macOS, such that the connection is shown in the System Preferences of your host machine. Then, disconnect from any WiFi connections and the VM will switch to the wired connection. This lead to a plug-and-play setup of the LIDAR which can be double checked through calling the IP adress in a browser.
+To check if Intel Realsense D435 was connected correctly check via lsusb to see if a device with 'Intel' in it's name shows up. There could be problems if you use USB adapters and/or virtual machines, otherwise it should work plug and play.
+For instructions on how to use it in ROS check out the official instructions.
+Extrinsic calibration provides the relative translation and rotation between camera and lidar.
+For a detailed step-by-step tutorial visit the Github wiki of this repository.
+Depending on your current configuration, the most straight-forward way to use this code is to clone submodule autonomous_driving_src into your catkin_ws/src folder and build it according to the instructions given there.
+For Roboy Rickshaw (update hyperlink) the setup is a little different. We use a docker on our mobile PC (also called Leia) for computations. Visualization is done through building cartographer_rviz and roboy_ad from autonomous_driving_src on another machine and interconnecting them through network.
+See the README in the roboy_ad package for detailed instructions.
+See the README in Roboys' branch of Google cartographer for detailed instructions.
+See the README in Roboys' branch of Google cartographer for detailed instructions.
+See the README in roboy_naviagtion package for detailed instructions.
+See the README in roboy_naviagtion package for detailed instructions.
+Autonomous Driving
+Prerequisites
+Code structure
+Code usage
+Setup
+Data Recording
+SLAM
+Localization
+Navigation
+Control
+Hardware
+Software
+LIDAR
+Realsense
+Lidar-Camera extrinsic calibration

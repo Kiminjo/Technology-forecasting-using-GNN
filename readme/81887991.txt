@@ -1,0 +1,76 @@
+AirSim is a simulator for drones, cars and more, built on Unreal Engine (we now also have an experimental Unity release). It is open-source, cross platform, and supports software-in-the-loop simulation with popular flight controllers such as PX4 & ArduPilot and hardware-in-loop with PX4 for physically and visually realistic simulations. It is developed as an Unreal plugin that can simply be dropped into any Unreal environment. Similarly, we have an experimental release for a Unity plugin.
+Our goal is to develop AirSim as a platform for AI research to experiment with deep learning, computer vision and reinforcement learning algorithms for autonomous vehicles. For this purpose, AirSim also exposes APIs to retrieve data and control vehicles in a platform independent way.
+Check out the quick 1.5 minute demo
+Drones in AirSim
+
+Cars in AirSim
+
+
+For more details, see the use precompiled binaries document.
+View our detailed documentation on all aspects of AirSim.
+If you have remote control (RC) as shown below, you can manually control the drone in the simulator. For cars, you can use arrow keys to drive manually.
+More details
+
+
+AirSim exposes APIs so you can interact with the vehicle in the simulation programmatically. You can use these APIs to retrieve images, get state, control the vehicle and so on. The APIs are exposed through the RPC, and are accessible via a variety of languages, including C++, Python, C# and Java.
+These APIs are also available as part of a separate, independent cross-platform library, so you can deploy them on a companion computer on your vehicle. This way you can write and test your code in the simulator, and later execute it on the real vehicles. Transfer learning and related research is one of our focus areas.
+Note that you can use SimMode setting to specify the default vehicle or the new ComputerVision mode so you don't get prompted each time you start AirSim.
+More details
+There are two ways you can generate training data from AirSim for deep learning. The easiest way is to simply press the record button in the lower right corner. This will start writing pose and images for each frame. The data logging code is pretty simple and you can modify it to your heart's content.
+
+A better way to generate training data exactly the way you want is by accessing the APIs. This allows you to be in full control of how, what, where and when you want to log data.
+Yet another way to use AirSim is the so-called "Computer Vision" mode. In this mode, you don't have vehicles or physics. You can use the keyboard to move around the scene, or use APIs to position available cameras in any arbitrary pose, and collect images such as depth, disparity, surface normals or object segmentation.
+More details
+Press F10 to see various options available for weather effects. You can also control the weather using APIs. Press F1 to see other options available.
+
+More technical details are available in AirSim paper (FSR 2017 Conference). Please cite this as:
+Please take a look at open issues if you are looking for areas to contribute to.
+We are maintaining a list of a few projects, people and groups that we are aware of. If you would like to be featured in this list please make a request here.
+Join the AirSim group on Facebook to stay up to date or ask any questions.
+For complete list of changes, view our Changelog
+If you run into problems, check the FAQ and feel free to post issues in the AirSim repository.
+This project has adopted the Microsoft Open Source Code of Conduct. For more information see the Code of Conduct FAQ or contact opencode@microsoft.com with any additional questions or comments.
+This project is released under the MIT License. Please review the License file for more details.
+Download binaries
+Build it
+Download binaries
+Build it
+Build it
+Video - Setting up AirSim with Pixhawk Tutorial by Chris Lovett
+Video - Using AirSim with Pixhawk Tutorial by Chris Lovett
+Video - Using off-the-self environments with AirSim by Jim Piavis
+Reinforcement Learning with AirSim by Ashish Kapoor
+The Autonomous Driving Cookbook by Microsoft Deep Learning and Robotics Garage Chapter
+Using TensorFlow for simple collision avoidance by Simon Levy and WLU team
+More on AirSim design
+More on code structure
+Contribution Guidelines
+Python wrapper for Open AI gym interfaces.
+Python wrapper for Event camera simulation
+Voxel grid construction
+Programmable camera distortion
+Wind simulation
+Azure development environment with documentation
+ROS wrapper for multirotor and car.
+Welcome to AirSim
+How to Get It
+How to Use It
+Tutorials
+Participate
+Contact
+What's New
+FAQ
+Code of Conduct
+License
+Windows
+Linux
+macOS
+Documentation
+Manual drive
+Programmatic control
+Gathering training data
+Computer Vision mode
+Weather Effects
+Paper
+Contribute
+Who is Using AirSim?

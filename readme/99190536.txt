@@ -1,0 +1,22 @@
+This repository holds the code base for the autonomous intruder detection project, as set out by project specifications within The University of Newcastle's ELEC3850.
+This process involves downloading the repository itself. Make sure git is installed sudo apt-get install git, and then git clone . You will now have a local copy of the repository!
+This process involves pulling any changes from the online origin of the repo. git pull will attempt to pull any changes which your local repository currently doesn't have. If you have any local changes, either commit them (see below) or stash them (shallow store) using git stash. Try pulling again.
+This process involves saving any changes into an informative repository iteration. To see files currently staged to commit, use git status. To add files use git add <filepath>, or git add * for all files. To commit your staged files use git commit -m "<Message>"
+This process involves saving your changes onto the online master branch of the repo. This will push any outstanding commits within your local repo. Performed using git push.
+Either plug the Raspberry Pi into a HDMI port and connect to a new WiFi network through mouse and keyboard, or create a network called Matt-HS with the same password used for this network. This should work, hopefully!
+To login to the Raspberry Pi over the network, use SSH. Previously, the Raspberry Pi had an address of 192.168.43.42 with a username of pi. To SSH in, use ssh pi@192.168.43.42, use the password!. If this does not work, login to the router admin tool and look for the ip address of the Raspberry Pi. Use that instead.
+In the MuonPlatform folder, create a new folder called build, i.e. mkdir build. Make sure cmake is installed with sudo apt-get install cmake, and within the build folder run cmake ... This will now create a makefile within the build folder. If an error occurs while attempting to cmake, there exists an error within the project inclusions and linking. To see the current project build list and links to files, look in MuonProject/CMakeLists.txt. To actually build the code, run make within the build folder. The created binaries will be made in MuonProject/bin. Caution! To build for the Raspberry Pi, set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mcpu=cortex-a53") must be within the CMakeLists file, otherwise the build will think the Pi has no CPU!
+To allow for linking of OpenCV libraries, you must specify the OpenCV directory ~/opencv-2.4.13.3/build within the cmake build. That is, within MuonPlatform/build, run ccmake .. and specify the OpenCV directory to be ~/opencv-2.4.13.3/build.
+To actually run built binaries, root permissions must be allowed for anything interfacing with GPIO pins or I2C addresses. This can be accomplished by sudo ./bin/<binary>, e.g. sudo ./bin/GPIOTest
+MUoN Autonomous Car Platform
+Interfacing with GitHub
+Interfacing with Raspberry Pi
+Building code (on/off Raspberry Pi)
+Building with OpenCV support
+Running code
+Cloning
+Pulling
+Committing
+Pushing
+Set up WiFi network
+SSH

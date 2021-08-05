@@ -1,0 +1,10 @@
+AVDEX is in active development. We will publish our roadmap and contributing guidelines soon!
+AVDEX uses a couple of BigchainDB features that are not released yet. To run this software you'll need to point to some specific commits both for the javascript driver and for the BigchainDB node.
+The application requires some code that is not in a BigchainDB release yet.
+First you need to download and install the development version of the driver.
+Then install the dependencies for the web application.
+Note: there are some problems using yarn to install sematic-ui-react, this is a known bug. Please use npm instead.
+AVDEX — Autonomous Vehicles Data EXchange
+Run the app
+Install bigchaindb
+Install js-bigchaindb-driver

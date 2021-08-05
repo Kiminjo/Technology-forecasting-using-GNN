@@ -1,0 +1,24 @@
+Earn while you Drive & Empower Automated Driving
+Michael Karl +49 1577 157 1679
+IOTA
+Team:
+Dr. Simon Hassannia (presented first half of final pitch)
+David Hawig (presented second half of final pitch),
+Martin Mihaylov
+Michael Karl
+Visual Studio 2017
+Vim
+Sketch
+Xamarin
+Chiota
+C# .NET IOTA Lib
+NET IPFS API
+Pac-Man-on-Wheels
+Git Team Leader Contact Details
+Used Platform
+The development tools used to build the project
+SDKs used in the project
+APIs used in the project
+Any assets used in the project
+Any libraries used in the project
+Any components not created at the hackathon

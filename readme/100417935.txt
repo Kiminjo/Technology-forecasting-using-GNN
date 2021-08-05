@@ -1,0 +1,14 @@
+
+
+The self driving car consists of modules with the following responsibilities:
+see Deployment in the Wiki
+Wiki
+dukes Project pages
+Dukes of Hazzard
+Dukes of Hazzard self driving RC car
+Videos
+Documentation
+Modules
+Getting started
+Inspiration for naming
+Module Overview

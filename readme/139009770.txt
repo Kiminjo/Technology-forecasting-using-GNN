@@ -1,0 +1,60 @@
+
+
+BeamNGpy is an official library providing a Python API to BeamNG.tech, the academia- and industry-oriented fork of the video game BeamNG.drive. BeamNGpy and BeamNG.tech are designed to go hand in hand, both being kept up to date to support each other's functions, meaning using the latest versions of both is recommended.
+It allows remote control of the simulation, including vehicles contained in it:
+
+BeamNGpy comes with a wide range of low-level functions to interact with the simulation and a few higher-level interfaces that make more complex actions easier. Some features to highlight are:
+Each vehicle can be controlled individually and independently during the simulation. This includes basic steering inputs, but also controls over various lights (headlights, indicators, etc.) or gear shifting.
+
+Besides manual control, BeamNG.tech ships with its own AI to control vehicles. This AI can be configured and controlled from BeamNGpy. It can be used to make a vehicle drive to a certain waypoint, make it follow another vehicle, span the map, or follow a user-defined trajectory:
+
+Vehicles and the environment can be equipped with various sensors that provide simulated sensor data. These sensors include:
+
+These sensors give perfect data from the simulation by default. Therefore, some of them, like the camera and lidar sensor, can be equipped to also simulate noisy data.
+Geometry of roads in the currently-loaded level/scenario are made available via BeamNGpy. Objects and vehicles that are currently active in the scene are also exposed, allowing for analysis of the current simulation state.
+
+BeamNGpy interacts with BeamNG.tech as the client, with BeamNG.tech acting as the server. This allows for multiple BeamNGpy processes to connect to a running simulation and have each control the simulator, making it possible to, for example, run a scenario in which each vehicle is controlled by a separate client.
+There is a healthy collection of usage examples in the examples/ folder of this repository. These highlight more features, but also serve as documentation, so be sure to check them out.
+
+Usage of BeamNGpy requires BeamNG.tech to be installed. Builds of BeamNG.tech are made available for non-commercial use upon request using this form. For commercial use, contact us at licensing@beamng.gmbh. Once downloaded (and extracted, depending on whether or no BeamNG.tech was obtained as a .zip), you can set an environment variable BNG_HOME to where BeamNG.tech can be run from, or provide a path to the BeamNGpy library during initialization.
+The regular Steam release of BeamNG.drive is compatible to an extent as well. Certain sensors like the simulated LiDAR or camera will not work, but most of the functions that are not exclusive to a Tech build will likely work.
+
+The library itself is available on PyPI and can therefore be installed using common methods like pip:
+
+Once installed, the library can be imported using import beamngpy. A short usage example setting up a scenario with one vehicle in the West Coast USA map that spans the area is:
+More examples can be found in the examples/ folder of this repository and the documentation of the library is available here..
+This section lists common issues with BeamNGpy in particular. Since this library is closely tied to BeamNG.tech and thus BeamNG.drive, it is also recommended to consult the documentation on BeamNG.drive here:
+/
+We always welcome user contributions, be sure to check out our contribution guidelines first, before starting your work.
+About
+Features
+Prerequisites
+Installation
+Usage
+Troubleshooting
+Cameras
+Color camera
+Depth camera
+Semantic and Instance annotations
+Lidars
+Inertial Measurement Units
+Ultrasonic Distance Measurements
+Make sure BeamNG.tech and Python are allowed to connect to your current network in Windows Firewall.
+There is a known issue where BeamNG.tech quietly crashes when there is a space in the configured userpath. Until this issue is fixed, it is recommended to either switch to a path that does not contain a space or change the userpath directly in the "startup.ini" file located in the directory of your BeamNG.tech installation.
+BeamNGpy
+Table of Contents
+About
+Features
+Prerequisites
+Installation
+Usage
+Troubleshooting
+Contributions
+Remote Control of Vehicles
+AI-controlled Vehicles
+Dynamic Sensor Models
+Access to Road Network & Scenario Objects
+Multiple Clients
+More
+BeamNGpy cannot establish a connection
+BeamNG.tech quietly fails to launch

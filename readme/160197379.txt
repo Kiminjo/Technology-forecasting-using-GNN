@@ -1,0 +1,14 @@
+This is a new project from Shanghai, China, which is originally based on DonkeyCar. We have built an Arduino chassis with high performance, modified several configurations and chosen tensorflow version at 1.8.0 and donkeycar version at 2.5.1 of master branch.
+P.S. Simulators just work well on Linux and MAC now, Windows version need fixing.
+DonkeyDrift
+Instruction
+Have fun!
+1. Reference & Tools:
+2. Clone this repository:
+3. Install DonkeyDrift:
+4. Create new instance:
+5. Calibrate car:
+6. Drive car:
+7. Train Model on PC or Server:
+8. Test Model with Unity simulators:
+9. Drive car with model for Auto Drive:

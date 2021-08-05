@@ -1,0 +1,16 @@
+SNU ZERO repo for autonomous vehicle competition
+version: Kinetic
+Dependency for Hybrid A star reference: 
+Dependency for Opencv
+open ~/.bashrc and add export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib/x86_64-linux-gnu/pkgconfig in the last line
+R == 255: this is occupied R != 255: this is free region B == 255: this is the target point G == 255: estimated path points (monitor_map only)
+(R,G,B) ==(200,200,200): this is lidar position
+PathArray: for path data, delta: the delta that the hybrid A* used for the current fragment of the path, this can be used for estimation of curvature of the path
+let's use curvature Cost for estimation of path curvature
+Hi
+autonomous_vehicle
+ROS
+Installation
+occupancy_map & monitor_map color code
+core_msgs
+smoother

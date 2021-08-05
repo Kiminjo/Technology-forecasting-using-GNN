@@ -1,0 +1,7 @@
+Motivation
+How to start car core module:
+Aplication in work
+
+This module is trained on our dataset to drive vehicle in simulator, using the abstract information from object-detection modules.
+To test model in simulator, run drive.py --config.json
+Core-module

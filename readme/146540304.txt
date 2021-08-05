@@ -1,0 +1,8 @@
+
+This repository contains a collection of ROS packages specific to implementation of the Selfie Autonomous Car for F1/10 October 2018 competition. It is targetting ROS Kinetic Kame distribution.
+In order to build this project, you need to have a catkin workspace setup in a convenient location. It will be further assumed that the workspace is configured at ~/catkin_ws, but any other place will be fine, provided write permissions. When evaluating the shell commands below, change the location if necessary.
+The repository should be placed in the source space of your workspace. It can be done as follows.
+Selfie F1/10 Project
+Workspace setup
+Resolving dependencies
+Building packages

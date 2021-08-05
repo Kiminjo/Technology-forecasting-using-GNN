@@ -1,0 +1,19 @@
+The headless-shell project provides a Docker image, chromedp/headless-shell, containing a pre-built version of Chrome's headless-shell -- a slimmed down version of Chrome that is useful for driving, profiling, or testing web pages.
+Notably, this Docker image has been created expressly for the Go chromedp package, which provides a simple and easy to use API for driving browsers compatible with the Chrome Debugging Protocol.
+The version of headless-shell contained in this Docker image has been modified from the original Chromium source tree, to report the same user agent as Chrome, and has had other minor modifications made to it in order make it better suited for use in an embedded context.
+You can use this Docker image in the usual way:
+When using chromedp/headless-shell as a base image to build an image that runs your own program, You could experience zombie process problem. To reap zombie processeses, use dumb-init or tini on your Dockerfile's ENTRYPOINT
+If running Docker 1.13.0 or later, use docker run's --init arg instead to reap zombie processes.
+The following contains instructions for building and packaging the chromedp/headless-shell Docker image manually.
+If you'd like to build this image yourself, locally, you will need to build headless-shell manually from the Chromium source. As such you will need to setup Chromium's depot_tools, your build environment, and a full checkout of the Chromium source tree and its related dependencies.
+Please see the following for instructions on building Chromium and headless-shell on Linux:
+Before proceeding, please ensure you have fully completed the above, have manually built headless-shell at least once, and that your Chromium source tree is up-to-date.
+After you are able to successfully build headless-shell directly from the Chromium source tree, you can simply run build-docker.sh:
+Checking out and building Chromium on Linux
+Building Headless Chromium
+About headless-shell
+Running
+Using as a base image
+Building and Packaging
+Setup and Building
+Building

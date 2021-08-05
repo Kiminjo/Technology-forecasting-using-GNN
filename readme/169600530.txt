@@ -1,0 +1,8 @@
+
+Base on NVIDIA end-to-end CNN
+Summary of the model architectures
+Hiện tại đang lấy dựa trên simulator của udacity, download here
+Chỉ cần tải về giải nén and run python3 main.py.
+End To End model for HAUI.notTrashCar
+Model Architecture
+Data

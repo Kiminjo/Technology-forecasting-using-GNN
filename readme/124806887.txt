@@ -1,0 +1,40 @@
+This software simulates autonomous vehicles within a ROS environment.
+STABLE — most recently tagged version of the documentation.
+LATEST — in-development version of the documentation.
+These instructions depend on your machine's configuration.
+Remove any old versions of docker if they are on your machine:
+Update the apt package index:
+Install the packages to allow apt to use a repository through HTTPS:
+Add the official GPG key of Docker:
+Verify that the command below print out 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88:
+Tell apt to use the stable repository by running the command below:
+Update the apt package index and install Docker CE:
+Check installation of docker:
+
+Use the CUDA 10.1 Toolkit to install CUDA. An example of using this toolkit follows.
+
+
+After the download is complete, cd into your ~\Downloads folder and follow the installation instructions provided by the toolkit to install CUDA:
+Note: After you follow the first instruction, the <version> in the second instruction will be provided. For instance, in this example:
+Produces:
+Thus add the key as instructed, before proceeding with the final instructions.
+Reboot your computer and verify that the NVIDIA graphics driver can be loaded
+which should produce something like this
+If installed, remove NVIDIA docker 1.0:
+Add the necessary repositories and update the apt package index and Install NVIDIA docker:
+Test NVIDIA docker installation:
+First start Docker container in the MAVs folder:
+Then, the most basic usage of MAVs is simply running the demos. For instance, demoA can be run as:
+
+Unfortunately this software stack exceeds the time limit on Docker as well as Travis services (~45 min). So, while these services are configured, they cannot be utilized.
+Docker Hub repo
+
+
+Michigan Autonomous Vehicles
+Documentation
+Installation Instructions
+Tests
+Step 1, Install Docker
+Step 2, Update NVIDIA Driver
+Step 3, Install NVIDIA-docker
+Step 4, Install MAVs

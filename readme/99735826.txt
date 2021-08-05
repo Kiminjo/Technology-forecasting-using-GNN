@@ -1,0 +1,57 @@
+MOVR - Autonomous vehicle for close proximity navigation
+Package that contains scripts to teleoperate via joystick, keyboard and speech
+Package that contains scripts related to vision sensors.
+Follow configuration instructions outlined here.
+Note: PortAudio is a dependency for the sounddevice package.
+Workspace packages
+Dependencies
+ROS
+Python
+Native
+Installation
+How to use
+Development
+References
+ROS
+Python
+Native
+ROS Ackermann Interest Group
+ROS Joy
+ROS Openni Launch
+ROS Time Elastic Band Planning
+MOVR ROS Workspace
+Table of contents
+Workspace packages
+Dependencies
+Installation
+How to use
+Development
+References
+movr_teleop
+movr_vision
+ROS
+ackermann-msgs
+Python
+Native
+In Workstation
+In MOVR Vehicle
+View Astra Camera
+View Kinect Sensor
+rosserial
+joy
+openni
+opencv 3
+cv-bridge
+astra
+API AI
+SpeechRecognition
+gTTS
+pocketsphinx-python
+pygame
+playsound
+soundevice
+soundfile
+keyboard
+json
+PortAudio
+In RViz

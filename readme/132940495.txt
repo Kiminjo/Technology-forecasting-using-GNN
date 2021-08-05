@@ -1,0 +1,120 @@
+
+FusionAD is an autonomous driving software stack developed by the SJSU Autonomous Driving Team at San Jose State University (SJSU), San Jose, CA.
+Our challenge is to create a fully functional autonomous driving vehicle within the 1 Year timeline of a Mechanical Engineering Senior Project at SJSU.
+
+
+This repository mainly capture the software application layer within FusionAD's architecture.
+Currently, all the modules are under work in progress and they are located under FusionAD/src/modules
+Current capabilities of the software modules:
+One of the goals at SJSU Autonomous Driving is to make autonomy development more accessible and cheaper.
+Therefore, our sensor stack consisted of mainly low-cost and easily attainable sensors.
+Current computation architecture mimics a distributed system for distributing tasks and loads between the two resource-heavy modules, perception and map-based localization.
+
+FusionAD also appreciate the help of other passionate SJSU students!
+We would like to acknowledge the following FusionADers:
+Perception
+Integration done with Yolo V3 image detector
+Localization
+EKF through robot_localization package
+Dead reckoning vehicle kinematic model
+Initial Calibration routine
+Transforms between sensors and tracking frames
+Planning
+"Virtual rail" planner - Basic route planner
+Control
+High-level motion controller
+Low-level actuator controller
+Tele-op interface
+CAN Bus interface
+Simulation
+OSV Sim
+A full fledge vehicle simulator on the Gazebo Simulation Platform
+Control SIL
+A Real-time, Software In the Loop testing environment for high-level controller vaidation.
+Integration done with Yolo V3 image detector
+EKF through robot_localization package
+Dead reckoning vehicle kinematic model
+Initial Calibration routine
+Transforms between sensors and tracking frames
+"Virtual rail" planner - Basic route planner
+High-level motion controller
+Low-level actuator controller
+Tele-op interface
+CAN Bus interface
+OSV Sim
+A full fledge vehicle simulator on the Gazebo Simulation Platform
+Control SIL
+A Real-time, Software In the Loop testing environment for high-level controller vaidation.
+A full fledge vehicle simulator on the Gazebo Simulation Platform
+A Real-time, Software In the Loop testing environment for high-level controller vaidation.
+FusionAD is developed on ROS KINETICS and UBUNTU 16.04 LTS. We do not support other version of ROS or Ubuntu at the moment.
+GPS
+SwiftNav Piksi Multi RTK
+IMU
+Sparkfun Razor 9Dof IMU
+Wheel Encoders
+Generic Incremental Encoder
+Cameras
+Pi Camera + Raspberry Pi together forms a camera node
+Lidar
+Velodyne VLP-16
+SwiftNav Piksi Multi RTK
+Sparkfun Razor 9Dof IMU
+Generic Incremental Encoder
+Pi Camera + Raspberry Pi together forms a camera node
+Velodyne VLP-16
+Main Computer
+Spec: i7-7700HQ + GTX 1050 + 16 Gb Ram
+Handles most localization + planning + control computations
+2x Nvidia Jetson TX2
+Dedicated to perform image detection computations
+Spec: i7-7700HQ + GTX 1050 + 16 Gb Ram
+Handles most localization + planning + control computations
+Dedicated to perform image detection computations
+master
+Most stable branch
+FusionAD do not recommend performing development from this branch
+develop
+Contains tested features
+FusionAD recommends performing development on this branch
+test_deployment
+Contains features that are pending to be tested on the vehicle
+FusionAD do not recommend performing development from this branch
+slave_tx2
+Contains software for the Jetson TX2 modules
+Not Open for main FusionAD development except for software related to the TX2 board
+release_branches
+Sealed branch for storing past releases
+Not Open for development
+Most stable branch
+FusionAD do not recommend performing development from this branch
+Contains tested features
+FusionAD recommends performing development on this branch
+Contains features that are pending to be tested on the vehicle
+FusionAD do not recommend performing development from this branch
+Contains software for the Jetson TX2 modules
+Not Open for main FusionAD development except for software related to the TX2 board
+Sealed branch for storing past releases
+Not Open for development
+John Phung
+FusionAD Program and Community Manager
+Nelson Wong
+SJSU Autonomous Driving Perception and Localization Engineer
+Francisco Ibrarra
+SJSU Autonomous Driving Perception Engineer
+FusionAD Program and Community Manager
+SJSU Autonomous Driving Perception and Localization Engineer
+SJSU Autonomous Driving Perception Engineer
+Welcome to FusionAD
+See KPIX Bay Area's coverage on SJSU autonomous driving on Youtube
+FusionAD's Software Architecture
+Hardware
+How to build FusionAD:
+Development
+Maintainers
+Application Modules
+Operating Systems and Requirements
+Sensor Stack
+Computation
+Branches
+The Core FusionAD team

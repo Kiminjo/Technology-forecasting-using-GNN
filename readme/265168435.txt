@@ -1,0 +1,48 @@
+
+This repository contains the code for steering a self-driving vehicle.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Run the following command :
+For Example :
+NOTE : Use exact name as mentioned above to avoid unnecessary bugs.
+
+Commits
+This project is licensed under the MIT License - see the LICENSE.md file for details
+Fork the repo and clone it.
+Go in the repo and setup virtual environment using python -m virtualenv env or by using anaconda
+conda create --name env
+Then activate the environment using source env/Scripts/activate (For Windows Users using CMD or Powershell env/Scripts/activate) or conda activate env
+Then install the necessary required packages from requirements.txt
+Then run pre-commit install. It will install pre-commit hook for various configurations.
+basedir : Path to folder that dataset folder
+datafile : Path to angles.csv
+savefile : Path to store output.csv
+Make sure your dataset-images are in folder named 'all' at the root directory.
+Make sure your angles.csv and actions.csv are in the root directory named 'angles.csv' and 'actions.csv' respectively.
+The models.py contain architectures of 5-different neural networks named:
+comma.ai
+pretrained_vgg16
+nvidia-dave2
+3D-CNN
+CNN LSTM
+Run the following command :
+comma.ai
+pretrained_vgg16
+nvidia-dave2
+3D-CNN
+CNN LSTM
+Create a fork of this repo.
+Clone your fork of your repo on your pc.
+Add Upstream to your clone
+Every change that you do, it has to be on a branch. Commits on master would directly be closed.
+Make sure that before you create a new branch for new changes,syncing with upstream is neccesary.
+Write clear meaningful git commit messages (Do read this).
+Make sure your PR's description contains GitHub's special keyword references that automatically close the related issue when the PR is merged. (Check this for more info)
+When you make very very minor changes to a PR of yours (like for example fixing a failing Travis build or some small style corrections or minor changes requested by reviewers) make sure you squash your commits afterward so that you don't have an absurd number of commits for a very small fix. (Learn how to squash at here)
+DEVELOPER STUDENT CLUBS TIET
+Autonomous-Driving
+Getting Started
+Contribution to the project
+LICENSE
+Installation and Setup
+Running the demo
+Training the Neural Network

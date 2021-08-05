@@ -1,0 +1,55 @@
+Master:
+Extend CarModule and implement its methods
+Your Module will be passed a CarData in init(), use this to get data from other modules and provide your own data.
+update() will be called once per frame.
+Submit current frame's CarCommands to the Core by returning them from commands()
+This project was created and is maintained by a group of highschool students in Portland, Oregon.
+Bugs and requests: submit them through the project's issues tracker.
+
+Questions: ask them at StackOverflow with the tag REPO.
+
+Website: AVP_HS
+
+Travis.
+
+Add new Gradle config
+Target the auto_racer gradle project
+Paste clean build into tasks (if build doesnt work for you try jar)
+Java Application config
+Main class: autoracer.yourclient.YourMainClass
+Classpath of module: org.avphs.yourclient.main
+Under VM options, paste this line:
+--module-path mods -m org.avphs.yourclient/org.avphs.yourclient.YourMainClass
+Included clients are carclient and traksim
+Target the auto_racer gradle project
+Paste clean build into tasks (if build doesnt work for you try jar)
+Main class: autoracer.yourclient.YourMainClass
+Classpath of module: org.avphs.yourclient.main
+Under VM options, paste this line:
+--module-path mods -m org.avphs.yourclient/org.avphs.yourclient.YourMainClass
+Included clients are carclient and traksim
+--module-path mods -m org.avphs.yourclient/org.avphs.yourclient.YourMainClass
+Extend CarModule and implement its methods
+Your Module will be passed a CarData in init(), use this to get data from other modules and provide your own data.
+Getting data example from ImageModule:
+window = (WindowModule) carData.getModuleData("window");
+var camera = (Camera) carData.getModuleData("camera");
+Providing data example from WindowModule:
+  private void init() {
+      carData.addData("window", this);
+  }
+update() will be called once per frame.
+Submit current frame's CarCommands to the Core by returning them from commands()
+Getting data example from ImageModule:
+Providing data example from WindowModule:
+
+Create a feature branch off of master
+When ready, make a pull request to merge/rebase your branch into master
+If you branch passes CI tests and gets approved by one reviewer it can be merged
+About
+CI
+License
+Contributing
+How to set up Run Configs (Intellij IDEA)
+Module System
+Clients

@@ -1,0 +1,14 @@
+NOTE The frames must be PNGs with a resolution of 2048x1536 (QXGA) (or 'KITTI' resolution - 1392x512). Every frame in each dataset must have the same resolution.
+Christian Berger
+The Revere labratory
+Unix-like OS (tested on Arch Linux 5.0.7, Ubuntu 18.04.02 LTS and MacOS 10.14.5)
+Docker (version > 18) properly installed
+Intel QuickSync H.264 and VP9 support (Kaby Lake, Gemini Lake, Coffee Lake, Cannon Lake or later)
+video-codec-performance-for-autonomous-driving
+Run in Python virtual environment (venv)
+Set up virtual environment with dependencies (only has to setup once)
+Adding more datasets
+Run the script
+Notes
+Requirements
+Acknowledgement

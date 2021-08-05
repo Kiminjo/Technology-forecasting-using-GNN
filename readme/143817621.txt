@@ -1,0 +1,24 @@
+TrackerBots Project Code and Documentation.
+TrackerBots is an open source framework to develop a fully autonomous system for Unmanned Aerial Vehicles (UAVs) to track multiple radio-tagged objects. This repository is provided as part of the following papers :
+Cite using:
+This project is licensed under the MIT License - see the LICENSE.md file for details
+MATLAB - Tracking and Planning Algorithm.
+Rust - Embedded System Management.
+Hoa Nguyen: hoavan.nguyen@adelaide.edu.au
+Michael Chesser: michael.chesser@adelaide.edu.au
+IROS 2020: A MATLAB tracking and planning algorithm for the LAVAPilot: Lightweight UAVTrajectory Planner with Situational Awarenessfor Embedded Autonomy to Track and Locate Radio-tags paper.
+JoFR 2019: A MATLAB tracking and planning algorithm for the TrackerBots: Autonomous UAV for Real-Time Localization and Tracking of Multiple Radio-Tagged Animals paper.
+ACRA 2018: A MATLAB tracking and planning algorithm for the TrackerBots: Software in the Loop Study of Quad-Copter Robots for Locating Radio-tags in a 3D Space paper.
+animal_detector: Signal processing library to detect the pulse emitted from the VHF radio tags.
+common: A common library used for pulse_server and telemetry_host
+io_proxy: The input/output proxy tool for multiplexing Mavlink messages between different I/O connection
+pulse_server: A full signal processing module installed on Intel Edison board, which communicates with a SDR to detect and analyze transmitted pulses from radio tags.
+services: contains a service file for pulse_server that to run automatically on the Intel Edison board when it restarts.
+telemetry_host: An interface program which provides REST api to communicate betweentracking and planning algorithm written in MATLAB and the UAV.
+TrackerBots
+Introduction
+Built With
+Authors
+Main Program
+Auxiliary Components
+License

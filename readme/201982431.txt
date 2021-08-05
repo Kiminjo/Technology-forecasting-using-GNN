@@ -1,0 +1,4 @@
+Template for an Assignment
+All textual materials used in this course are licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
+All executable code used in this course is licensed under the GNU General Public License Version 3 or later
+Assignment Template

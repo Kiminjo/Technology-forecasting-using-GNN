@@ -1,0 +1,5 @@
+SWIFAST Website 1.0
+Swifast Ver 1.0 website is a responsive website that supports all the browsers and it contains useful information about the product for visitors and also a blog page to keep users inform. The website provides a homepage, blog page, about us page, contact us page, product page, technology page, and a subscription form.
+#Swifast Ver 1.0
+Our project contains 6 folders, and the directory structure is as follows:
+SWIFAST-Website-1.0

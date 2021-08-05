@@ -1,0 +1,73 @@
+A aggressive self-driving stadium truck.
+Official Website: -robot-car/home
+The installation script is at here
+The installation script is at here
+Install Python related packages on ODROID UX4/Jetson TX2
+NOTE: we use our customized rpg_dvs_ros drivers, please follow the instruction here if you want to use the original project.
+Update udev rules for DVS cameras and crazyflie
+NOTE: you will have to source ~/.bashrc after every build.
+NOTE: If you want to clean-build packages, please follow:
+Configure bias parameters to DVS camera, see DVS calibration for more details.
+Configure autonomous driving parameters by modifying param_server.yaml.
+Launch crazyflie node on the host machine
+Y: take control back from hand held controller
+B: firmware level emergency brake
+A: start recording
+X: stop recording
+LB: joystick level emergency brake
+LT: start joystick manual control
+RB: stop autonomous control
+RT: start autonomous control
+Left analog mini-stick: steering (rotate left and right)
+Right analog mini-stick: throttle (rotate up and down)
+To start DVS camera calibration on the car
+To start DVS camera calibration on the host machine
+You can calibrate camera configs from the rqt_reconfigure GUI tool. Then you will need to save the change to monstruck_camera_config.yaml The file is located at
+Set six LSP nodes to pre-defined locations, connect the nodes to USB power banks.
+Modify anchor_pos.yaml
+Set each anchor position in following template
+We provided a set of tools in tools and model folders so that you can use to manage rosbag recordings, prepare training data, and build training models.
+To use these tools, there are several requirements
+This script converts a ROS bag recording to HDF5 format. The output HDF5 file is structured as a valid HDF5 recording file and can be accessed easily through h5py. The usage is
+Note that your recording is in your spikeres/data/rosbag directory. Please read the code for more details.
+The raw HDF5 recording provides all data, however, to train a Neural Network, you won't need everything. Therefore, you can prepare the training and testing dataset through hdf5_exporter.py. Usage:
+The current script receives a preprocessing config JSON file that is defined by the training experiment (see below, we provided a example of the current JSON file as well) in order to match the exact training condition. The raw HDF5 recording is in spikeres/data/rosbag and the preprocessing config file can be anywhere in the system.
+hdf_binder.py is a tool that binds multiple HDF5 datasets together into a single HDF5 document. Usage:
+The file_list.json has three fields as the example showed below:
+The model training script is to train a ResNet model with the training and testing datasets.
+We use sacred to configure each experiments. The usage of this script is:
+sacred can serialize your experiment configurations so that you can repeat different experiments with a single script. A example of this configuration file is at here
+The evaluation script loads a trained model and then evaluates on a test dataset. It also re-saves the trained model to model definition JSON file and weights file in HDF5. These two files are used by monstruck to perform inference. Please check out the script and modify to your needs.
+Y: take control back from hand held controller
+B: firmware level emergency brake
+A: start recording
+X: stop recording
+LB: joystick level emergency brake
+LT: start joystick manual control
+RB: stop autonomous control
+RT: start autonomous control
+Left analog mini-stick: steering (rotate left and right)
+Right analog mini-stick: throttle (rotate up and down)
+TensorFlow
+Keras
+scikit-image
+numpy
+scipy
+spiker (a private repository, ask for access)
+rospy
+rosbag
+sacred
+Slasher
+Install ROS
+Install DVS and related drivers
+Usage
+Calibration and setup for DVS camera and crazyflie
+Prepare training for monstruck data
+DVS camera calibration
+Crazyflie calibration
+Requirements
+Convert ROS bag to HDF5 format
+Export HDF5 recordings to ready-to-train HDF5 datasets
+Joining multiple training dataset together
+Training with ResNet
+Evaluating and exporting the model file for monstruck controller

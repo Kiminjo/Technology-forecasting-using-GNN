@@ -1,0 +1,68 @@
+Finding Lane Lines on the Road
+The goals / steps of this project are the following:
+My pipeline consists of the following steps:
+I modify the draw_lines function to make the line detection more robust by grouping detected lines into left and right lane lines and perform line extrapolation within group. Here is more detailed description:
+In my experiments, the key to obtaining clean images for lane detection are Color Selection and Region of Interest Selection. Gaussian Smoothing seem to contributes minimally to cleaner images for Edge detection and line detecion.
+The intuition behind color selection is that images taken from a self-driving car dashboard are fairly consistent in their high level composition. For most of the well-paved road, lane lines are painted bright white and yellow against dark gray background (making it obvious for driver to make out the lanes).
+To perform color selection, I experimented with setting range filters for white and yellow colors in RGB, HSV, and HLS color models. I looked up the RGB, HSV, and HSL colors using this online color picker tool and slightly modified the range to get crisper color segmentation. In the test images, with carefully chosen lower and upper bounds for each color models, image patches with white and yellow color cleanly segmented as shown with the HSV and HSL selected test images slightly more cleanly segmented than the RGB selected ones. To choose between HSV and HLS, I have found this paper which compares between HSV, HSL and other color models in real-time objection recognition and found HSV to be the best. So I choose to use HSV selection in my pipeline. Here's my implementation of Color Section.
+The test images after the HSV Color Segmentation are shown below:
+
+The intuition behind region of interest selection arises from that the car dashboard the bottom half of the image patch are road areas where lane lines are painted. The region of interest selection filters in only the region where it is highly likely for lane lines to be so that the rest of the pipeline focuses on detecting lines from this region.
+To implement this, I experimented with the all four corners of the ROI and found that the values that work best for the test images. Here's my implementation:
+The HSV selected images after the ROI Selection are shown below:
+
+Gray scaling converts the image in color space into a single channel for downstream processing (Gaussian smoothing and edge detection). For this step, I used the provided gray_scale function (which is a thin wrapper code around cv2.cvtColor( _ , cv2.COLOR_RGB2GRAY)).
+Gaussian smoothing suppresses (salt and pepper type of) noise from the images to prevent unwanted edges in the edge detection step in the pipeline. The key hyperparameter for Gaussian smoothing is kernal_size which specifies the size in pixels of the square slide window on which the 2D Gaussian kernel is convolved over the image. Optimal kernel size should be larger than the largest size of noise while smaller than the smallest key feature size from which we want to detect, so the optimal values depends on the quality of the input images. I experimented with kernel_size 3, 5, 7, 9, 11 and chose 5 to be the best kernel size for the pipeline based on the visual inspection of the test images.
+To perform edge detection, I use the provided canny function which is a thin wrapper around cv2.Canny(). The function requires two arguments: lower_threshold and upper_threshold which defines acceptance criteria for an edge. According to openCV tutorial, for a given pixel,
+The images after the Canny edge detection algorithm is applied are shown below:
+
+The Hough Transform is the key step in successful line detection. I use the provided hough_lines which calls cv2.HoughLinesP and draw the detect lines over the original image using draw_line() There are five parameters that specifies the output of the cv2.HoughLines
+The detected Hough lines overlaid on top of the original test images are shown below:
+
+I exploit two strategies to make the draw_lines() function more robust. The intuition behind the improvements are as follow. Given the the preprocessing yield high quality Hough lines that can be grouped into left vs. right lane lines segments, the outputs of the Hough transform can be grouped based on their slopes. With matplotlib.image y-axis convention (which is the reverse of matplotlib.pyplot), negative slope lines belong to the left lane and positive slope lines to the right lane. After the lane grouping, the lines can be extrapolated by using a linear equation with average slope and average position of the line segments within group.
+The implementation of these strategies is shown here:
+The detected Hough lines overlaid on top of the original test images are shown below:
+
+The implemented pipeline perform relatively well on the two test videos provided after the improvements on the draw_lines() function. The results can be viewed here: and
+While the pipeline seems to perform respectably well on the test videos, there are many scenario in which the pipeline could fail.
+All the provided test images are taken from well illuminated scene for which the color segmentation can yield crisp cleanly segmented lane lines from the rest of the scene. In low lighing condition, color segmentation especially based on hue value (for yellow lane line) will be challenging as different color region in low saturation start to overlap.
+When there's a rapid changing in illumination from scene to scene and the camera aperture and shuttle speed does not adjust accordingly, the resulting images can be under/over illuminated for a brief moments. Color segmentation in those frames can be challenging and could leads to totally failure in lane detection since the pipeline heavily relies on the color segmentation.
+When a car is driving up hill / down the region of interest will likely move downward/upward respectively. Since the relative position of the ROI are hard-coded in the pipeline, the ROI might be off in those frames.
+When a car is turing the lane line angles within those image frames can change toward zero and lane line grouping based on slope sign might not accurately grouping the line segments. The pipeline could output lane lines are completely off.
+On a crowded driveway e.g. during a traffic jams, lane lines can be partially or completed occluded by other objects / vehicles on the roads. The pipeline could fail to detect any lane lines in this case.
+Use information from the previous frame: Use detected lane lines in previous frames to define region of interest and guide/weigh the line segments in the current frame. Assuming that the lane lines are slowly and steadily changing frame-by-frame, we can compute the distance between the average positions and average slope of the line segments in the current frame to those of the detected line in the previous frame. This distance can be used to weigh the line segments when computing line averaging in the draw_lines() function.
+Pipeline Description
+Experiments on Test Videos
+Potential ShortComings
+Suggestion for Improvements
+Make a pipeline that finds lane lines on the road
+Reflect on your work in a written report
+Color Selection
+Region of Interest Selection
+Gray Scaling
+Gaussian Smoothing
+Canny Edge Detection
+Hough Tranform Line Detection
+Improvement to the draw_lines function
+if its intensity gradient is above the upper_threshold, it is an edge.
+if an edge's intensity gradient is between the upper_threshold and the lower_threshold then it is an edge if and only if at least one of their neighboring pixel is an edge
+otherwise it is NOT an edge. The input images in this project are 8-bit (0-255 pixel intensity) so (the absolute value of) the possible gradient range is 0-255. I experiment with adjusting the upper_threshold while keeping lower_threshold=0 to get clean edge images. I found that any upper_threshold values between 100 - 200 yielded clean edge images so I choose to implement upper_threshold=150 in my pipeline. In my pipeline, the lower_threshold does not seem to affect the output edge images that much so I choose to implement with lower_threshold=50.
+rho - the distance resolution in pixels of the Hough grid
+theta - the angular resolution in radians of the Hough grid
+threshold - the minimum number of intersections in Hough grid cell requires for a point in Hough space to be an edge
+min_line_len - the minimum number of pixels requires for an edge segment to be a line
+max_line_gap - the maximum gap in pixels between connectable line segments to be connected as one line Varying these parameters requires a lot of experimentation. I found that the values provided in the lesson yielded pretty good results and deviations from those values degrade the quality of the detected lines. For the final implementation, I use the following set of values: rho = 1, theta = np.pi/180, threshold = 20, min_line_len = 10, max_line_gap = 100.
+Finding Lane Lines on the Road
+Table of Contents
+Pipeline description
+Experiments on Test Videos
+Potential ShortComings
+Suggestion for Improvements
+High-level Summary
+Color selection
+Region of Interest Selection
+Gray Scaling
+Gaussian Smoothing
+Canny Edge Detection
+Hough Tranform Line Detection
+Improvement to the draw_lines function

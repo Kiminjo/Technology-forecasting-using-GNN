@@ -1,0 +1,2 @@
+Android smartphone app for the autonomous smart car platform
+app-android

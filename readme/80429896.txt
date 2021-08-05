@@ -1,0 +1,18 @@
+
+The Open Simulation Interface [1] (OSI) is a generic interface based on Google's protocol buffers for the environmental perception of automated driving functions in virtual scenarios.
+As the complexity of automated driving functions rapidly increases, the requirements for test and development methods are growing. Testing in virtual environments offers the advantage of completely controlled and reproducible environment conditions.
+In this context, OSI defines generic interfaces to ensure modularity, integrability, and interchangeability of the individual components:
+For more information on OSI see the official documentation or the official reference documentation for defined protobuf messages.
+[1] Hanke, T., Hirsenkorn, N., van-Driesten, C., Garcia-Ramos, P., Schiementz, M., Schneider, S. & Biebl, E. (2017, February 03). A generic interface for the environment perception of automated driving functions in virtual scenarios. Retrieved January 25, 2020, from -veroeffentlichungen/
+To run the script execute the following command in the terminal:
+This will output an osi file (sv_330_361_1000_movingobject.osi) which can be visualized and played back by the osi-visualizer.
+See Google's documentation for more tutorials on how to use protocol buffers with Python or C++.
+Install cmake 3.10.2:
+Install pip3 and missing python packages:
+Install protobuf 3.0.0:
+Local:
+Global:
+For Windows installation see here for more information.
+Open Simulation Interface (OSI)
+Usage
+Installation
