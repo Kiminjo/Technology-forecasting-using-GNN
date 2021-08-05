@@ -36,6 +36,3 @@
 - GitHub API의 하루 수집 가능 데이터 수의 제한으로 인해 크롤링에 어려움을 겪음
 - python의 `networkx` 라이브러리로는 직관적인 네트워크 시각화에 어려움을 겪음 <br><br>
 
-### 프레임워크
-
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/47467754-32ee-479b-b620-f237fe62c63a/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/47467754-32ee-479b-b620-f237fe62c63a/Untitled.png)
