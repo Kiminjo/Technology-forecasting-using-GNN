@@ -7,18 +7,23 @@ Created on Fri May 14 15:26:41 2021
 Data sceintist of Seoultech 
 """
 
-from networkx.generators.small import truncated_cube_graph
 import numpy as np
 import pandas as pd
+
 import torch
 import torch.nn.functional as F
 from torch_geometric.utils import train_test_split_edges, negative_sampling
 from sklearn.metrics import roc_auc_score, f1_score, precision_score, recall_score
-import networkx as nx 
-from data_load import Co_contribution
-from gnn_model import VGAE
+
+from data_load import Load_data
+from model.gnn_model import VGAE
 import utils
 
+import argparse
+import warnings
+from networkx.generators.small import truncated_cube_graph
+
+warnings.filterwarnings(action='ignore')
 
  
 """""""""""""""""
@@ -59,14 +64,16 @@ def test(model, optimizer) :
 
 
 if __name__=='__main__' :
-    EDGE_TYPE = 'dichotomize'
-    ROOT = 'network_data/'
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--network_path', required=True, help='path of adjacency matrix')
+    parser.add_argument('--feature_path', required=True, help='path of node feature')
+    parser.add_argument('--basic_feature', required=False, default=False, type=bool, help='determine whether to use node feature information')
+    parser.add_argument('--doc2vec', required=False, default=False, type=bool, help='determine whether to use doc2vec embedding vecotr as a node feature')
+    parser.add_argument('--node2vec', required=False, default=False, type=bool, help='determine whether to use node2vec embedding vecotr as a node feature')
+    parser.add_argument('--feature_col_names', required=False, default=None, nargs='+', help='get feature columns name')
     
-    if EDGE_TYPE == 'normal' :
-        ROOT = ROOT + 'gnn_contributor_coupling.csv'
-        
-    else :
-        ROOT = ROOT + 'contributor_coupling.csv'
+    args = parser.parse_args()
     
     total_epoch = 10
     original_edges = {}
@@ -75,7 +82,7 @@ if __name__=='__main__' :
     # set test data set
     # edge number : 1,038
     # test edge : 200 edges
-    dataset = Co_contribution(ROOT, exe_node2vec=False, feature_type='topological')
+    dataset = Load_data(network_path = args.network_path, feature_path=args.feature_path, exe_node2vec=False, basic_feature=False, exe_doc2vec=False, feature_col_names=args.feature_col_names)
     data = dataset.data
     test_index = torch.tensor(np.random.randint(low=0, high=data.edge_index.size(1), size=200, dtype=np.int64))
     train_index = torch.tensor([ele for ele in range(data.edge_index.size(1)) if ele not in test_index])
@@ -88,7 +95,7 @@ if __name__=='__main__' :
     for epoch in range(total_epoch) :
         print('\n')
         print('======================    {}    ================================='.format(epoch+1))
-        DATASET = Co_contribution(ROOT, exe_node2vec=True, feature_type='node_feature')
+        DATASET = Load_data(network_path = args.network_path, feature_path=args.feature_path, exe_node2vec=args.node2vec, basic_feature=args.basic_feature, exe_doc2vec=args.doc2vec, feature_col_names=args.feature_col_names)
         DATA = DATASET.data
         DATA.edge_index = torch.index_select(DATA.edge_index, dim=1, index=train_index)
         data = train_test_split_edges(DATA)
@@ -105,6 +112,8 @@ if __name__=='__main__' :
         optimizer = torch.optim.Adam(params=model.parameters(), lr=0.01)
         epochs = 200
         
+        print('\n')
+        print('VGAE study start')
         best_val_loss = test_loss = 0
         for mini_epoch in range(1, epochs+1):
             train_loss = train(model, optimizer, pos_edge_index, neg_edge_index)
@@ -122,7 +131,7 @@ if __name__=='__main__' :
         new_adj = model.decode_all(latent, THRESHOLD)
         new_edge_list = utils.make_new_edge_list(new_adj, DATASET)
     
-        original_data = Co_contribution(ROOT, exe_node2vec=False).data
+        original_data = Load_data(network_path = args.network_path, feature_path=args.feature_path, exe_node2vec=False, basic_feature=args.basic_feature, exe_doc2vec=False, feature_col_names=args.feature_col_names).data
         result = utils.get_result_table(DATASET, new_adj, new_edge_list, THRESHOLD)
         result = utils.remove_original_edge_from_new_edges(original_data.edge_index, result)
         
@@ -131,7 +140,7 @@ if __name__=='__main__' :
         output[epoch+1] = new_edge
 
     #print(data.val_pos_edge_index.T.detach().numpy())
-    reconstruct_threshold = 9
+    reconstruct_threshold = 7
     
     constructed_edge = list(utils.find_edge_occur_more_than_threshold(original_edges, threshold=reconstruct_threshold).keys())
     meaning_edge = list(utils.find_edge_occur_more_than_threshold(output, threshold=reconstruct_threshold).keys())
@@ -167,5 +176,6 @@ if __name__=='__main__' :
     print('constructed edges : {}'.format(len(constructed_edge) * 2))
     #print('Total AUC : {}'.format(roc_auc_score(DATASET.adjacency.values.reshape(-1), new_adjacency.reshape(-1))))
 
-    #pd.DataFrame(constructed_edge, columns=['node1', 'node2']).replace(DATASET.label_dict).to_csv('result/new_edge_2.csv', index=False)
+    pd.DataFrame(constructed_edge, columns=['node1', 'node2']).replace(DATASET.label_dict).to_csv('result/constructed_edge_3.csv', index=False)
+    pd.DataFrame(meaning_edge, columns=['node1', 'node2']).replace(DATASET.label_dict).to_csv('result/meaning_edge_3.csv', index=False)
     #constructed_edge[['node_1_idx', 'node_2_idx']].replace(DATASET.label_dict).to_csv('result/new_edge_1.csv', index=False)

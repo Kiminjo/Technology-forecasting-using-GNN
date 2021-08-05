@@ -9,17 +9,19 @@ Data sceintist of Seoultech
 import torch
 import numpy as np
 import pandas as pd
-from data_load import Co_contribution
 from collections import Counter
 
 
+def non_isolated_node_name(network) :
+    # network type : dataframe
+    non_isolated_node = network.index[network.sum(axis=1) > 0]
+    return non_isolated_node
 
 def get_link_labels(pos_edge, neg_edge) :
     E = pos_edge.size(1) + neg_edge.size(1)
     link_labels = torch.zeros(E, dtype=torch.float)
     link_labels[:pos_edge.size(1)] = 1.
     return link_labels
-
 
 
 def convert_adj(model, edge_list) :
@@ -88,8 +90,8 @@ def get_result_table(object_, new_adj, new_edge, threshold) :
     return result
     
 
-def remove_original_edge_from_new_edges(root, edge_list) :
-    org_edge = Co_contribution(root).data.edge_index.T.tolist()
+def remove_original_edge_from_new_edges(edge_index, edge_list) :
+    org_edge = edge_index.T.tolist()
     edge_list['original'] = 0
     for idx, row in edge_list.iterrows() :
         if [row['node_1_idx'], row['node_2_idx']] in org_edge :

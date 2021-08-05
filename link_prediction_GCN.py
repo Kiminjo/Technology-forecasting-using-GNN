@@ -3,9 +3,8 @@ import numpy as np
 import pandas as pd
 
 # personal library
-from data_load import Co_contribution
-from node2vec import node2vec
-from gnn_model import VGAE
+from data_load import Load_data
+from model.gnn_model import VGAE
 import utils
 
 # GNN model 
@@ -20,6 +19,7 @@ from sklearn.metrics import roc_auc_score, f1_score, precision_score, recall_sco
 
 # ETC
 from tqdm import tqdm
+import argparse
 
 
 def embedding_using_gcn(data) :
@@ -126,7 +126,7 @@ def test(model, optimizer) :
 
 
 def compare_models() :
-    dataset = Co_contribution('network_data/gnn_contributor_coupling.csv', feature_type='topological')
+    dataset = Load_data('network_data/gnn_contributor_coupling.csv', feature_type='topological')
     data = dataset.data
     split_data = train_test_split_edges(data, val_ratio=0.3, test_ratio=0.2)
 
@@ -137,7 +137,7 @@ def compare_models() :
 
     print('GCN with topological AUC score : {}'.format(link_pred(gcn_eval_dataset)))
 
-    dataset = Co_contribution('network_data/gnn_contributor_coupling.csv', feature_type='node_feature')
+    dataset = Load_data('network_data/gnn_contributor_coupling.csv', feature_type='node_feature')
     data = dataset.data
     split_data = train_test_split_edges(data, val_ratio=0.3, test_ratio=0.2)
 
@@ -148,7 +148,7 @@ def compare_models() :
 
     print('GCN with node feature AUC score : {}'.format(link_pred(gcn_eval_dataset)))
 
-    dataset = Co_contribution('network_data/gnn_contributor_coupling.csv', exe_node2vec=True, feature_type='node_feature')
+    dataset = Load_data('network_data/gnn_contributor_coupling.csv', exe_node2vec=True, feature_type='node_feature')
     data = dataset.data
     split_data = train_test_split_edges(data, val_ratio=0.3, test_ratio=0.2)
 
@@ -178,9 +178,17 @@ if __name__ == '__main__':
 
     # main 
     # using GCN with node feature and node2vec 
-
-    ROOT = 'network_data/gnn_contributor_coupling.csv'
-    dataset = Co_contribution(ROOT, exe_node2vec=True, feature_type='topological')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--network_path', required=True, help='path of adjacency matrix')
+    parser.add_argument('--feature_path', required=True, help='path of node feature')
+    parser.add_argument('--basic_feature', required=False, default=False, type=bool, help='determine whether to use node feature information')
+    parser.add_argument('--doc2vec', required=False, default=False, type=bool, help='determine whether to use doc2vec embedding vecotr as a node feature')
+    parser.add_argument('--node2vec', required=False, default=False, type=bool, help='determine whether to use node2vec embedding vecotr as a node feature')
+    parser.add_argument('--feature_col_names', required=False, default=None, nargs='+', help='get feature columns name')
+    
+    args = parser.parse_args()
+    
+    dataset = Load_data(network_path = args.network_path, feature_path=args.feature_path, exe_node2vec=args.node2vec, basic_feature=args.basic_feature, exe_doc2vec=args.doc2vec, feature_col_names=args.feature_col_names)
     data = dataset.data
     split_data = train_test_split_edges(data, val_ratio=0.3, test_ratio=0.2)
 
@@ -213,7 +221,7 @@ if __name__ == '__main__':
 
     """
     # Link prediction using original data 
-    new_dataset = Co_contribution(ROOT, exe_node2vec=True, feature_type='node_feature')
+    new_dataset = Load_data(ROOT, exe_node2vec=True, feature_type='node_feature')
     new_data = new_dataset.data
     new_data = train_test_split_edges(new_data, val_ratio=0, test_ratio=0)
     threshold = 8
