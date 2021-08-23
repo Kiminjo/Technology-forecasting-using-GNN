@@ -1,4 +1,4 @@
-# GAE-embedding <br><br>
+# Predicting Technology Evolution Pattern using Graph Neural Network <br><br>
 
 ## 1. 프로젝트 소개<br>
 
