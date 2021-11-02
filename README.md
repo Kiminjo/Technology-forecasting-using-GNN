@@ -54,7 +54,7 @@ Each repository has basic information such as 'repository name', 'owner', and 's
 
 - 23,017 repositories contain related keywords such as 'self-driving car' or 'autonomous drivig'
   
-- 3.2% repositories are owned by 'organization' not 'user'. n this study, only repositories owned by these 'organizations' are dealt with.
+- 3.2% repositories are owned by 'organization' not 'user'. In this study, only repositories owned by these 'organizations' are dealt with.
 
 - 385 repositories remained after filtering by 'contributor conts', 'stargazer couns' and 'forker counts'. They are finally used in experiments.
 <br></br>
