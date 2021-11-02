@@ -1,70 +1,102 @@
 # Technology forecasting using GNN 
 
-## 1. 프로젝트 소개
-
-### 진행기간
-
-2020.11 - 2021.06<br></br>
-
-### 필요 기술
-
-`Graph Neural Network` `Doc2vec` 
-
-`web crawling` `visualization` <br></br>
-
-### 참여 인원
-
-- 김인조<br><br>
-
-### 사용 툴 및 라이브러리
-
-`pytorch` `pytorch geometric` `python` 
-
-`scikit learn` `gephi`
+Research for master's degree of data scienece
 <br></br>
 
-### 연구 목적
+## Autonomous technology forecasting with GNN 
+### About project
+In this project, I used link prediction algorithm based graph neural network to predict promising technology at self-driving vehicle field. I compared two different GNN models, `graph convolutional network` and `variational graph auto-encoder`. Among them, variational graph auto-encoder performs better than GCN. So I conduct link prediction task using VGAE in this project.
 
-깃허브 데이터를 활용하여 자율주행 산업군의 요소 기술 분석 및 향후 유망기술을 예측
-<br></br>
-<br></br>
+I will upload my paper ASAP. 
 
-## 2. GNN 기반 자율 주행 유망 기술 예측 
+Please check [this](https://github.com/Kiminjo/Technology-forecasting-using-GNN/files/7453594/2021._.pdf) if you want to know, how to make co-contribution network and how to extract promising network in network. 
 
-본 프로젝트에서는 Graph Neural Network 알고리즘 중 Graph convolutional network와 Variational graph autoencoder를 활용하여 링크 예측을 진행하였습니다. 실험에 사용된 네트워크는 GitHub repository를 노드로 하고 저장소 간의 co-contribution 관계를 엣지로 하고 있습니다. 
-<br></br>
-
-네트워크 구축과 자율 주행 동향 분석 관련된 내용은 [여기](https://github.com/Kiminjo/Technology-forecasting-using-GNN/files/7453594/2021._.pdf)를 참고해주세요.
+I will upload presentation file about link prediction.
 <br></br>
 
-GNN 기반 링크 예측 알고리즘과 자율 주행 유망 기술 예측에 관련된 내용은 향후 업로드 예정입니다.
-<br></br>
+### Experiments details and results
 
-실험에 사용된 라이브러리와 베이스 코드는 pytorch-geometric reference를 참고하였습니다. 더 자세한 내용은 [여기](https://github.com/pyg-team/pytorch_geometric/blob/master/examples/link_pred.py)를 참고해주세요.
-<br></br>
+The framework of this project is as follows.
 
-모델의 feature vector는 각 노드의 node2vec 임베딩 벡터와 Readme 문서의 doc2vec embedding vector의 concat으로 구성하였습니다. 
+![](https://user-images.githubusercontent.com/42087965/139810746-f9ee70e6-2311-472b-911f-da859d40b051.png)
+
+A network was built based on a 'co-contribution relationship' between repositories. This is like projecting a heterogeneous network of developer-repositories to developers.
+
+Refer to the figure below for how to build the network.
+
+![image](https://user-images.githubusercontent.com/42087965/139811294-0e13ed86-a85f-414c-a83f-9a141f7d3c2f.png)
+
+
+Community detection (Louvaion method) was used to create a community in the network, which represents an independent research area in the field of autonomous driving open source. In this study, six current major technical fields were derived.
+
+The figure below represents six major autonomous driving open source technologies at the present time. Each node represents a repository. Through this, you can know the main technologies at the moment and the main repositories for each technology.
+
+![major tech](https://user-images.githubusercontent.com/42087965/139811793-99babdda-173e-482f-9e78-3bd12517af3f.png)
+
+The figure below shows the result of running community detection again after link prediction. Through this, promising technologies for autonomous driving open source in the future can be derived.
+
+![promising tech](https://user-images.githubusercontent.com/42087965/139812075-9b00558f-6fdf-4400-ad25-6f168d79745c.png)
+
+
 <br></br>
 <br></br>
 
-## 3. 데이터셋 
-실험에는 GitHub repository 데이터가 사용되었습니다. Readme와 contributor 수, stargazer수, forker수는 노드의 feature vector를 구성하며, contributor 정보는 네트워크를 구축하는데 사용되었습니다. 
+## Dataset
 
-**데이터 통계**
-- 23,017개의 데이터가 `Autonomous vehicle`, `self-driving car`등 5개의 자율 주행 관련 토픽으로부터 수집되었습니다. 
+Studies on prediction of promising technologies in the past have mostly used paper data. However, the paper data has a disadvantage in that it is difficult to discover the latest research trends due to the time it takes from research to registration. So, I would like to use open source data to solve such shortcomings and make predictions about promising technologies that reflect the latest research trends.
 
-- 385개의 데이터를 User type과 contributor 수를 기준으로 필터링하여 최종  확정하였습니다.
+The data used in the project are 385 repositories including keywords related to 'autonomous driving'. 
 
-- contributor counts, stargazer counts, forker counts 등 social 통계량은 멱함수의 형태를 띄고 있어 Normalizer로 정규화 과정을 거쳤습니다.
+Each repository has basic information such as 'repository name', 'owner', and 'star counts' as well as data such as 'contributor list'.
+<br></br>
 
-- 3.4%의 데이터가 readme를 가지고 있지 않아, Doc2vec 시 'None' 으로 대체하였습니다. 
+### Statistics
+
+- 23,017 repositories contain related keywords such as 'self-driving car' or 'autonomous drivig'
+  
+- 3.2% repositories are owned by 'organization' not 'user'. n this study, only repositories owned by these 'organizations' are dealt with.
+
+- 385 repositories remained after filtering by 'contributor conts', 'stargazer couns' and 'forker counts'. They are finally used in experiments.
+<br></br>
+
+### Features 
+|data        |data type|
+|:---:        |:---:|
+|repository name|str|
+|repository ID|int|
+|owner ID|int|
+|owner type|str|
+|repository full name | str|
+|topcis|list|
+|contributors|list|
+|contributor counts|int|
+|stargazer counts|int|
+|forker counts|int|
+|created date|date|
+|last updated datae|date|
+|readme|str|
+
 <br></br>
 <br></br>
 
-## 4. Key file 
+## Software Requirements
 
-- `link_prediction_GCN.py` : Graph convolutional network를 이용하여 실제 링크 예측 과정을 수행합니다.
+- python >= 3.5
+- pytorch >= 1.9
+- pytorch geometric >= 2.02 : There are methods that are not supported in lower versions, so be sure to install them in this version or higher. Typically, the 'Train test edge split' method is not supported in previous versions. 
+- scikit-learn
+- numpy 
+- pandas 
+- scipy 
+- gephi : Tools for network visualization. It is not necessary to use this, but in this project, network visualization was performed using gephi. See [here](https://gephi.org/) for more details.
 
-- `link_prediction_GAE.py` : Variational graph auto-encoder를 이용하여 실제 링크 예측 과정을 수행합니다. 
+<br></br>
+<br></br>
 
+## Key files 
 
+- `link_prediction_GCN.py` : Conduct link prediction using graph convolutional network model. In this project this model was not used because it did not perform well compared to other models.
+
+- `link_prediction_GAE.py` : The model used to predict the actual link. It gave better performance compared to GCN.
+
+- `utils.py` : Files are included to build the network and visualize the results. If you want to check to the degree or centrality of the network, run this file.
