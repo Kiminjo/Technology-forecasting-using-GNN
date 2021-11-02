@@ -4,7 +4,7 @@ Research for master's degree of data scienece
 <br></br>
 
 ## Autonomous technology forecasting with GNN 
-### About project
+### About this project
 In this project, I used link prediction algorithm based graph neural network to predict promising technology at self-driving vehicle field. I compared two different GNN models, `graph convolutional network` and `variational graph auto-encoder`. Among them, variational graph auto-encoder performs better than GCN. So I conduct link prediction task using VGAE in this project.
 
 I will upload my paper ASAP. 
