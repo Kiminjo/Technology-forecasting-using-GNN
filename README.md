@@ -9,7 +9,7 @@ In this project, I used link prediction algorithm based graph neural network to 
 
 I will upload my paper ASAP. 
 
-Please check [this](https://github.com/Kiminjo/Technology-forecasting-using-GNN/files/7453594/2021._.pdf) if you want to know, how to make co-contribution network and how to extract promising network in network. 
+Please check [this](https://github.com/Kiminjo/Technology-forecasting-using-GNN/files/7453594/2021._.pdf) if you want to know, how to make co-contribution network and how to extract promising technologies from network. 
 
 I will upload presentation file about link prediction.
 <br></br>
